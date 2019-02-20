@@ -15,7 +15,7 @@ struct Repository: Decodable {
     let fullName: String
     let description: String
     let stargazersCount: Int
-    let language: String
+    let language: String?
     let owner: User
 }
 

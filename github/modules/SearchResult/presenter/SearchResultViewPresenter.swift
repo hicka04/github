@@ -38,7 +38,8 @@ extension SearchResultViewPresenter: SearchResultViewPresentation {
             switch result {
             case .success(let repositories):
                 self.repositories = repositories
-            case .failure:
+            case .failure(let error):
+                debugPrint(error)
                 self.view?.showSearchErrorAlert()
             }
         }
