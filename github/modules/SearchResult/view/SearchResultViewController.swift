@@ -34,6 +34,8 @@ final class SearchResultViewController: UITableViewController {
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
+        tableView.register(RepositoryCell.self)
     }
 }
 
@@ -65,8 +67,9 @@ extension SearchResultViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = repositories[indexPath.row].fullName
+        let cell: RepositoryCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.set(repository: repositories[indexPath.row])
+        
         return cell
     }
 }

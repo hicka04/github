@@ -25,6 +25,8 @@
 		173AE591221D7F89004FEC1A /* SearchResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE590221D7F89004FEC1A /* SearchResultViewPresenter.swift */; };
 		173AE597221D83E2004FEC1A /* GitHubContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE596221D83E2004FEC1A /* GitHubContract.swift */; };
 		173AE599221D84C8004FEC1A /* GitHubInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE598221D84C8004FEC1A /* GitHubInteractor.swift */; };
+		173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE59D221D9261004FEC1A /* RepositoryCell.swift */; };
+		173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 173AE59E221D9261004FEC1A /* RepositoryCell.xib */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
@@ -60,6 +62,8 @@
 		173AE590221D7F89004FEC1A /* SearchResultViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewPresenter.swift; sourceTree = "<group>"; };
 		173AE596221D83E2004FEC1A /* GitHubContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubContract.swift; sourceTree = "<group>"; };
 		173AE598221D84C8004FEC1A /* GitHubInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubInteractor.swift; sourceTree = "<group>"; };
+		173AE59D221D9261004FEC1A /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		173AE59E221D9261004FEC1A /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				173AE581221D7BF1004FEC1A /* SearchResultViewController.swift */,
+				173AE59C221D923E004FEC1A /* cell */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -191,8 +196,8 @@
 		173AE588221D7D04004FEC1A /* resources */ = {
 			isa = PBXGroup;
 			children = (
-				17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */,
 				17FDB81E2216FD420033BBA0 /* Assets.xcassets */,
+				17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -262,6 +267,15 @@
 				173AE55D2217008A004FEC1A /* Repository.swift */,
 			);
 			path = GitHub;
+			sourceTree = "<group>";
+		};
+		173AE59C221D923E004FEC1A /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				173AE59D221D9261004FEC1A /* RepositoryCell.swift */,
+				173AE59E221D9261004FEC1A /* RepositoryCell.xib */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		17FDB80B2216FD410033BBA0 = {
@@ -385,6 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
 			);
@@ -419,6 +434,7 @@
 				173AE58F221D7EDE004FEC1A /* SearchResultRouter.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
 				173AE58D221D7E71004FEC1A /* SearchResultContract.swift in Sources */,
+				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,
 				173AE5672217008A004FEC1A /* User.swift in Sources */,
