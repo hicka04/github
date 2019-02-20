@@ -16,6 +16,8 @@
 		173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE5632217008A004FEC1A /* GitHubClient.swift */; };
 		173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE5652217008A004FEC1A /* GitHubAPIError.swift */; };
 		173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE5662217008A004FEC1A /* GitHubClientError.swift */; };
+		173AE57C221D06C3004FEC1A /* UITableView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE57B221D06C3004FEC1A /* UITableView+extension.swift */; };
+		173AE57E221D06D5004FEC1A /* UITableViewCell+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81A2216FD410033BBA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8192216FD410033BBA0 /* ViewController.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		173AE5632217008A004FEC1A /* GitHubClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClient.swift; sourceTree = "<group>"; };
 		173AE5652217008A004FEC1A /* GitHubAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPIError.swift; sourceTree = "<group>"; };
 		173AE5662217008A004FEC1A /* GitHubClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClientError.swift; sourceTree = "<group>"; };
+		173AE57B221D06C3004FEC1A /* UITableView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extension.swift"; sourceTree = "<group>"; };
+		173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+extension.swift"; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB8192216FD410033BBA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,15 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
+		173AE57A221D06A8004FEC1A /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				173AE57B221D06C3004FEC1A /* UITableView+extension.swift */,
+				173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		17FDB80B2216FD410033BBA0 = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				173AE5572216FFFD004FEC1A /* data */,
+				173AE57A221D06A8004FEC1A /* extensions */,
 				17FDB8172216FD410033BBA0 /* AppDelegate.swift */,
 				17FDB8192216FD410033BBA0 /* ViewController.swift */,
 				17FDB81E2216FD420033BBA0 /* Assets.xcassets */,
@@ -263,9 +277,11 @@
 				17FDB81A2216FD410033BBA0 /* ViewController.swift in Sources */,
 				173AE56A2217008A004FEC1A /* GitHubAPI.swift in Sources */,
 				173AE56C2217008A004FEC1A /* GitHubRequest.swift in Sources */,
+				173AE57C221D06C3004FEC1A /* UITableView+extension.swift in Sources */,
 				173AE56B2217008A004FEC1A /* HTTPMethod.swift in Sources */,
 				173AE5692217008A004FEC1A /* SearchResponse.swift in Sources */,
 				17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */,
+				173AE57E221D06D5004FEC1A /* UITableViewCell+extension.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,
