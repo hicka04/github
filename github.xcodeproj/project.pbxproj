@@ -18,8 +18,9 @@
 		173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE5662217008A004FEC1A /* GitHubClientError.swift */; };
 		173AE57C221D06C3004FEC1A /* UITableView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE57B221D06C3004FEC1A /* UITableView+extension.swift */; };
 		173AE57E221D06D5004FEC1A /* UITableViewCell+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */; };
+		173AE582221D7BF1004FEC1A /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE581221D7BF1004FEC1A /* SearchResultViewController.swift */; };
+		173AE586221D7C68004FEC1A /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE585221D7C68004FEC1A /* RootRouter.swift */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
-		17FDB81A2216FD410033BBA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8192216FD410033BBA0 /* ViewController.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
 		17FDB82D2216FD420033BBA0 /* githubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB82C2216FD420033BBA0 /* githubTests.swift */; };
@@ -47,9 +48,10 @@
 		173AE5662217008A004FEC1A /* GitHubClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubClientError.swift; sourceTree = "<group>"; };
 		173AE57B221D06C3004FEC1A /* UITableView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extension.swift"; sourceTree = "<group>"; };
 		173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+extension.swift"; sourceTree = "<group>"; };
+		173AE581221D7BF1004FEC1A /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		173AE585221D7C68004FEC1A /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		17FDB8192216FD410033BBA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17FDB8212216FD420033BBA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17FDB8232216FD420033BBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +135,57 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
+		173AE57F221D7BBD004FEC1A /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				173AE584221D7C52004FEC1A /* Root */,
+				173AE583221D7C39004FEC1A /* SearchResult */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		173AE580221D7BCB004FEC1A /* view */ = {
+			isa = PBXGroup;
+			children = (
+				173AE581221D7BF1004FEC1A /* SearchResultViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		173AE583221D7C39004FEC1A /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				173AE580221D7BCB004FEC1A /* view */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
+		173AE584221D7C52004FEC1A /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				173AE585221D7C68004FEC1A /* RootRouter.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		173AE587221D7CF2004FEC1A /* application */ = {
+			isa = PBXGroup;
+			children = (
+				17FDB8172216FD410033BBA0 /* AppDelegate.swift */,
+				17FDB8232216FD420033BBA0 /* Info.plist */,
+			);
+			path = application;
+			sourceTree = "<group>";
+		};
+		173AE588221D7D04004FEC1A /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */,
+				17FDB81E2216FD420033BBA0 /* Assets.xcassets */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
 		17FDB80B2216FD410033BBA0 = {
 			isa = PBXGroup;
 			children = (
@@ -154,13 +207,11 @@
 		17FDB8162216FD410033BBA0 /* github */ = {
 			isa = PBXGroup;
 			children = (
+				173AE587221D7CF2004FEC1A /* application */,
+				173AE57F221D7BBD004FEC1A /* modules */,
 				173AE5572216FFFD004FEC1A /* data */,
 				173AE57A221D06A8004FEC1A /* extensions */,
-				17FDB8172216FD410033BBA0 /* AppDelegate.swift */,
-				17FDB8192216FD410033BBA0 /* ViewController.swift */,
-				17FDB81E2216FD420033BBA0 /* Assets.xcassets */,
-				17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */,
-				17FDB8232216FD420033BBA0 /* Info.plist */,
+				173AE588221D7D04004FEC1A /* resources */,
 			);
 			path = github;
 			sourceTree = "<group>";
@@ -274,7 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17FDB81A2216FD410033BBA0 /* ViewController.swift in Sources */,
+				173AE586221D7C68004FEC1A /* RootRouter.swift in Sources */,
 				173AE56A2217008A004FEC1A /* GitHubAPI.swift in Sources */,
 				173AE56C2217008A004FEC1A /* GitHubRequest.swift in Sources */,
 				173AE57C221D06C3004FEC1A /* UITableView+extension.swift in Sources */,
@@ -282,6 +333,7 @@
 				173AE5692217008A004FEC1A /* SearchResponse.swift in Sources */,
 				17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */,
 				173AE57E221D06D5004FEC1A /* UITableViewCell+extension.swift in Sources */,
+				173AE582221D7BF1004FEC1A /* SearchResultViewController.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,
@@ -442,7 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RYHZQ93KG;
-				INFOPLIST_FILE = github/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/github/application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,7 +512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8RYHZQ93KG;
-				INFOPLIST_FILE = github/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/github/application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
