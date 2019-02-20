@@ -15,6 +15,8 @@ protocol SearchResultView: AnyObject {
 protocol SearchResultViewPresentation: AnyObject {
     
     func viewDidLoad()
+    
+    func searchBarSearchButtonClicked(text: String)
 }
 
 protocol SearchResultWireframe: AnyObject {

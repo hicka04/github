@@ -24,4 +24,8 @@ extension SearchResultViewPresenter: SearchResultViewPresentation {
     func viewDidLoad() {
         
     }
+    
+    func searchBarSearchButtonClicked(text: String) {
+        print(text)
+    }
 }
