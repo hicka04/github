@@ -10,6 +10,8 @@ import Foundation
 
 protocol SearchResultView: AnyObject {
     
+    func updateSearchResults(_ repositories: [Repository])
+    func showSearchErrorAlert()
 }
 
 protocol SearchResultViewPresentation: AnyObject {

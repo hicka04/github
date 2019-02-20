@@ -19,6 +19,14 @@ final class SearchResultViewController: UITableViewController {
         return searchContrller
     }()
     
+    private var repositories: [Repository] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +39,19 @@ final class SearchResultViewController: UITableViewController {
 
 extension SearchResultViewController: SearchResultView {
     
+    func updateSearchResults(_ repositories: [Repository]) {
+        self.repositories = repositories
+    }
+    
+    func showSearchErrorAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "エラー",
+                                          message: "検索に失敗しました。時間をおいて再度お試しください。",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 extension SearchResultViewController {
@@ -40,11 +61,13 @@ extension SearchResultViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return repositories.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell()
+        cell.textLabel?.text = repositories[indexPath.row].fullName
+        return cell
     }
 }
 

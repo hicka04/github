@@ -12,10 +12,18 @@ final class SearchResultViewPresenter {
     
     private weak var view: SearchResultView?
     private let router: SearchResultWireframe
+    private let interactor: GitHubUsecase
     
-    init(view: SearchResultView, router: SearchResultWireframe) {
+    private var repositories: [Repository] = [] {
+        didSet {
+            view?.updateSearchResults(repositories)
+        }
+    }
+    
+    init(view: SearchResultView, router: SearchResultWireframe, interactor: GitHubUsecase) {
         self.view = view
         self.router = router
+        self.interactor = interactor
     }
 }
 
@@ -26,6 +34,13 @@ extension SearchResultViewPresenter: SearchResultViewPresentation {
     }
     
     func searchBarSearchButtonClicked(text: String) {
-        print(text)
+        interactor.searchRepositories(from: text) { result in
+            switch result {
+            case .success(let repositories):
+                self.repositories = repositories
+            case .failure:
+                self.view?.showSearchErrorAlert()
+            }
+        }
     }
 }
