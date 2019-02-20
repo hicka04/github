@@ -30,6 +30,8 @@ final class SearchResultViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Search"
+        
         definesPresentationContext = true
         
         navigationItem.searchController = searchController
