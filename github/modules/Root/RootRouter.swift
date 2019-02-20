@@ -17,7 +17,7 @@ final class RootRouter {
     }
     
     func showFirstView() {
-        let searchResultView = UINavigationController(rootViewController: SearchResultViewController())
+        let searchResultView = UINavigationController(rootViewController: SearchResultRouter.assembleModules())
         window.rootViewController = searchResultView
         window.makeKeyAndVisible()
     }

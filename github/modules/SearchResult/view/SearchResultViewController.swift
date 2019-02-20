@@ -8,8 +8,10 @@
 
 import UIKit
 
-class SearchResultViewController: UITableViewController {
+final class SearchResultViewController: UITableViewController {
 
+    var presenter: SearchResultViewPresentation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,4 +30,8 @@ extension SearchResultViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+}
+
+extension SearchResultViewController: SearchResultView {
+    
 }
