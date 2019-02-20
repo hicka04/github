@@ -10,6 +10,8 @@ import Foundation
 
 final class GitHubAPI {
     
+    private init() {}
+    
     struct SearchRepositories: GitHubRequest {
         
         typealias Response = SearchResponse<Repository>
