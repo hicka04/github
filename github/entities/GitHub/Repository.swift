@@ -10,17 +10,18 @@ import Foundation
 
 struct Repository: Decodable {
     
-    let id: Int
+    let id: ID
     let name: String
-    let fullName: String  // 詳細ページ表示用に追加
-    let htmlUrl: String
+    let fullName: String
+    let description: String
+    let stargazersCount: Int
+    let language: String
     let owner: User
+}
+
+extension Repository {
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case fullName = "full_name"
-        case htmlUrl = "html_url"
-        case owner
+    struct ID: RawRepresentable, Decodable {
+        let rawValue: Int
     }
 }
