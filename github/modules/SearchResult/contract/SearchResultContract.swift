@@ -19,6 +19,7 @@ protocol SearchResultViewPresentation: AnyObject {
     func viewDidLoad()
     
     func searchBarSearchButtonClicked(text: String)
+    func refreshControlDidRefresh(text: String)
 }
 
 protocol SearchResultWireframe: AnyObject {

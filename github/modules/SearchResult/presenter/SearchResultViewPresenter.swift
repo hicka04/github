@@ -14,6 +14,22 @@ final class SearchResultViewPresenter {
     private let router: SearchResultWireframe
     private let interactor: GitHubUsecase
     
+    private var keyword: String? {
+        didSet {
+            guard let keyword = keyword else { return }
+            
+            interactor.searchRepositories(from: keyword) { result in
+                switch result {
+                case .success(let repositories):
+                    self.repositories = repositories
+                case .failure(let error):
+                    debugPrint(error)
+                    self.view?.showSearchErrorAlert()
+                }
+            }
+        }
+    }
+    
     private var repositories: [Repository] = [] {
         didSet {
             view?.updateSearchResults(repositories)
@@ -34,14 +50,10 @@ extension SearchResultViewPresenter: SearchResultViewPresentation {
     }
     
     func searchBarSearchButtonClicked(text: String) {
-        interactor.searchRepositories(from: text) { result in
-            switch result {
-            case .success(let repositories):
-                self.repositories = repositories
-            case .failure(let error):
-                debugPrint(error)
-                self.view?.showSearchErrorAlert()
-            }
-        }
+        self.keyword = text
+    }
+    
+    func refreshControlDidRefresh(text: String) {
+        self.keyword = text
     }
 }

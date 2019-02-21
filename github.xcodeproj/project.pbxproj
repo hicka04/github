@@ -347,7 +347,6 @@
 				1165A6FB03A85C87F89CCB79 /* Pods-githubTests.debug.xcconfig */,
 				11EC31E5CDD8A655058633DE /* Pods-githubTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

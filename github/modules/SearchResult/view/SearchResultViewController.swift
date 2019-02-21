@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ActionClosurable
 
 final class SearchResultViewController: UITableViewController {
 
@@ -23,6 +24,7 @@ final class SearchResultViewController: UITableViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
             }
         }
     }
@@ -38,6 +40,10 @@ final class SearchResultViewController: UITableViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         
         tableView.register(RepositoryCell.self)
+        tableView.refreshControl = UIRefreshControl { _ in
+            guard let searchBarText = self.searchController.searchBar.text else { return }
+            self.presenter.refreshControlDidRefresh(text: searchBarText)
+        }
     }
 }
 
