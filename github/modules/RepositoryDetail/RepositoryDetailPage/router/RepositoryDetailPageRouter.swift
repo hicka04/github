@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryDetailRouter {
+final class RepositoryDetailPageRouter {
     
     private unowned let pageViewController: UIPageViewController
     
@@ -17,9 +17,9 @@ final class RepositoryDetailRouter {
     }
     
     static func assembleModules(repository: Repository) -> UIViewController {
-        let view = RepositoryDetailViewController()
-        let router = RepositoryDetailRouter(pageViewController: view)
-        let presenter = RepositoryDetailViewPresenter(view: view, router: router)
+        let view = RepositoryDetailPageViewController()
+        let router = RepositoryDetailPageRouter(pageViewController: view)
+        let presenter = RepositoryDetailPageViewPresenter(view: view, router: router)
         
         view.presenter = presenter
         
@@ -27,7 +27,7 @@ final class RepositoryDetailRouter {
     }
 }
 
-extension RepositoryDetailRouter: RepositoryDetailWireframe {
+extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     
     func showFirstView() {
         show(content: .readme)

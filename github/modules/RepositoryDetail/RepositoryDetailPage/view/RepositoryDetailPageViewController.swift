@@ -9,9 +9,9 @@
 import UIKit
 import ActionClosurable
 
-final class RepositoryDetailViewController: UIPageViewController {
+final class RepositoryDetailPageViewController: UIPageViewController {
     
-    var presenter: RepositoryDetailViewPresentation!
+    var presenter: RepositoryDetailPageViewPresentation!
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: RepositoryDetailContent.allCases.map { $0.title })
@@ -51,6 +51,6 @@ final class RepositoryDetailViewController: UIPageViewController {
     }
 }
 
-extension RepositoryDetailViewController: RepositoryDetailView {
+extension RepositoryDetailPageViewController: RepositoryDetailPageView {
     
 }

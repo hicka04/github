@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol RepositoryDetailView: AnyObject {
+protocol RepositoryDetailPageView: AnyObject {
     
 }
 
-protocol RepositoryDetailViewPresentation: AnyObject {
+protocol RepositoryDetailPageViewPresentation: AnyObject {
     
     func viewDidLoad()
 }
 
-protocol RepositoryDetailWireframe: AnyObject {
+protocol RepositoryDetailPageWireframe: AnyObject {
     
     func showFirstView()
     func show(content: RepositoryDetailContent,
