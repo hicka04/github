@@ -19,4 +19,21 @@ protocol RepositoryDetailViewPresentation: AnyObject {
 
 protocol RepositoryDetailWireframe: AnyObject {
     
+    func showFirstView()
+    func show(content: RepositoryDetailContent,
+              from beforeContent: RepositoryDetailContent?)
+}
+
+enum RepositoryDetailContent: Int, CaseIterable {
+    case readme
+    case code
+    case release
+    
+    var title: String {
+        switch self {
+        case .readme:  return "README.md"
+        case .code:    return "Code"
+        case .release: return "Release"
+        }
+    }
 }

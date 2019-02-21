@@ -31,6 +31,11 @@
 		17744DB1221EE21E009D5A83 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DB0221EE21E009D5A83 /* RepositoryDetailViewController.swift */; };
 		17744DB3221EE353009D5A83 /* RepositoryDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DB2221EE353009D5A83 /* RepositoryDetailViewPresenter.swift */; };
 		17744DB5221EE49C009D5A83 /* RepositoryDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DB4221EE49C009D5A83 /* RepositoryDetailRouter.swift */; };
+		17744DBA221EF6CD009D5A83 /* RepositoryReadmeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DB8221EF6CD009D5A83 /* RepositoryReadmeViewController.swift */; };
+		17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17744DB9221EF6CD009D5A83 /* RepositoryReadmeViewController.xib */; };
+		17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */; };
+		17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */; };
+		17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
@@ -76,6 +81,11 @@
 		17744DB0221EE21E009D5A83 /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
 		17744DB2221EE353009D5A83 /* RepositoryDetailViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewPresenter.swift; sourceTree = "<group>"; };
 		17744DB4221EE49C009D5A83 /* RepositoryDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailRouter.swift; sourceTree = "<group>"; };
+		17744DB8221EF6CD009D5A83 /* RepositoryReadmeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeViewController.swift; sourceTree = "<group>"; };
+		17744DB9221EF6CD009D5A83 /* RepositoryReadmeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryReadmeViewController.xib; sourceTree = "<group>"; };
+		17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeViewPresenter.swift; sourceTree = "<group>"; };
+		17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeContract.swift; sourceTree = "<group>"; };
+		17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeRouter.swift; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +181,7 @@
 				173AE584221D7C52004FEC1A /* Root */,
 				173AE583221D7C39004FEC1A /* SearchResult */,
 				17744DA9221EDCEF009D5A83 /* RepositoryDetail */,
+				17744DB6221EF61B009D5A83 /* RepositoryReadme */,
 			);
 			path = modules;
 			sourceTree = "<group>";
@@ -340,6 +351,50 @@
 			path = view;
 			sourceTree = "<group>";
 		};
+		17744DB6221EF61B009D5A83 /* RepositoryReadme */ = {
+			isa = PBXGroup;
+			children = (
+				17744DB7221EF6A9009D5A83 /* view */,
+				17744DBE221EF6F2009D5A83 /* presenter */,
+				17744DBC221EF6D8009D5A83 /* router */,
+				17744DBD221EF6E9009D5A83 /* contract */,
+			);
+			path = RepositoryReadme;
+			sourceTree = "<group>";
+		};
+		17744DB7221EF6A9009D5A83 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				17744DB8221EF6CD009D5A83 /* RepositoryReadmeViewController.swift */,
+				17744DB9221EF6CD009D5A83 /* RepositoryReadmeViewController.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		17744DBC221EF6D8009D5A83 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		17744DBD221EF6E9009D5A83 /* contract */ = {
+			isa = PBXGroup;
+			children = (
+				17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */,
+			);
+			path = contract;
+			sourceTree = "<group>";
+		};
+		17744DBE221EF6F2009D5A83 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
 		17FDB80B2216FD410033BBA0 = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +541,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */,
 				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
@@ -585,6 +641,7 @@
 				17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */,
 				173AE599221D84C8004FEC1A /* GitHubInteractor.swift in Sources */,
 				173AE57E221D06D5004FEC1A /* UITableViewCell+extension.swift in Sources */,
+				17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */,
 				17744DAF221EDD8A009D5A83 /* RepositoryDetailContract.swift in Sources */,
 				173AE582221D7BF1004FEC1A /* SearchResultViewController.swift in Sources */,
 				173AE597221D83E2004FEC1A /* GitHubContract.swift in Sources */,
@@ -594,7 +651,10 @@
 				173AE58D221D7E71004FEC1A /* SearchResultContract.swift in Sources */,
 				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
+				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
+				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,
 				17744DB5221EE49C009D5A83 /* RepositoryDetailRouter.swift in Sources */,
+				17744DBA221EF6CD009D5A83 /* RepositoryReadmeViewController.swift in Sources */,
 				17744DB3221EE353009D5A83 /* RepositoryDetailViewPresenter.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,
 				173AE5672217008A004FEC1A /* User.swift in Sources */,

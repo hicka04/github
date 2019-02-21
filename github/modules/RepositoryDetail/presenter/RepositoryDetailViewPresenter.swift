@@ -22,6 +22,6 @@ final class RepositoryDetailViewPresenter {
 extension RepositoryDetailViewPresenter: RepositoryDetailViewPresentation {
     
     func viewDidLoad() {
-        
+        router.showFirstView()
     }
 }
