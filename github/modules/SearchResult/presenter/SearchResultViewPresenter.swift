@@ -56,4 +56,8 @@ extension SearchResultViewPresenter: SearchResultViewPresentation {
     func refreshControlDidRefresh(text: String) {
         self.keyword = text
     }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        router.showRepositoryDetailView(repository: repositories[indexPath.row])
+    }
 }

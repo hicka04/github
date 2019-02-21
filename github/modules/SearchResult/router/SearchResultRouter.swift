@@ -30,7 +30,8 @@ final class SearchResultRouter {
 
 extension SearchResultRouter: SearchResultWireframe {
     
-    func showRepositoryDetailView() {
-        
+    func showRepositoryDetailView(repository: Repository) {
+        let repositoryDetailView = RepositoryDetailRouter.assembleModules(repository: repository)
+        viewController.navigationController?.pushViewController(repositoryDetailView, animated: true)
     }
 }
