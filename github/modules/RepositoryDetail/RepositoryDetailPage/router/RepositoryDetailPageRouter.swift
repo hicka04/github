@@ -42,8 +42,8 @@ extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
             contentView = RepositoryReadmeRouter.assembleModules()
         case .code:
             contentView = RepositoryCodeRouter.assembelModules()
-        default:
-            fatalError()
+        case .release:
+            contentView = RepositoryReleaseRouter.assembleModules()
         }
         
         let direction: UIPageViewController.NavigationDirection

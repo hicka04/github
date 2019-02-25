@@ -12,6 +12,11 @@
 		17044BFF221FA8C100377FC2 /* RepositoryCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044BFD221FA8C100377FC2 /* RepositoryCodeViewController.xib */; };
 		17044C01221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C00221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift */; };
 		17044C03221FA97000377FC2 /* RepositoryCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C02221FA97000377FC2 /* RepositoryCodeRouter.swift */; };
+		17044C0A2224190500377FC2 /* RepositoryReleaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C092224190500377FC2 /* RepositoryReleaseContract.swift */; };
+		17044C0D2224199800377FC2 /* RepositoryReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */; };
+		17044C0E2224199800377FC2 /* RepositoryReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */; };
+		17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */; };
+		17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */; };
 		173AE5672217008A004FEC1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55C2217008A004FEC1A /* User.swift */; };
 		173AE5682217008A004FEC1A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55D2217008A004FEC1A /* Repository.swift */; };
 		173AE5692217008A004FEC1A /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55E2217008A004FEC1A /* SearchResponse.swift */; };
@@ -67,6 +72,11 @@
 		17044BFD221FA8C100377FC2 /* RepositoryCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCodeViewController.xib; sourceTree = "<group>"; };
 		17044C00221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCodeViewPresenter.swift; sourceTree = "<group>"; };
 		17044C02221FA97000377FC2 /* RepositoryCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCodeRouter.swift; sourceTree = "<group>"; };
+		17044C092224190500377FC2 /* RepositoryReleaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseContract.swift; sourceTree = "<group>"; };
+		17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseViewController.swift; sourceTree = "<group>"; };
+		17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryReleaseViewController.xib; sourceTree = "<group>"; };
+		17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseViewPresenter.swift; sourceTree = "<group>"; };
+		17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseRouter.swift; sourceTree = "<group>"; };
 		173AE55C2217008A004FEC1A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		173AE55D2217008A004FEC1A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		173AE55E2217008A004FEC1A /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -136,6 +146,7 @@
 				17744DA9221EDCEF009D5A83 /* RepositoryDetailPage */,
 				17744DB6221EF61B009D5A83 /* RepositoryReadme */,
 				17044BF5221FA81500377FC2 /* RepositoryCode */,
+				17044C04222414D300377FC2 /* RepositoryRelease */,
 			);
 			path = RepositoryDetail;
 			sourceTree = "<group>";
@@ -180,6 +191,50 @@
 			children = (
 				17044BFC221FA8C100377FC2 /* RepositoryCodeViewController.swift */,
 				17044BFD221FA8C100377FC2 /* RepositoryCodeViewController.xib */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		17044C04222414D300377FC2 /* RepositoryRelease */ = {
+			isa = PBXGroup;
+			children = (
+				17044C082224151A00377FC2 /* view */,
+				17044C072224150A00377FC2 /* presenter */,
+				17044C062224150300377FC2 /* router */,
+				17044C05222414F600377FC2 /* contract */,
+			);
+			path = RepositoryRelease;
+			sourceTree = "<group>";
+		};
+		17044C05222414F600377FC2 /* contract */ = {
+			isa = PBXGroup;
+			children = (
+				17044C092224190500377FC2 /* RepositoryReleaseContract.swift */,
+			);
+			path = contract;
+			sourceTree = "<group>";
+		};
+		17044C062224150300377FC2 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		17044C072224150A00377FC2 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		17044C082224151A00377FC2 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */,
+				17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -606,6 +661,7 @@
 			files = (
 				17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */,
 				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
+				17044C0E2224199800377FC2 /* RepositoryReleaseViewController.xib in Resources */,
 				17044BFF221FA8C100377FC2 /* RepositoryCodeViewController.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
@@ -711,7 +767,10 @@
 				173AE582221D7BF1004FEC1A /* SearchResultViewController.swift in Sources */,
 				173AE597221D83E2004FEC1A /* GitHubContract.swift in Sources */,
 				17744DB1221EE21E009D5A83 /* RepositoryDetailPageViewController.swift in Sources */,
+				17044C0A2224190500377FC2 /* RepositoryReleaseContract.swift in Sources */,
 				173AE58F221D7EDE004FEC1A /* SearchResultRouter.swift in Sources */,
+				17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */,
+				17044C0D2224199800377FC2 /* RepositoryReleaseViewController.swift in Sources */,
 				17044C03221FA97000377FC2 /* RepositoryCodeRouter.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
 				173AE58D221D7E71004FEC1A /* SearchResultContract.swift in Sources */,
@@ -721,6 +780,7 @@
 				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
 				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,
 				17744DB5221EE49C009D5A83 /* RepositoryDetailPageRouter.swift in Sources */,
+				17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */,
 				17044C01221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift in Sources */,
 				17744DBA221EF6CD009D5A83 /* RepositoryReadmeViewController.swift in Sources */,
 				17744DB3221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift in Sources */,
