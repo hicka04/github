@@ -17,10 +17,6 @@ final class RepositoryDetailPageViewController: UIPageViewController {
         let segmentedControl = UISegmentedControl(items: RepositoryDetailContent.allCases.map { $0.title })
         segmentedControl.selectedSegmentIndex = 0
         
-        segmentedControl.on(.valueChanged) { segmentedControl in
-            print(segmentedControl.selectedSegmentIndex)
-        }
-        
         return segmentedControl
     }()
     
@@ -45,6 +41,9 @@ final class RepositoryDetailPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        segmentedControl.on(.valueChanged) { segmentedControl in
+            self.presenter.selectedSegmentIndexChanged(segmentedControl.selectedSegmentIndex)
+        }
         navigationItem.titleView = segmentedControl
         
         presenter.viewDidLoad()

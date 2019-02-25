@@ -40,6 +40,8 @@ extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
         switch content {
         case .readme:
             contentView = RepositoryReadmeRouter.assembleModules()
+        case .code:
+            contentView = RepositoryCodeRouter.assembelModules()
         default:
             fatalError()
         }

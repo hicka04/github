@@ -15,6 +15,7 @@ protocol RepositoryDetailPageView: AnyObject {
 protocol RepositoryDetailPageViewPresentation: AnyObject {
     
     func viewDidLoad()
+    func selectedSegmentIndexChanged(_ index: Int)
 }
 
 protocol RepositoryDetailPageWireframe: AnyObject {

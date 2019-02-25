@@ -24,4 +24,12 @@ extension RepositoryDetailPageViewPresenter: RepositoryDetailPageViewPresentatio
     func viewDidLoad() {
         router.showFirstView()
     }
+    
+    func selectedSegmentIndexChanged(_ index: Int) {
+        guard let content = RepositoryDetailContent(rawValue: index) else {
+            return
+        }
+        
+        router.show(content: content, from: nil)
+    }
 }
