@@ -12,6 +12,15 @@ final class RepositoryDetailPageRouter {
     
     private unowned let pageViewController: UIPageViewController
     
+    private var currentContent: RepositoryDetailContent = .readme {
+        didSet {
+            pageViewController.setViewControllers([currentContent.contentView],
+                                                  direction: currentContent.direction(from: oldValue),
+                                                  animated: true,
+                                                  completion: nil)
+        }
+    }
+    
     private init(pageViewController: UIPageViewController) {
         self.pageViewController = pageViewController
     }
@@ -29,25 +38,30 @@ final class RepositoryDetailPageRouter {
 
 extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     
-    func showFirstView() {
-        show(content: .readme)
+    func showFirstContentView() {
+        currentContent = .readme
     }
     
-    func show(content: RepositoryDetailContent,
-              from beforeContent: RepositoryDetailContent? = nil) {
-        
-        let contentView: UIViewController
-        switch content {
-        case .readme:
-            contentView = RepositoryReadmeRouter.assembleModules()
-        case .code:
-            contentView = RepositoryCodeRouter.assembelModules()
-        case .release:
-            contentView = RepositoryReleaseRouter.assembleModules()
+    func showContentView(for index: Int) {
+        guard let content = RepositoryDetailContent(rawValue: index) else {
+            return
         }
         
-        let direction: UIPageViewController.NavigationDirection
-            = (beforeContent?.rawValue ?? -1 < content.rawValue) ? .forward : .reverse
-        pageViewController.setViewControllers([contentView], direction: direction, animated: true, completion: nil)
+        currentContent = content
+    }
+}
+
+private extension RepositoryDetailContent {
+    
+    var contentView: UIViewController {
+        switch self {
+        case .readme:  return RepositoryReadmeRouter.assembleModules()
+        case .code:    return RepositoryCodeRouter.assembelModules()
+        case .release: return RepositoryReleaseRouter.assembleModules()
+        }
+    }
+    
+    func direction(from beforeContent: RepositoryDetailContent) -> UIPageViewController.NavigationDirection {
+        return beforeContent.rawValue < self.rawValue ? .forward : .reverse
     }
 }

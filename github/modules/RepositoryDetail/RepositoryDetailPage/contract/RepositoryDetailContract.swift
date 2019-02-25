@@ -20,9 +20,8 @@ protocol RepositoryDetailPageViewPresentation: AnyObject {
 
 protocol RepositoryDetailPageWireframe: AnyObject {
     
-    func showFirstView()
-    func show(content: RepositoryDetailContent,
-              from beforeContent: RepositoryDetailContent?)
+    func showFirstContentView()
+    func showContentView(for index: Int)
 }
 
 enum RepositoryDetailContent: Int, CaseIterable {

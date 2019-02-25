@@ -13,17 +13,6 @@ final class RepositoryDetailPageViewPresenter {
     private weak var view: RepositoryDetailPageView?
     private let router: RepositoryDetailPageWireframe
     
-    private var currentSegmentIndex: Int = 0 {
-        didSet {
-            guard let current = RepositoryDetailContent(rawValue: currentSegmentIndex),
-                let before = RepositoryDetailContent(rawValue: oldValue) else {
-                return
-            }
-            
-            router.show(content: current, from: before)
-        }
-    }
-    
     init(view: RepositoryDetailPageView, router: RepositoryDetailPageWireframe) {
         self.view = view
         self.router = router
@@ -33,10 +22,10 @@ final class RepositoryDetailPageViewPresenter {
 extension RepositoryDetailPageViewPresenter: RepositoryDetailPageViewPresentation {
     
     func viewDidLoad() {
-        router.showFirstView()
+        router.showFirstContentView()
     }
     
     func selectedSegmentIndexChanged(_ index: Int) {
-        currentSegmentIndex = index
+        router.showContentView(for: index)
     }
 }
