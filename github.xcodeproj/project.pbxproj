@@ -710,12 +710,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-github/Pods-github-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ActionClosurable/ActionClosurable.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActionClosurable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

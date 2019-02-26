@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import MarkdownView
 
 final class RepositoryReadmeViewController: UIViewController {
     
     var presenter: RepositoryReadmeViewPresentation!
+    
+    @IBOutlet private weak var markdownView: MarkdownView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
