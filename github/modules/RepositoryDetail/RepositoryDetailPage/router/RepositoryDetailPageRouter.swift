@@ -12,12 +12,18 @@ final class RepositoryDetailPageRouter {
     
     private unowned let pageViewController: UIPageViewController
     
-    private var currentContent: RepositoryDetailContent = .readme {
+    private var currentContent: RepositoryDetailContent? {
         didSet {
-            pageViewController.setViewControllers([currentContent.contentView],
-                                                  direction: currentContent.direction(from: oldValue),
-                                                  animated: true,
-                                                  completion: nil)
+            guard let content = currentContent else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.pageViewController.setViewControllers([content.contentView],
+                                                           direction: content.direction(from: oldValue),
+                                                           animated: true,
+                                                           completion: nil)
+            }
         }
     }
     
@@ -28,7 +34,8 @@ final class RepositoryDetailPageRouter {
     static func assembleModules(repository: Repository) -> UIViewController {
         let view = RepositoryDetailPageViewController()
         let router = RepositoryDetailPageRouter(pageViewController: view)
-        let presenter = RepositoryDetailPageViewPresenter(view: view, router: router)
+        let interactor = GitHubInteractor()
+        let presenter = RepositoryDetailPageViewPresenter(view: view, router: router, interactor: interactor, repository: repository)
         
         view.presenter = presenter
         
@@ -37,10 +44,6 @@ final class RepositoryDetailPageRouter {
 }
 
 extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
-    
-    func showFirstContentView() {
-        currentContent = .readme
-    }
     
     func showContentView(for index: Int) {
         guard let content = RepositoryDetailContent(rawValue: index) else {
@@ -61,7 +64,7 @@ private extension RepositoryDetailContent {
         }
     }
     
-    func direction(from beforeContent: RepositoryDetailContent) -> UIPageViewController.NavigationDirection {
-        return beforeContent.rawValue < self.rawValue ? .forward : .reverse
+    func direction(from beforeContent: RepositoryDetailContent?) -> UIPageViewController.NavigationDirection {
+        return beforeContent?.rawValue ?? -1 < self.rawValue ? .forward : .reverse
     }
 }

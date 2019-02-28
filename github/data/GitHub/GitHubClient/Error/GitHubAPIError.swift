@@ -11,7 +11,7 @@ import Foundation
 struct GitHubAPIError: Decodable, Error {
     
     let message: String
-    let fieldErrors: [FieldError]
+    let fieldErrors: [FieldError]?
     
     struct FieldError: Decodable {
         

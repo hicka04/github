@@ -20,7 +20,6 @@ protocol RepositoryDetailPageViewPresentation: AnyObject {
 
 protocol RepositoryDetailPageWireframe: AnyObject {
     
-    func showFirstContentView()
     func showContentView(for index: Int)
 }
 

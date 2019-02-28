@@ -30,4 +30,29 @@ final class GitHubAPI {
             return [URLQueryItem(name: "q", value: keyword)]
         }
     }
+    
+    struct SearchBranch: GitHubRequest {
+        
+        typealias Response = Branch
+        
+        let repository: Repository
+        let branch: String?
+        
+        var path: String {
+            return "/repos/\(repository.fullName)/branches/\(branch ?? repository.defaultBranch)"
+        }
+        
+        var method: HTTPMethod {
+            return .get
+        }
+        
+        var queryItems: [URLQueryItem] {
+            return []
+        }
+        
+        init(repository: Repository, branch: String? = nil) {
+            self.repository = repository
+            self.branch = branch
+        }
+    }
 }

@@ -10,14 +10,15 @@ import Foundation
 
 class GitHubInteractor {
     
-    
+    let client = GitHubClient()
 }
 
 extension GitHubInteractor: GitHubUsecase {
     
-    func searchRepositories(from keyword: String, completion: @escaping (Result<[Repository], GitHubClientError>) -> Void) {
+    func searchRepositories(from keyword: String,
+                            completion: @escaping (Result<[Repository], GitHubClientError>) -> Void) {
         let request = GitHubAPI.SearchRepositories(keyword: keyword)
-        GitHubClient().send(request: request) { result in
+        client.send(request: request) { result in
             switch result {
             case .success(let response):
                 completion(.success(response.items))
@@ -25,5 +26,11 @@ extension GitHubInteractor: GitHubUsecase {
                 completion(.failure(error))
             }
         }
+    }
+    
+    func searchBranch(from repository: Repository,
+                      completion: @escaping (Result<Branch, GitHubClientError>) -> Void) {
+        let request = GitHubAPI.SearchBranch(repository: repository)
+        client.send(request: request, completion: completion)
     }
 }

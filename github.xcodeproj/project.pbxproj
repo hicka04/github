@@ -17,6 +17,7 @@
 		17044C0E2224199800377FC2 /* RepositoryReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */; };
 		17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */; };
 		17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */; };
+		17044C14222640E900377FC2 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C13222640E900377FC2 /* Branch.swift */; };
 		173AE5672217008A004FEC1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55C2217008A004FEC1A /* User.swift */; };
 		173AE5682217008A004FEC1A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55D2217008A004FEC1A /* Repository.swift */; };
 		173AE5692217008A004FEC1A /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55E2217008A004FEC1A /* SearchResponse.swift */; };
@@ -77,6 +78,7 @@
 		17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryReleaseViewController.xib; sourceTree = "<group>"; };
 		17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseViewPresenter.swift; sourceTree = "<group>"; };
 		17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseRouter.swift; sourceTree = "<group>"; };
+		17044C13222640E900377FC2 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
 		173AE55C2217008A004FEC1A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		173AE55D2217008A004FEC1A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		173AE55E2217008A004FEC1A /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 			children = (
 				173AE55C2217008A004FEC1A /* User.swift */,
 				173AE55D2217008A004FEC1A /* Repository.swift */,
+				17044C13222640E900377FC2 /* Branch.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17044C14222640E900377FC2 /* Branch.swift in Sources */,
 				173AE591221D7F89004FEC1A /* SearchResultViewPresenter.swift in Sources */,
 				173AE586221D7C68004FEC1A /* RootRouter.swift in Sources */,
 				173AE56A2217008A004FEC1A /* GitHubAPI.swift in Sources */,
