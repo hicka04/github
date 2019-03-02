@@ -12,8 +12,8 @@ struct Branch: Decodable {
     
     let name: String
     private let commit: Commit
-    var treeUrl: URL {
-        return commit.commit.tree.url
+    var sha: String {
+        return commit.commit.tree.sha
     }
 }
 

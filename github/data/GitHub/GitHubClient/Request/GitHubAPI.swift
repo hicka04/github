@@ -55,4 +55,24 @@ final class GitHubAPI {
             self.branch = branch
         }
     }
+    
+    struct SearchTrees: GitHubRequest {
+        
+        typealias Response = TreeResponse
+        
+        var path: String {
+            return "/repos/\(repository.fullName)/git/trees/\(branch.sha)"
+        }
+        
+        var method: HTTPMethod {
+            return .get
+        }
+        
+        var queryItems: [URLQueryItem] {
+            return []
+        }
+        
+        let repository: Repository
+        let branch: Branch
+    }
 }

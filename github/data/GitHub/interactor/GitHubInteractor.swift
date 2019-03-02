@@ -33,4 +33,18 @@ extension GitHubInteractor: GitHubUsecase {
         let request = GitHubAPI.SearchBranch(repository: repository)
         client.send(request: request, completion: completion)
     }
+    
+    func searchTrees(from repository: Repository,
+                     branch: Branch,
+                     completion: @escaping (Result<[Tree], GitHubClientError>) -> Void) {
+        let request = GitHubAPI.SearchTrees(repository: repository, branch: branch)
+        client.send(request: request) { result in
+            switch result {
+            case .success(let tree):
+                completion(.success(tree.trees))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }
