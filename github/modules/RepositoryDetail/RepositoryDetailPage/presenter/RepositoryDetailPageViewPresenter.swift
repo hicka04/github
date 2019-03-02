@@ -12,7 +12,7 @@ final class RepositoryDetailPageViewPresenter {
     
     private weak var view: RepositoryDetailPageView?
     private let router: RepositoryDetailPageWireframe
-    private let interactor: GitHubUsecase
+    private let interactor: GitHubBranchUsecase
     
     private let repository: Repository
     private var branch: Branch? {
@@ -32,7 +32,7 @@ final class RepositoryDetailPageViewPresenter {
     
     init(view: RepositoryDetailPageView,
          router: RepositoryDetailPageWireframe,
-         interactor: GitHubUsecase,
+         interactor: GitHubBranchUsecase,
          repository: Repository) {
         self.view = view
         self.router = router

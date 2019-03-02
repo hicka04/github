@@ -19,7 +19,7 @@ final class RepositoryTreeRouter {
     static func assembelModules(repository: Repository, sha: SHA, path: String? = nil) -> UIViewController {
         let view = RepositoryTreeViewController(path: path)
         let router = RepositoryTreeRouter(viewController: view)
-        let interactor = GitHubInteractor()
+        let interactor = GitHubTreesInteractor()
         let presenter = RepositoryTreeViewPresenter(view: view,
                                                     router: router,
                                                     interactor: interactor,

@@ -12,7 +12,7 @@ final class RepositoryTreeViewPresenter {
     
     private weak var view: RepositoryTreeView?
     private let router: RepositoryTreeWireframe
-    private let interactor: GitHubUsecase
+    private let interactor: GitHubTreesUsecase
     
     private let repository: Repository
     private let sha: SHA
@@ -25,7 +25,7 @@ final class RepositoryTreeViewPresenter {
     
     init(view: RepositoryTreeView,
          router: RepositoryTreeWireframe,
-         interactor: GitHubUsecase,
+         interactor: GitHubTreesUsecase,
          repository: Repository, sha: SHA) {
         self.view = view
         self.router = router

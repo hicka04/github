@@ -12,7 +12,7 @@ final class SearchResultViewPresenter {
     
     private weak var view: SearchResultView?
     private let router: SearchResultWireframe
-    private let interactor: GitHubUsecase
+    private let interactor: GitHubRepositoryUsecase
     
     private var keyword: String? {
         didSet {
@@ -36,7 +36,7 @@ final class SearchResultViewPresenter {
         }
     }
     
-    init(view: SearchResultView, router: SearchResultWireframe, interactor: GitHubUsecase) {
+    init(view: SearchResultView, router: SearchResultWireframe, interactor: GitHubRepositoryUsecase) {
         self.view = view
         self.router = router
         self.interactor = interactor

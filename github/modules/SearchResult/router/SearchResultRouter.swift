@@ -19,7 +19,7 @@ final class SearchResultRouter {
     static func assembleModules() -> UIViewController {
         let view = SearchResultViewController()
         let router = SearchResultRouter(viewController: view)
-        let interactor = GitHubInteractor()
+        let interactor = GitHubRepositoryInteractor()
         let presenter = SearchResultViewPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter

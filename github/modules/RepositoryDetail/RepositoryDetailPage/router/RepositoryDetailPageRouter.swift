@@ -34,7 +34,7 @@ final class RepositoryDetailPageRouter {
     static func assembleModules(repository: Repository) -> UIViewController {
         let view = RepositoryDetailPageViewController()
         let router = RepositoryDetailPageRouter(pageViewController: view)
-        let interactor = GitHubInteractor()
+        let interactor = GitHubBranchInteractor()
         let presenter = RepositoryDetailPageViewPresenter(view: view, router: router, interactor: interactor, repository: repository)
         
         view.presenter = presenter
