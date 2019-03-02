@@ -13,7 +13,6 @@
 		17044C03221FA97000377FC2 /* RepositoryTreeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C02221FA97000377FC2 /* RepositoryTreeRouter.swift */; };
 		17044C0A2224190500377FC2 /* RepositoryReleaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C092224190500377FC2 /* RepositoryReleaseContract.swift */; };
 		17044C0D2224199800377FC2 /* RepositoryReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */; };
-		17044C0E2224199800377FC2 /* RepositoryReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */; };
 		17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */; };
 		17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */; };
 		17044C14222640E900377FC2 /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C13222640E900377FC2 /* Branch.swift */; };
@@ -83,7 +82,6 @@
 		17044C02221FA97000377FC2 /* RepositoryTreeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTreeRouter.swift; sourceTree = "<group>"; };
 		17044C092224190500377FC2 /* RepositoryReleaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseContract.swift; sourceTree = "<group>"; };
 		17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseViewController.swift; sourceTree = "<group>"; };
-		17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryReleaseViewController.xib; sourceTree = "<group>"; };
 		17044C0F22241A4400377FC2 /* RepositoryReleaseViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseViewPresenter.swift; sourceTree = "<group>"; };
 		17044C1122241BBB00377FC2 /* RepositoryReleaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseRouter.swift; sourceTree = "<group>"; };
 		17044C13222640E900377FC2 /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
@@ -254,7 +252,6 @@
 			isa = PBXGroup;
 			children = (
 				17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */,
-				17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -707,7 +704,6 @@
 			files = (
 				17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */,
 				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
-				17044C0E2224199800377FC2 /* RepositoryReleaseViewController.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
 				17044C29222A5B9600377FC2 /* TreeCell.xib in Resources */,

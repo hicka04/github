@@ -50,7 +50,7 @@ extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     }
 }
 
-extension RepositoryDetailContent {
+private extension RepositoryDetailContent {
     
     var contentView: UIViewController {
         switch self {
@@ -58,8 +58,8 @@ extension RepositoryDetailContent {
             return RepositoryReadmeRouter.assembleModules()
         case .tree(let repository, let sha):
             return RepositoryTreeRouter.assembelModules(repository: repository, sha: sha)
-        case .release:
-            return RepositoryReleaseRouter.assembleModules()
+        case .release(let repository):
+            return RepositoryReleaseRouter.assembleModules(repository: repository)
         }
     }
 }

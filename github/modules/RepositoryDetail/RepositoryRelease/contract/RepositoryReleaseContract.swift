@@ -10,6 +10,7 @@ import Foundation
 
 protocol RepositoryReleaseView: AnyObject {
     
+    func updateReleases(_ releases: [Release])
 }
 
 protocol RepositoryReleaseViewPresentation: AnyObject {
