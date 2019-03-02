@@ -19,7 +19,7 @@ final class RepositoryCodeViewPresenter {
     
     private var trees: [Tree] = [] {
         didSet {
-            print(trees)
+            view?.updateTrees(trees)
         }
     }
     

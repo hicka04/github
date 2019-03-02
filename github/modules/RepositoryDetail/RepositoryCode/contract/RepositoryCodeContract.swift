@@ -10,6 +10,7 @@ import Foundation
 
 protocol RepositoryCodeView: AnyObject {
     
+    func updateTrees(_ trees: [Tree])
 }
 
 protocol RepositoryCodeViewPresentation: AnyObject {

@@ -8,9 +8,17 @@
 
 import UIKit
 
-final class RepositoryCodeViewController: UIViewController {
+final class RepositoryCodeViewController: UITableViewController {
     
     var presenter: RepositoryCodeViewPresentation!
+    
+    private var trees: [Tree] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,4 +29,24 @@ final class RepositoryCodeViewController: UIViewController {
 
 extension RepositoryCodeViewController: RepositoryCodeView {
     
+    func updateTrees(_ trees: [Tree]) {
+        self.trees = trees
+    }
+}
+
+extension RepositoryCodeViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return trees.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = trees[indexPath.row].path
+        return cell
+    }
 }
