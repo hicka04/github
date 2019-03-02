@@ -41,6 +41,8 @@ final class RepositoryDetailPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        
         segmentedControl.on(.valueChanged) { segmentedControl in
             self.presenter.selectedSegmentIndexChanged(segmentedControl.selectedSegmentIndex)
         }
