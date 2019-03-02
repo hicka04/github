@@ -23,6 +23,9 @@ final class RepositoryCodeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(TreeCell.self)
+        tableView.register(BlobCell.self)
+        
         presenter.viewDidLoad()
     }
 }
@@ -45,8 +48,17 @@ extension RepositoryCodeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = trees[indexPath.row].path
-        return cell
+        let tree = trees[indexPath.row]
+        switch tree.type {
+        case .blob:
+            let cell: BlobCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = tree.path
+            return cell
+            
+        case .tree:
+            let cell: TreeCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = tree.path
+            return cell
+        }
     }
 }

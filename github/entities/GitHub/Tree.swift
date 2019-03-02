@@ -8,11 +8,19 @@
 
 import Foundation
 
-struct Tree: Decodable {
+struct Tree: Decodable, Comparable {
     
     let path: String
     let type: Type
     let url: URL
+    
+    static func < (lhs: Tree, rhs: Tree) -> Bool {
+        if lhs.type == rhs.type {
+            return lhs.path < rhs.path
+        } else {
+            return rhs.type == .blob
+        }
+    }
 }
 
 extension Tree {

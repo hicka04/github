@@ -42,7 +42,7 @@ extension RepositoryCodeViewPresenter: RepositoryCodeViewPresentation {
         interactor.searchTrees(from: repository, branch: branch) { result in
             switch result {
             case .success(let trees):
-                self.trees = trees
+                self.trees = trees.sorted()
             case .failure(let error):
                 print(error)
             }
