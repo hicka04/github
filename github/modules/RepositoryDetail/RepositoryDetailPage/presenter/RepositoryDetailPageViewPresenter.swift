@@ -17,8 +17,16 @@ final class RepositoryDetailPageViewPresenter {
     private let repository: Repository
     private var branch: Branch? {
         didSet {
-            let firstContent = RepositoryDetailContent.allCases.first!
-            router.showContentView(for: firstContent.rawValue)
+            showContentView(segmentedIndex: segmentedIndex,
+                            repository: repository,
+                            branch: branch)
+        }
+    }
+    private var segmentedIndex: Int = 0 {
+        didSet {
+            showContentView(segmentedIndex: segmentedIndex,
+                            repository: repository,
+                            branch: branch)
         }
     }
     
@@ -31,6 +39,16 @@ final class RepositoryDetailPageViewPresenter {
         self.interactor = interactor
         
         self.repository = repository
+    }
+    
+    private func showContentView(segmentedIndex: Int, repository: Repository, branch: Branch?) {
+        guard let content = RepositoryDetailContent(segmentedIndex: segmentedIndex,
+                                                    repository: repository,
+                                                    branch: branch) else {
+            return
+        }
+        
+        router.show(content: content)
     }
 }
 
@@ -48,6 +66,6 @@ extension RepositoryDetailPageViewPresenter: RepositoryDetailPageViewPresentatio
     }
     
     func selectedSegmentIndexChanged(_ index: Int) {
-        router.showContentView(for: index)
+        segmentedIndex = index
     }
 }

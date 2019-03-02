@@ -16,10 +16,15 @@ final class RepositoryCodeRouter {
         self.viewController = viewController
     }
     
-    static func assembelModules() -> UIViewController {
+    static func assembelModules(repository: Repository, branch: Branch) -> UIViewController {
         let view = RepositoryCodeViewController()
         let router = RepositoryCodeRouter(viewController: view)
-        let presenter = RepositoryCodeViewPresenter(view: view, router: router)
+        let interactor = GitHubInteractor()
+        let presenter = RepositoryCodeViewPresenter(view: view,
+                                                    router: router,
+                                                    interactor: interactor,
+                                                    repository: repository,
+                                                    branch: branch)
         
         view.presenter = presenter
         

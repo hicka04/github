@@ -20,8 +20,8 @@ final class RepositoryDetailPageRouter {
             
             DispatchQueue.main.async {
                 self.pageViewController.setViewControllers([content.contentView],
-                                                           direction: content.direction(from: oldValue),
-                                                           animated: true,
+                                                           direction: .forward,
+                                                           animated: false,
                                                            completion: nil)
             }
         }
@@ -45,26 +45,21 @@ final class RepositoryDetailPageRouter {
 
 extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     
-    func showContentView(for index: Int) {
-        guard let content = RepositoryDetailContent(rawValue: index) else {
-            return
-        }
-        
+    func show(content: RepositoryDetailContent) {
         currentContent = content
     }
 }
 
-private extension RepositoryDetailContent {
+extension RepositoryDetailContent {
     
     var contentView: UIViewController {
         switch self {
-        case .readme:  return RepositoryReadmeRouter.assembleModules()
-        case .code:    return RepositoryCodeRouter.assembelModules()
-        case .release: return RepositoryReleaseRouter.assembleModules()
+        case .readme:
+            return RepositoryReadmeRouter.assembleModules()
+        case .code(let repository, let branch):
+            return RepositoryCodeRouter.assembelModules(repository: repository, branch: branch)
+        case .release:
+            return RepositoryReleaseRouter.assembleModules()
         }
-    }
-    
-    func direction(from beforeContent: RepositoryDetailContent?) -> UIPageViewController.NavigationDirection {
-        return beforeContent?.rawValue ?? -1 < self.rawValue ? .forward : .reverse
     }
 }
