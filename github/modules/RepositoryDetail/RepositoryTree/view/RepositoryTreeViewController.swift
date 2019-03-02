@@ -19,7 +19,16 @@ final class RepositoryTreeViewController: UITableViewController {
             }
         }
     }
-
+    
+    init(path: String? = nil) {
+        super.init(nibName: nil, bundle: nil)
+        navigationItem.title = path
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,5 +69,9 @@ extension RepositoryTreeViewController {
             cell.textLabel?.text = tree.path
             return cell
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(at: indexPath)
     }
 }

@@ -16,8 +16,8 @@ final class RepositoryTreeRouter {
         self.viewController = viewController
     }
     
-    static func assembelModules(repository: Repository, sha: SHA) -> UIViewController {
-        let view = RepositoryTreeViewController()
+    static func assembelModules(repository: Repository, sha: SHA, path: String? = nil) -> UIViewController {
+        let view = RepositoryTreeViewController(path: path)
         let router = RepositoryTreeRouter(viewController: view)
         let interactor = GitHubInteractor()
         let presenter = RepositoryTreeViewPresenter(view: view,
@@ -34,4 +34,8 @@ final class RepositoryTreeRouter {
 
 extension RepositoryTreeRouter: RepositoryTreeWireframe {
     
+    func showTreeView(from repository: Repository, sha: SHA, path: String) {
+        let treeView = RepositoryTreeRouter.assembelModules(repository: repository, sha: sha, path: path)
+        viewController.navigationController?.pushViewController(treeView, animated: true)
+    }
 }

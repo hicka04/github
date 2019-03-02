@@ -16,8 +16,10 @@ protocol RepositoryTreeView: AnyObject {
 protocol RepositoryTreeViewPresentation: AnyObject {
     
     func viewDidLoad()
+    func didSelectRow(at indexPath: IndexPath)
 }
 
 protocol RepositoryTreeWireframe: AnyObject {
     
+    func showTreeView(from repository: Repository, sha: SHA, path: String)
 }

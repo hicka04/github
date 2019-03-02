@@ -48,4 +48,14 @@ extension RepositoryTreeViewPresenter: RepositoryTreeViewPresentation {
             }
         }
     }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        let tree = trees[indexPath.row]
+        switch tree.type {
+        case .tree:
+            router.showTreeView(from: repository, sha: tree.sha, path: tree.path)
+        case .blob:
+            break
+        }
+    }
 }
