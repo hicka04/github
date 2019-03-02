@@ -16,7 +16,7 @@ final class RepositoryTreeRouter {
         self.viewController = viewController
     }
     
-    static func assembelModules(repository: Repository, branch: Branch) -> UIViewController {
+    static func assembelModules(repository: Repository, sha: SHA) -> UIViewController {
         let view = RepositoryTreeViewController()
         let router = RepositoryTreeRouter(viewController: view)
         let interactor = GitHubInteractor()
@@ -24,7 +24,7 @@ final class RepositoryTreeRouter {
                                                     router: router,
                                                     interactor: interactor,
                                                     repository: repository,
-                                                    branch: branch)
+                                                    sha: sha)
         
         view.presenter = presenter
         

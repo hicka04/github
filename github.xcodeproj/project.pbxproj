@@ -23,6 +23,7 @@
 		17044C29222A5B9600377FC2 /* TreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044C27222A5B9600377FC2 /* TreeCell.xib */; };
 		17044C2C222A5C3400377FC2 /* BlobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C2A222A5C3400377FC2 /* BlobCell.swift */; };
 		17044C2D222A5C3400377FC2 /* BlobCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044C2B222A5C3400377FC2 /* BlobCell.xib */; };
+		17044C2F222A6E8700377FC2 /* SHA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C2E222A6E8700377FC2 /* SHA.swift */; };
 		173AE5672217008A004FEC1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55C2217008A004FEC1A /* User.swift */; };
 		173AE5682217008A004FEC1A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55D2217008A004FEC1A /* Repository.swift */; };
 		173AE5692217008A004FEC1A /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55E2217008A004FEC1A /* SearchResponse.swift */; };
@@ -89,6 +90,7 @@
 		17044C27222A5B9600377FC2 /* TreeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TreeCell.xib; sourceTree = "<group>"; };
 		17044C2A222A5C3400377FC2 /* BlobCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobCell.swift; sourceTree = "<group>"; };
 		17044C2B222A5C3400377FC2 /* BlobCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlobCell.xib; sourceTree = "<group>"; };
+		17044C2E222A6E8700377FC2 /* SHA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHA.swift; sourceTree = "<group>"; };
 		173AE55C2217008A004FEC1A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		173AE55D2217008A004FEC1A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		173AE55E2217008A004FEC1A /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				173AE55D2217008A004FEC1A /* Repository.swift */,
 				17044C13222640E900377FC2 /* Branch.swift */,
 				17044C172228E4D900377FC2 /* Tree.swift */,
+				17044C2E222A6E8700377FC2 /* SHA.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -792,6 +795,7 @@
 				17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */,
 				17044BFB221FA85900377FC2 /* RepositoryCodeContract.swift in Sources */,
 				173AE599221D84C8004FEC1A /* GitHubInteractor.swift in Sources */,
+				17044C2F222A6E8700377FC2 /* SHA.swift in Sources */,
 				173AE57E221D06D5004FEC1A /* UITableViewCell+extension.swift in Sources */,
 				17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */,
 				17744DAF221EDD8A009D5A83 /* RepositoryDetailContract.swift in Sources */,

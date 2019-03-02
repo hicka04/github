@@ -61,7 +61,7 @@ final class GitHubAPI {
         typealias Response = TreeResponse
         
         var path: String {
-            return "/repos/\(repository.fullName)/git/trees/\(branch.sha)"
+            return "/repos/\(repository.fullName)/git/trees/\(sha.rawValue)"
         }
         
         var method: HTTPMethod {
@@ -73,6 +73,6 @@ final class GitHubAPI {
         }
         
         let repository: Repository
-        let branch: Branch
+        let sha: SHA
     }
 }

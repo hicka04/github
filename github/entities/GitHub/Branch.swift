@@ -12,7 +12,7 @@ struct Branch: Decodable {
     
     let name: String
     private let commit: Commit
-    var sha: String {
+    var sha: SHA {
         return commit.commit.tree.sha
     }
 }
@@ -29,7 +29,7 @@ private extension Branch {
             
             struct Tree: Decodable {
                 
-                let sha: String
+                let sha: SHA
                 let url: URL
             }
         }

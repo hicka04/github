@@ -15,6 +15,6 @@ protocol GitHubUsecase: AnyObject {
     func searchBranch(from repository: Repository,
                       completion: @escaping (Result<Branch, GitHubClientError>) -> Void)
     func searchTrees(from repository: Repository,
-                     branch: Branch,
+                     sha: SHA,
                      completion: @escaping (Result<[Tree], GitHubClientError>) -> Void)
 }

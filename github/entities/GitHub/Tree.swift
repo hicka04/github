@@ -12,7 +12,7 @@ struct Tree: Decodable, Comparable {
     
     let path: String
     let type: Type
-    let url: URL
+    let sha: SHA
     
     static func < (lhs: Tree, rhs: Tree) -> Bool {
         if lhs.type == rhs.type {

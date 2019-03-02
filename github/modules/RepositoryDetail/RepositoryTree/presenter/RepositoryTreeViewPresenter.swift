@@ -15,7 +15,7 @@ final class RepositoryTreeViewPresenter {
     private let interactor: GitHubUsecase
     
     private let repository: Repository
-    private let branch: Branch
+    private let sha: SHA
     
     private var trees: [Tree] = [] {
         didSet {
@@ -26,20 +26,20 @@ final class RepositoryTreeViewPresenter {
     init(view: RepositoryTreeView,
          router: RepositoryTreeWireframe,
          interactor: GitHubUsecase,
-         repository: Repository, branch: Branch) {
+         repository: Repository, sha: SHA) {
         self.view = view
         self.router = router
         self.interactor = interactor
         
         self.repository = repository
-        self.branch = branch
+        self.sha = sha
     }
 }
 
 extension RepositoryTreeViewPresenter: RepositoryTreeViewPresentation {
     
     func viewDidLoad() {
-        interactor.searchTrees(from: repository, branch: branch) { result in
+        interactor.searchTrees(from: repository, sha: sha) { result in
             switch result {
             case .success(let trees):
                 self.trees = trees.sorted()
