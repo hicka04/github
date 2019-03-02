@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class RepositoryCodeViewPresenter {
+final class RepositoryTreeViewPresenter {
     
-    private weak var view: RepositoryCodeView?
-    private let router: RepositoryCodeWireframe
+    private weak var view: RepositoryTreeView?
+    private let router: RepositoryTreeWireframe
     private let interactor: GitHubUsecase
     
     private let repository: Repository
@@ -23,8 +23,8 @@ final class RepositoryCodeViewPresenter {
         }
     }
     
-    init(view: RepositoryCodeView,
-         router: RepositoryCodeWireframe,
+    init(view: RepositoryTreeView,
+         router: RepositoryTreeWireframe,
          interactor: GitHubUsecase,
          repository: Repository, branch: Branch) {
         self.view = view
@@ -36,7 +36,7 @@ final class RepositoryCodeViewPresenter {
     }
 }
 
-extension RepositoryCodeViewPresenter: RepositoryCodeViewPresentation {
+extension RepositoryTreeViewPresenter: RepositoryTreeViewPresentation {
     
     func viewDidLoad() {
         interactor.searchTrees(from: repository, branch: branch) { result in

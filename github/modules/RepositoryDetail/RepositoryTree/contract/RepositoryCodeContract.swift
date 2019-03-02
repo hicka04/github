@@ -8,16 +8,16 @@
 
 import Foundation
 
-protocol RepositoryCodeView: AnyObject {
+protocol RepositoryTreeView: AnyObject {
     
     func updateTrees(_ trees: [Tree])
 }
 
-protocol RepositoryCodeViewPresentation: AnyObject {
+protocol RepositoryTreeViewPresentation: AnyObject {
     
     func viewDidLoad()
 }
 
-protocol RepositoryCodeWireframe: AnyObject {
+protocol RepositoryTreeWireframe: AnyObject {
     
 }

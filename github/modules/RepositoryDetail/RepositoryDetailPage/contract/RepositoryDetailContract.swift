@@ -25,13 +25,13 @@ protocol RepositoryDetailPageWireframe: AnyObject {
 
 enum RepositoryDetailContent {
     case readme(Repository, Branch)
-    case code(Repository, Branch)
+    case tree(Repository, Branch)
     case release(Repository)
     
     init?(segmentedIndex: Int, repository: Repository, branch: Branch?) {
         switch (segmentedIndex, repository, branch) {
         case (0, let repository, let branch?): self = .readme(repository, branch)
-        case (1, let repository, let branch?): self = .code(repository, branch)
+        case (1, let repository, let branch?): self = .tree(repository, branch)
         case (2, let repository, _):           self = .release(repository)
         default:                               return nil
         }

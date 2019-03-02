@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryCodeRouter {
+final class RepositoryTreeRouter {
     
     private unowned let viewController: UIViewController
     
@@ -17,10 +17,10 @@ final class RepositoryCodeRouter {
     }
     
     static func assembelModules(repository: Repository, branch: Branch) -> UIViewController {
-        let view = RepositoryCodeViewController()
-        let router = RepositoryCodeRouter(viewController: view)
+        let view = RepositoryTreeViewController()
+        let router = RepositoryTreeRouter(viewController: view)
         let interactor = GitHubInteractor()
-        let presenter = RepositoryCodeViewPresenter(view: view,
+        let presenter = RepositoryTreeViewPresenter(view: view,
                                                     router: router,
                                                     interactor: interactor,
                                                     repository: repository,
@@ -32,6 +32,6 @@ final class RepositoryCodeRouter {
     }
 }
 
-extension RepositoryCodeRouter: RepositoryCodeWireframe {
+extension RepositoryTreeRouter: RepositoryTreeWireframe {
     
 }

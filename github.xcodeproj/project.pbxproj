@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		17044BFB221FA85900377FC2 /* RepositoryCodeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044BFA221FA85900377FC2 /* RepositoryCodeContract.swift */; };
-		17044BFE221FA8C100377FC2 /* RepositoryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044BFC221FA8C100377FC2 /* RepositoryCodeViewController.swift */; };
-		17044C01221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C00221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift */; };
-		17044C03221FA97000377FC2 /* RepositoryCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C02221FA97000377FC2 /* RepositoryCodeRouter.swift */; };
+		17044BFE221FA8C100377FC2 /* RepositoryTreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044BFC221FA8C100377FC2 /* RepositoryTreeViewController.swift */; };
+		17044C01221FA8FE00377FC2 /* RepositoryTreeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C00221FA8FE00377FC2 /* RepositoryTreeViewPresenter.swift */; };
+		17044C03221FA97000377FC2 /* RepositoryTreeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C02221FA97000377FC2 /* RepositoryTreeRouter.swift */; };
 		17044C0A2224190500377FC2 /* RepositoryReleaseContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C092224190500377FC2 /* RepositoryReleaseContract.swift */; };
 		17044C0D2224199800377FC2 /* RepositoryReleaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */; };
 		17044C0E2224199800377FC2 /* RepositoryReleaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */; };
@@ -74,9 +74,9 @@
 		1165A6FB03A85C87F89CCB79 /* Pods-githubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubTests.debug.xcconfig"; path = "Target Support Files/Pods-githubTests/Pods-githubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		11EC31E5CDD8A655058633DE /* Pods-githubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubTests.release.xcconfig"; path = "Target Support Files/Pods-githubTests/Pods-githubTests.release.xcconfig"; sourceTree = "<group>"; };
 		17044BFA221FA85900377FC2 /* RepositoryCodeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCodeContract.swift; sourceTree = "<group>"; };
-		17044BFC221FA8C100377FC2 /* RepositoryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCodeViewController.swift; sourceTree = "<group>"; };
-		17044C00221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCodeViewPresenter.swift; sourceTree = "<group>"; };
-		17044C02221FA97000377FC2 /* RepositoryCodeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCodeRouter.swift; sourceTree = "<group>"; };
+		17044BFC221FA8C100377FC2 /* RepositoryTreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTreeViewController.swift; sourceTree = "<group>"; };
+		17044C00221FA8FE00377FC2 /* RepositoryTreeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTreeViewPresenter.swift; sourceTree = "<group>"; };
+		17044C02221FA97000377FC2 /* RepositoryTreeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTreeRouter.swift; sourceTree = "<group>"; };
 		17044C092224190500377FC2 /* RepositoryReleaseContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseContract.swift; sourceTree = "<group>"; };
 		17044C0B2224199800377FC2 /* RepositoryReleaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReleaseViewController.swift; sourceTree = "<group>"; };
 		17044C0C2224199800377FC2 /* RepositoryReleaseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryReleaseViewController.xib; sourceTree = "<group>"; };
@@ -157,13 +157,13 @@
 			children = (
 				17744DA9221EDCEF009D5A83 /* RepositoryDetailPage */,
 				17744DB6221EF61B009D5A83 /* RepositoryReadme */,
-				17044BF5221FA81500377FC2 /* RepositoryCode */,
+				17044BF5221FA81500377FC2 /* RepositoryTree */,
 				17044C04222414D300377FC2 /* RepositoryRelease */,
 			);
 			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
-		17044BF5221FA81500377FC2 /* RepositoryCode */ = {
+		17044BF5221FA81500377FC2 /* RepositoryTree */ = {
 			isa = PBXGroup;
 			children = (
 				17044BF9221FA83800377FC2 /* view */,
@@ -171,7 +171,7 @@
 				17044BF7221FA82B00377FC2 /* router */,
 				17044BF6221FA82300377FC2 /* contract */,
 			);
-			path = RepositoryCode;
+			path = RepositoryTree;
 			sourceTree = "<group>";
 		};
 		17044BF6221FA82300377FC2 /* contract */ = {
@@ -185,7 +185,7 @@
 		17044BF7221FA82B00377FC2 /* router */ = {
 			isa = PBXGroup;
 			children = (
-				17044C02221FA97000377FC2 /* RepositoryCodeRouter.swift */,
+				17044C02221FA97000377FC2 /* RepositoryTreeRouter.swift */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -193,7 +193,7 @@
 		17044BF8221FA83200377FC2 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
-				17044C00221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift */,
+				17044C00221FA8FE00377FC2 /* RepositoryTreeViewPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -201,7 +201,7 @@
 		17044BF9221FA83800377FC2 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				17044BFC221FA8C100377FC2 /* RepositoryCodeViewController.swift */,
+				17044BFC221FA8C100377FC2 /* RepositoryTreeViewController.swift */,
 				17044C24222A5B7000377FC2 /* cell */,
 			);
 			path = view;
@@ -802,12 +802,12 @@
 				173AE58F221D7EDE004FEC1A /* SearchResultRouter.swift in Sources */,
 				17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */,
 				17044C0D2224199800377FC2 /* RepositoryReleaseViewController.swift in Sources */,
-				17044C03221FA97000377FC2 /* RepositoryCodeRouter.swift in Sources */,
+				17044C03221FA97000377FC2 /* RepositoryTreeRouter.swift in Sources */,
 				17044C2C222A5C3400377FC2 /* BlobCell.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
 				173AE58D221D7E71004FEC1A /* SearchResultContract.swift in Sources */,
 				17044C28222A5B9600377FC2 /* TreeCell.swift in Sources */,
-				17044BFE221FA8C100377FC2 /* RepositoryCodeViewController.swift in Sources */,
+				17044BFE221FA8C100377FC2 /* RepositoryTreeViewController.swift in Sources */,
 				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
@@ -815,7 +815,7 @@
 				17044C182228E4D900377FC2 /* Tree.swift in Sources */,
 				17744DB5221EE49C009D5A83 /* RepositoryDetailPageRouter.swift in Sources */,
 				17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */,
-				17044C01221FA8FE00377FC2 /* RepositoryCodeViewPresenter.swift in Sources */,
+				17044C01221FA8FE00377FC2 /* RepositoryTreeViewPresenter.swift in Sources */,
 				17744DBA221EF6CD009D5A83 /* RepositoryReadmeViewController.swift in Sources */,
 				17744DB3221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,

@@ -56,8 +56,8 @@ extension RepositoryDetailContent {
         switch self {
         case .readme:
             return RepositoryReadmeRouter.assembleModules()
-        case .code(let repository, let branch):
-            return RepositoryCodeRouter.assembelModules(repository: repository, branch: branch)
+        case .tree(let repository, let branch):
+            return RepositoryTreeRouter.assembelModules(repository: repository, branch: branch)
         case .release:
             return RepositoryReleaseRouter.assembleModules()
         }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class RepositoryCodeViewController: UITableViewController {
+final class RepositoryTreeViewController: UITableViewController {
     
-    var presenter: RepositoryCodeViewPresentation!
+    var presenter: RepositoryTreeViewPresentation!
     
     private var trees: [Tree] = [] {
         didSet {
@@ -30,14 +30,14 @@ final class RepositoryCodeViewController: UITableViewController {
     }
 }
 
-extension RepositoryCodeViewController: RepositoryCodeView {
+extension RepositoryTreeViewController: RepositoryTreeView {
     
     func updateTrees(_ trees: [Tree]) {
         self.trees = trees
     }
 }
 
-extension RepositoryCodeViewController {
+extension RepositoryTreeViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
