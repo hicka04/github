@@ -34,6 +34,7 @@ final class RepositoryTreeViewController: UITableViewController {
         
         tableView.register(TreeCell.self)
         tableView.register(BlobCell.self)
+        tableView.tableFooterView = UIView(frame: .zero)
         
         presenter.viewDidLoad()
     }
