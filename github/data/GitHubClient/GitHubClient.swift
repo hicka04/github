@@ -21,7 +21,6 @@ final class GitHubClient {
         let session = URLSession(configuration: configuration)
         return session
     }()
-    
 }
 
 extension GitHubClient: GitHubRequestable {

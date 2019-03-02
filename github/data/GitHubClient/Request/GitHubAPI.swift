@@ -22,9 +22,7 @@ final class GitHubAPI {
             return "/search/repositories"
         }
         
-        var method: HTTPMethod {
-            return .get
-        }
+        let method: HTTPMethod = .get
         
         var queryItems: [URLQueryItem] {
             return [URLQueryItem(name: "q", value: keyword)]
@@ -42,13 +40,9 @@ final class GitHubAPI {
             return "/repos/\(repository.fullName)/branches/\(branch ?? repository.defaultBranch)"
         }
         
-        var method: HTTPMethod {
-            return .get
-        }
+        let method: HTTPMethod = .get
         
-        var queryItems: [URLQueryItem] {
-            return []
-        }
+        let queryItems: [URLQueryItem] = []
         
         init(repository: Repository, branch: String? = nil) {
             self.repository = repository
@@ -64,15 +58,26 @@ final class GitHubAPI {
             return "/repos/\(repository.fullName)/git/trees/\(sha.rawValue)"
         }
         
-        var method: HTTPMethod {
-            return .get
-        }
+        let method: HTTPMethod = .get
         
-        var queryItems: [URLQueryItem] {
-            return []
-        }
+        let queryItems: [URLQueryItem] = []
         
         let repository: Repository
         let sha: SHA
+    }
+    
+    struct SearchReleases: GitHubRequest {
+        
+        typealias Response = [Release]
+        
+        var path: String {
+            return "/repos/\(repository.fullName)/releases"
+        }
+        
+        let method: HTTPMethod = .get
+        
+        let queryItems: [URLQueryItem] = []
+        
+        let repository: Repository
     }
 }
