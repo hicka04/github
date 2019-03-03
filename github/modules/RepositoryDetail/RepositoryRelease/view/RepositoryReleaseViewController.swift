@@ -23,6 +23,7 @@ final class RepositoryReleaseViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(ReleaseCell.self)
         tableView.tableFooterView = UIView(frame: .zero)
         
         presenter.viewDidLoad()
@@ -47,8 +48,8 @@ extension RepositoryReleaseViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = releases[indexPath.row].name
+        let cell: ReleaseCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.set(release: releases[indexPath.row])
         return cell
     }
 }
