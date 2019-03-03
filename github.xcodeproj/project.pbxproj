@@ -47,6 +47,8 @@
 		173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE59D221D9261004FEC1A /* RepositoryCell.swift */; };
 		173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 173AE59E221D9261004FEC1A /* RepositoryCell.xib */; };
 		1753EB93222BB507009BBDB5 /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753EB92222BB507009BBDB5 /* ReleaseCell.swift */; };
+		1753EB9A222BC1F4009BBDB5 /* Readme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753EB99222BC1F4009BBDB5 /* Readme.swift */; };
+		1753EB9D222BD171009BBDB5 /* SearchReadmeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753EB9C222BD171009BBDB5 /* SearchReadmeInteractor.swift */; };
 		17744DAF221EDD8A009D5A83 /* RepositoryDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DAE221EDD8A009D5A83 /* RepositoryDetailContract.swift */; };
 		17744DB1221EE21E009D5A83 /* RepositoryDetailPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DB0221EE21E009D5A83 /* RepositoryDetailPageViewController.swift */; };
 		17744DB3221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DB2221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift */; };
@@ -117,6 +119,8 @@
 		173AE59D221D9261004FEC1A /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		173AE59E221D9261004FEC1A /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		1753EB92222BB507009BBDB5 /* ReleaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseCell.swift; sourceTree = "<group>"; };
+		1753EB99222BC1F4009BBDB5 /* Readme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readme.swift; sourceTree = "<group>"; };
+		1753EB9C222BD171009BBDB5 /* SearchReadmeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReadmeInteractor.swift; sourceTree = "<group>"; };
 		17744DAE221EDD8A009D5A83 /* RepositoryDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailContract.swift; sourceTree = "<group>"; };
 		17744DB0221EE21E009D5A83 /* RepositoryDetailPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPageViewController.swift; sourceTree = "<group>"; };
 		17744DB2221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailPageViewPresenter.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				17044C30222A7BB800377FC2 /* GitHubRepository */,
+				1753EB9B222BD13D009BBDB5 /* GitHubReadme */,
 				17044C34222A7CF900377FC2 /* GitHubBranch */,
 				17044C37222A7D9400377FC2 /* GitHubTrees */,
 				17044C3C222A860C00377FC2 /* GitHubRelease */,
@@ -459,6 +464,7 @@
 				17044C172228E4D900377FC2 /* Tree.swift */,
 				17044C2E222A6E8700377FC2 /* SHA.swift */,
 				17044C3A222A827A00377FC2 /* Release.swift */,
+				1753EB99222BC1F4009BBDB5 /* Readme.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -478,6 +484,14 @@
 				1753EB92222BB507009BBDB5 /* ReleaseCell.swift */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		1753EB9B222BD13D009BBDB5 /* GitHubReadme */ = {
+			isa = PBXGroup;
+			children = (
+				1753EB9C222BD171009BBDB5 /* SearchReadmeInteractor.swift */,
+			);
+			path = GitHubReadme;
 			sourceTree = "<group>";
 		};
 		17744DA9221EDCEF009D5A83 /* RepositoryDetailPage */ = {
@@ -813,6 +827,7 @@
 				173AE586221D7C68004FEC1A /* RootRouter.swift in Sources */,
 				173AE56A2217008A004FEC1A /* GitHubAPI.swift in Sources */,
 				17044C3B222A827A00377FC2 /* Release.swift in Sources */,
+				1753EB9D222BD171009BBDB5 /* SearchReadmeInteractor.swift in Sources */,
 				173AE56C2217008A004FEC1A /* GitHubRequest.swift in Sources */,
 				17044C1A2228E57A00377FC2 /* TreeResponse.swift in Sources */,
 				173AE57C221D06C3004FEC1A /* UITableView+extension.swift in Sources */,
@@ -843,6 +858,7 @@
 				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
+				1753EB9A222BC1F4009BBDB5 /* Readme.swift in Sources */,
 				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,
 				17044C182228E4D900377FC2 /* Tree.swift in Sources */,
 				17744DB5221EE49C009D5A83 /* RepositoryDetailPageRouter.swift in Sources */,

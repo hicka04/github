@@ -29,6 +29,21 @@ final class GitHubAPI {
         }
     }
     
+    struct SearchReadme: GitHubRequest {
+        
+        typealias Response = Readme
+        
+        var path: String {
+            return "/repos/\(repository.fullName)/readme"
+        }
+        
+        let method: HTTPMethod = .get
+        
+        let queryItems: [URLQueryItem] = []
+        
+        let repository: Repository
+    }
+    
     struct SearchBranch: GitHubRequest {
         
         typealias Response = Branch

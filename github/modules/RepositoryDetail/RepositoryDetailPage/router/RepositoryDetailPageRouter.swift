@@ -54,8 +54,8 @@ private extension RepositoryDetailContent {
     
     var contentView: UIViewController {
         switch self {
-        case .readme:
-            return RepositoryReadmeRouter.assembleModules()
+        case .readme(let repository):
+            return RepositoryReadmeRouter.assembleModules(repository: repository)
         case .tree(let repository, let sha):
             return RepositoryTreeRouter.assembelModules(repository: repository, sha: sha)
         case .release(let repository):

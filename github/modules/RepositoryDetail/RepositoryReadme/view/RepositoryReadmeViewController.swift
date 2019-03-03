@@ -14,12 +14,25 @@ final class RepositoryReadmeViewController: UIViewController {
     var presenter: RepositoryReadmeViewPresentation!
     
     @IBOutlet private weak var markdownView: MarkdownView!
+    
+    private var readme: Readme? {
+        didSet {
+            DispatchQueue.main.async {
+                self.markdownView.load(markdown: self.readme?.markdown?.rawValue, enableImage: true)
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.viewDidLoad()
     }
 }
 
 extension RepositoryReadmeViewController: RepositoryReadmeView {
     
+    func updateReadme(_ readme: Readme) {
+        self.readme = readme
+    }
 }

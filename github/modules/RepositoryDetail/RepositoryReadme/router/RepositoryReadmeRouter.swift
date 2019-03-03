@@ -16,10 +16,14 @@ final class RepositoryReadmeRouter {
         self.viewController = viewController
     }
     
-    static func assembleModules() -> UIViewController {
+    static func assembleModules(repository: Repository, branch: String? = nil) -> UIViewController {
         let view = RepositoryReadmeViewController()
         let router = RepositoryReadmeRouter(viewController: view)
-        let presenter = RepositoryReadmeViewPresenter(view: view, router: router)
+        let interactor = GitHubReadmeInteractor(repository: repository)
+        let presenter = RepositoryReadmeViewPresenter(view: view,
+                                                      router: router,
+                                                      interactor: interactor,
+                                                      branch: branch)
         
         view.presenter = presenter
         

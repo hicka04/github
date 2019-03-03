@@ -10,6 +10,7 @@ import Foundation
 
 protocol RepositoryReadmeView: AnyObject {
     
+    func updateReadme(_ readme: Readme)
 }
 
 protocol RepositoryReadmeViewPresentation: AnyObject {
