@@ -8,18 +8,18 @@
 
 import Foundation
 
-protocol RepositoryTreeView: AnyObject {
+protocol RepositoryContentsView: AnyObject {
     
     func updateTrees(_ trees: [Tree])
 }
 
-protocol RepositoryTreeViewPresentation: AnyObject {
+protocol RepositoryContentsViewPresentation: AnyObject {
     
     func viewDidLoad()
     func didSelectRow(at indexPath: IndexPath)
 }
 
-protocol RepositoryTreeWireframe: AnyObject {
+protocol RepositoryContentsWireframe: AnyObject {
     
     func showTreeView(from repository: Repository, sha: SHA, path: String)
 }

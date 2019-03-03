@@ -57,7 +57,7 @@ private extension RepositoryDetailContent {
         case .readme(let repository):
             return RepositoryReadmeRouter.assembleModules(repository: repository)
         case .tree(let repository, let sha):
-            return RepositoryTreeRouter.assembelModules(repository: repository, sha: sha)
+            return RepositoryContentsRouter.assembelModules(repository: repository, sha: sha)
         case .release(let repository):
             return RepositoryReleaseRouter.assembleModules(repository: repository)
         }

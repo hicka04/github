@@ -8,11 +8,11 @@
 
 import Foundation
 
-final class RepositoryTreeViewPresenter {
+final class RepositoryContentsViewPresenter {
     
-    private weak var view: RepositoryTreeView?
-    private let router: RepositoryTreeWireframe
-    private let interactor: GitHubTreesUsecase
+    private weak var view: RepositoryContentsView?
+    private let router: RepositoryContentsWireframe
+    private let interactor: GitHubRepositoryContentssUsecase
     
     private let repository: Repository
     private let sha: SHA
@@ -23,9 +23,9 @@ final class RepositoryTreeViewPresenter {
         }
     }
     
-    init(view: RepositoryTreeView,
-         router: RepositoryTreeWireframe,
-         interactor: GitHubTreesUsecase,
+    init(view: RepositoryContentsView,
+         router: RepositoryContentsWireframe,
+         interactor: GitHubRepositoryContentssUsecase,
          repository: Repository, sha: SHA) {
         self.view = view
         self.router = router
@@ -36,7 +36,7 @@ final class RepositoryTreeViewPresenter {
     }
 }
 
-extension RepositoryTreeViewPresenter: RepositoryTreeViewPresentation {
+extension RepositoryContentsViewPresenter: RepositoryContentsViewPresentation {
     
     func viewDidLoad() {
         interactor.searchTrees(from: repository, sha: sha) { result in

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryTreeRouter {
+final class RepositoryContentsRouter {
     
     private unowned let viewController: UIViewController
     
@@ -17,10 +17,10 @@ final class RepositoryTreeRouter {
     }
     
     static func assembelModules(repository: Repository, sha: SHA, path: String? = nil) -> UIViewController {
-        let view = RepositoryTreeViewController(path: path)
-        let router = RepositoryTreeRouter(viewController: view)
-        let interactor = GitHubTreesInteractor()
-        let presenter = RepositoryTreeViewPresenter(view: view,
+        let view = RepositoryContentsViewController(path: path)
+        let router = RepositoryContentsRouter(viewController: view)
+        let interactor = GitHubRepositoryContentssInteractor()
+        let presenter = RepositoryContentsViewPresenter(view: view,
                                                     router: router,
                                                     interactor: interactor,
                                                     repository: repository,
@@ -32,10 +32,10 @@ final class RepositoryTreeRouter {
     }
 }
 
-extension RepositoryTreeRouter: RepositoryTreeWireframe {
+extension RepositoryContentsRouter: RepositoryContentsWireframe {
     
     func showTreeView(from repository: Repository, sha: SHA, path: String) {
-        let treeView = RepositoryTreeRouter.assembelModules(repository: repository, sha: sha, path: path)
+        let treeView = RepositoryContentsRouter.assembelModules(repository: repository, sha: sha, path: path)
         viewController.navigationController?.pushViewController(treeView, animated: true)
     }
 }
