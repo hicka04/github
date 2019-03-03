@@ -12,7 +12,7 @@ final class RepositoryContentsViewPresenter {
     
     private weak var view: RepositoryContentsView?
     private let router: RepositoryContentsWireframe
-    private let interactor: GitHubRepositoryContentssUsecase
+    private let interactor: GitHubRepositoryContentsUsecase
     
     private let repository: Repository
     private let sha: SHA
@@ -25,7 +25,7 @@ final class RepositoryContentsViewPresenter {
     
     init(view: RepositoryContentsView,
          router: RepositoryContentsWireframe,
-         interactor: GitHubRepositoryContentssUsecase,
+         interactor: GitHubRepositoryContentsUsecase,
          repository: Repository, sha: SHA) {
         self.view = view
         self.router = router

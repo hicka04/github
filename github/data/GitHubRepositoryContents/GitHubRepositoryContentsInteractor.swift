@@ -1,5 +1,5 @@
 //
-//  GitHubRepositoryContentssInteractor.swift
+//  GitHubRepositoryContentsInteractor.swift
 //  github
 //
 //  Created by hicka04 on 2019/03/02.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol GitHubRepositoryContentssUsecase: AnyObject {
+protocol GitHubRepositoryContentsUsecase: AnyObject {
     func searchTrees(from repository: Repository,
                      sha: SHA,
                      completion: @escaping (Result<[Tree], GitHubClientError>) -> Void)
 }
 
-class GitHubRepositoryContentssInteractor {
+class GitHubRepositoryContentsInteractor {
     
     private let client: GitHubRequestable
     
@@ -23,7 +23,7 @@ class GitHubRepositoryContentssInteractor {
     }
 }
 
-extension GitHubRepositoryContentssInteractor: GitHubRepositoryContentssUsecase {
+extension GitHubRepositoryContentsInteractor: GitHubRepositoryContentsUsecase {
     
     func searchTrees(from repository: Repository,
                      sha: SHA,

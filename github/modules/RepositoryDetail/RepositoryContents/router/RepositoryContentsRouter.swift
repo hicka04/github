@@ -19,7 +19,7 @@ final class RepositoryContentsRouter {
     static func assembelModules(repository: Repository, sha: SHA, path: String? = nil) -> UIViewController {
         let view = RepositoryContentsViewController(path: path)
         let router = RepositoryContentsRouter(viewController: view)
-        let interactor = GitHubRepositoryContentssInteractor()
+        let interactor = GitHubRepositoryContentsInteractor()
         let presenter = RepositoryContentsViewPresenter(view: view,
                                                     router: router,
                                                     interactor: interactor,
