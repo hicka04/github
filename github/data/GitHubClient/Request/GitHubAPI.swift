@@ -44,41 +44,23 @@ final class GitHubAPI {
         let repository: Repository
     }
     
-    struct SearchBranch: GitHubRequest {
+    struct SearchRepositoryContents: GitHubRequest {
         
-        typealias Response = Branch
+        typealias Response = [RepositoryContent]
+        
+        var path: String {
+            return "/repos/\(repository.fullName)/contents/\(contentsPath)"
+        }
+        
+        let method: HTTPMethod = .get
+        
+        var queryItems: [URLQueryItem] {
+            return [URLQueryItem(name: "ref", value: branch ?? repository.defaultBranch)]
+        }
         
         let repository: Repository
+        let contentsPath: String
         let branch: String?
-        
-        var path: String {
-            return "/repos/\(repository.fullName)/branches/\(branch ?? repository.defaultBranch)"
-        }
-        
-        let method: HTTPMethod = .get
-        
-        let queryItems: [URLQueryItem] = []
-        
-        init(repository: Repository, branch: String? = nil) {
-            self.repository = repository
-            self.branch = branch
-        }
-    }
-    
-    struct SearchTrees: GitHubRequest {
-        
-        typealias Response = TreeResponse
-        
-        var path: String {
-            return "/repos/\(repository.fullName)/git/trees/\(sha.rawValue)"
-        }
-        
-        let method: HTTPMethod = .get
-        
-        let queryItems: [URLQueryItem] = []
-        
-        let repository: Repository
-        let sha: SHA
     }
     
     struct SearchReleases: GitHubRequest {

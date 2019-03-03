@@ -10,7 +10,7 @@ import Foundation
 
 protocol RepositoryContentsView: AnyObject {
     
-    func updateTrees(_ trees: [Tree])
+    func updateContents(_ contents: [RepositoryContent])
 }
 
 protocol RepositoryContentsViewPresentation: AnyObject {
@@ -21,5 +21,5 @@ protocol RepositoryContentsViewPresentation: AnyObject {
 
 protocol RepositoryContentsWireframe: AnyObject {
     
-    func showTreeView(from repository: Repository, sha: SHA, path: String)
+    func showRepositoryContentsView(path: String, branch: String?)
 }

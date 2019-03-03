@@ -9,33 +9,32 @@
 import Foundation
 
 protocol GitHubRepositoryContentsUsecase: AnyObject {
-    func searchTrees(from repository: Repository,
-                     sha: SHA,
-                     completion: @escaping (Result<[Tree], GitHubClientError>) -> Void)
+    
+    func searchRepositoryContents(branch: String?,
+                                  completion: @escaping (Result<[RepositoryContent], GitHubClientError>) -> Void)
 }
 
-class GitHubRepositoryContentsInteractor {
+final class GitHubRepositoryContentsInteractor {
     
     private let client: GitHubRequestable
     
-    init(client: GitHubRequestable = GitHubClient()) {
+    private let repository: Repository
+    private let path: String
+    
+    init(client: GitHubRequestable = GitHubClient(),
+         repository: Repository,
+         path: String) {
         self.client = client
+        self.repository = repository
+        self.path = path
     }
 }
 
 extension GitHubRepositoryContentsInteractor: GitHubRepositoryContentsUsecase {
     
-    func searchTrees(from repository: Repository,
-                     sha: SHA,
-                     completion: @escaping (Result<[Tree], GitHubClientError>) -> Void) {
-        let request = GitHubAPI.SearchTrees(repository: repository, sha: sha)
-        client.send(request: request) { result in
-            switch result {
-            case .success(let tree):
-                completion(.success(tree.trees))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func searchRepositoryContents(branch: String?,
+                                  completion: @escaping (Result<[RepositoryContent], GitHubClientError>) -> Void) {
+        let request = GitHubAPI.SearchRepositoryContents(repository: repository, contentsPath: path, branch: branch)
+        client.send(request: request, completion: completion)
     }
 }

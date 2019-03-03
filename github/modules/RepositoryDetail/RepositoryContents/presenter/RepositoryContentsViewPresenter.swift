@@ -14,35 +14,28 @@ final class RepositoryContentsViewPresenter {
     private let router: RepositoryContentsWireframe
     private let interactor: GitHubRepositoryContentsUsecase
     
-    private let repository: Repository
-    private let sha: SHA
-    
-    private var trees: [Tree] = [] {
+    private var contents: [RepositoryContent] = [] {
         didSet {
-            view?.updateTrees(trees)
+            view?.updateContents(contents)
         }
     }
     
     init(view: RepositoryContentsView,
          router: RepositoryContentsWireframe,
-         interactor: GitHubRepositoryContentsUsecase,
-         repository: Repository, sha: SHA) {
+         interactor: GitHubRepositoryContentsUsecase) {
         self.view = view
         self.router = router
         self.interactor = interactor
-        
-        self.repository = repository
-        self.sha = sha
     }
 }
 
 extension RepositoryContentsViewPresenter: RepositoryContentsViewPresentation {
     
     func viewDidLoad() {
-        interactor.searchTrees(from: repository, sha: sha) { result in
+        interactor.searchRepositoryContents(branch: nil) { result in
             switch result {
-            case .success(let trees):
-                self.trees = trees.sorted()
+            case .success(let contents):
+                self.contents = contents.sorted()
             case .failure(let error):
                 print(error)
             }
@@ -50,11 +43,11 @@ extension RepositoryContentsViewPresenter: RepositoryContentsViewPresentation {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        let tree = trees[indexPath.row]
-        switch tree.type {
-        case .tree:
-            router.showTreeView(from: repository, sha: tree.sha, path: tree.path)
-        case .blob:
+        let content = contents[indexPath.row]
+        switch content.type {
+        case .dir:
+            router.showRepositoryContentsView(path: content.name, branch: nil)
+        case .file:
             break
         }
     }

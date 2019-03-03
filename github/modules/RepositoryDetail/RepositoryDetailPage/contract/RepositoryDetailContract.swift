@@ -20,20 +20,19 @@ protocol RepositoryDetailPageViewPresentation: AnyObject {
 
 protocol RepositoryDetailPageWireframe: AnyObject {
     
-    func show(content: RepositoryDetailContent)
+    func showDetailContent(_ content: RepositoryDetailContent)
 }
 
-enum RepositoryDetailContent {
-    case readme(Repository)
-    case tree(Repository, SHA)
-    case release(Repository)
+enum RepositoryDetailContent: Int, CaseIterable {
+    case readme
+    case contents
+    case release
     
-    init?(segmentedIndex: Int, repository: Repository, branch: Branch?) {
-        switch (segmentedIndex, repository, branch) {
-        case (0, let repository, _): self = .readme(repository)
-        case (1, let repository, let branch?): self = .tree(repository, branch.sha)
-        case (2, let repository, _):           self = .release(repository)
-        default:                               return nil
+    var title: String {
+        switch self {
+        case .readme:   return "README.md"
+        case .contents: return "Codes"
+        case .release:  return "Release"
         }
     }
 }

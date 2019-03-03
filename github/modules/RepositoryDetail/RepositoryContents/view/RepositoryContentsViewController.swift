@@ -12,7 +12,7 @@ final class RepositoryContentsViewController: UITableViewController {
     
     var presenter: RepositoryContentsViewPresentation!
     
-    private var trees: [Tree] = [] {
+    private var contents: [RepositoryContent] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -32,8 +32,8 @@ final class RepositoryContentsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(TreeCell.self)
-        tableView.register(BlobCell.self)
+        tableView.register(DirCell.self)
+        tableView.register(FileCell.self)
         tableView.tableFooterView = UIView(frame: .zero)
         
         presenter.viewDidLoad()
@@ -42,8 +42,8 @@ final class RepositoryContentsViewController: UITableViewController {
 
 extension RepositoryContentsViewController: RepositoryContentsView {
     
-    func updateTrees(_ trees: [Tree]) {
-        self.trees = trees
+    func updateContents(_ contents: [RepositoryContent]) {
+        self.contents = contents
     }
 }
 
@@ -54,20 +54,20 @@ extension RepositoryContentsViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return trees.count
+        return contents.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let tree = trees[indexPath.row]
-        switch tree.type {
-        case .blob:
-            let cell: BlobCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.textLabel?.text = tree.path
+        let content = contents[indexPath.row]
+        switch content.type {
+        case .file:
+            let cell: FileCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = content.path
             return cell
             
-        case .tree:
-            let cell: TreeCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.textLabel?.text = tree.path
+        case .dir:
+            let cell: DirCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = content.path
             return cell
         }
     }

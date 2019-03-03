@@ -12,6 +12,8 @@ final class RepositoryDetailPageRouter {
     
     private unowned let pageViewController: UIPageViewController
     
+    private let repository: Repository
+    
     private var currentContent: RepositoryDetailContent? {
         didSet {
             guard let content = currentContent else {
@@ -19,7 +21,7 @@ final class RepositoryDetailPageRouter {
             }
             
             DispatchQueue.main.async {
-                self.pageViewController.setViewControllers([content.contentView],
+                self.pageViewController.setViewControllers([content.contentView(repository: self.repository)],
                                                            direction: .forward,
                                                            animated: false,
                                                            completion: nil)
@@ -27,15 +29,16 @@ final class RepositoryDetailPageRouter {
         }
     }
     
-    private init(pageViewController: UIPageViewController) {
+    private init(pageViewController: UIPageViewController,
+                 repository: Repository) {
         self.pageViewController = pageViewController
+        self.repository = repository
     }
     
     static func assembleModules(repository: Repository) -> UIViewController {
         let view = RepositoryDetailPageViewController()
-        let router = RepositoryDetailPageRouter(pageViewController: view)
-        let interactor = GitHubBranchInteractor()
-        let presenter = RepositoryDetailPageViewPresenter(view: view, router: router, interactor: interactor, repository: repository)
+        let router = RepositoryDetailPageRouter(pageViewController: view, repository: repository)
+        let presenter = RepositoryDetailPageViewPresenter(view: view, router: router, repository: repository)
         
         view.presenter = presenter
         
@@ -45,20 +48,20 @@ final class RepositoryDetailPageRouter {
 
 extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     
-    func show(content: RepositoryDetailContent) {
+    func showDetailContent(_ content: RepositoryDetailContent) {
         currentContent = content
     }
 }
 
 private extension RepositoryDetailContent {
     
-    var contentView: UIViewController {
+    func contentView(repository: Repository) -> UIViewController {
         switch self {
-        case .readme(let repository):
+        case .readme:
             return RepositoryReadmeRouter.assembleModules(repository: repository)
-        case .tree(let repository, let sha):
-            return RepositoryContentsRouter.assembelModules(repository: repository, sha: sha)
-        case .release(let repository):
+        case .contents:
+            return RepositoryContentsRouter.assembelModules(repository: repository)
+        case .release:
             return RepositoryReleaseRouter.assembleModules(repository: repository)
         }
     }

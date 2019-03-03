@@ -14,7 +14,7 @@ final class RepositoryDetailPageViewController: UIPageViewController {
     var presenter: RepositoryDetailPageViewPresentation!
     
     private let segmentedControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: ["README.md", "Tree", "Release"])
+        let segmentedControl = UISegmentedControl(items: RepositoryDetailContent.allCases.map { $0.title })
         segmentedControl.selectedSegmentIndex = 0
         
         return segmentedControl

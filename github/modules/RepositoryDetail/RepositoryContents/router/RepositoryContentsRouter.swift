@@ -12,19 +12,21 @@ final class RepositoryContentsRouter {
     
     private unowned let viewController: UIViewController
     
-    private init(viewController: UIViewController) {
+    private let repository: Repository
+    
+    private init(viewController: UIViewController,
+                 repository: Repository) {
         self.viewController = viewController
+        self.repository = repository
     }
     
-    static func assembelModules(repository: Repository, sha: SHA, path: String? = nil) -> UIViewController {
+    static func assembelModules(repository: Repository, path: String = "", branch: String? = nil) -> UIViewController {
         let view = RepositoryContentsViewController(path: path)
-        let router = RepositoryContentsRouter(viewController: view)
-        let interactor = GitHubRepositoryContentsInteractor()
+        let router = RepositoryContentsRouter(viewController: view, repository: repository)
+        let interactor = GitHubRepositoryContentsInteractor(repository: repository, path: path)
         let presenter = RepositoryContentsViewPresenter(view: view,
-                                                    router: router,
-                                                    interactor: interactor,
-                                                    repository: repository,
-                                                    sha: sha)
+                                                        router: router,
+                                                        interactor: interactor)
         
         view.presenter = presenter
         
@@ -34,8 +36,8 @@ final class RepositoryContentsRouter {
 
 extension RepositoryContentsRouter: RepositoryContentsWireframe {
     
-    func showTreeView(from repository: Repository, sha: SHA, path: String) {
-        let treeView = RepositoryContentsRouter.assembelModules(repository: repository, sha: sha, path: path)
-        viewController.navigationController?.pushViewController(treeView, animated: true)
+    func showRepositoryContentsView(path: String, branch: String?) {
+        let repositoryContentsView = RepositoryContentsRouter.assembelModules(repository: repository, path: path, branch: branch)
+        viewController.navigationController?.pushViewController(repositoryContentsView, animated: true)
     }
 }
