@@ -20,8 +20,11 @@ final class RepositoryContentsRouter {
         self.repository = repository
     }
     
-    static func assembelModules(repository: Repository, path: String = "", branch: String? = nil) -> UIViewController {
-        let view = RepositoryContentsViewController(path: path)
+    static func assembelModules(repository: Repository,
+                                path: String = "",
+                                name: String? = nil,
+                                branch: String? = nil) -> UIViewController {
+        let view = RepositoryContentsViewController(name: name)
         let router = RepositoryContentsRouter(viewController: view, repository: repository)
         let interactor = GitHubRepositoryContentsInteractor(repository: repository, path: path)
         let presenter = RepositoryContentsViewPresenter(view: view,
@@ -36,8 +39,11 @@ final class RepositoryContentsRouter {
 
 extension RepositoryContentsRouter: RepositoryContentsWireframe {
     
-    func showRepositoryContentsView(path: String, branch: String?) {
-        let repositoryContentsView = RepositoryContentsRouter.assembelModules(repository: repository, path: path, branch: branch)
+    func showRepositoryContentsView(_ content: RepositoryContent, branch: String?) {
+        let repositoryContentsView = RepositoryContentsRouter.assembelModules(repository: repository,
+                                                                              path: content.path,
+                                                                              name: content.name,
+                                                                              branch: branch)
         viewController.navigationController?.pushViewController(repositoryContentsView, animated: true)
     }
 }

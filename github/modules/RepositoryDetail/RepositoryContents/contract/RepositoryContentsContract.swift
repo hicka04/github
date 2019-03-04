@@ -21,5 +21,5 @@ protocol RepositoryContentsViewPresentation: AnyObject {
 
 protocol RepositoryContentsWireframe: AnyObject {
     
-    func showRepositoryContentsView(path: String, branch: String?)
+    func showRepositoryContentsView(_ content: RepositoryContent, branch: String?)
 }

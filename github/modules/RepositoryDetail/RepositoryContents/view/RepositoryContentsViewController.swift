@@ -20,9 +20,9 @@ final class RepositoryContentsViewController: UITableViewController {
         }
     }
     
-    init(path: String? = nil) {
+    init(name: String? = nil) {
         super.init(nibName: nil, bundle: nil)
-        navigationItem.title = path
+        navigationItem.title = name
     }
     
     required init?(coder aDecoder: NSCoder) {

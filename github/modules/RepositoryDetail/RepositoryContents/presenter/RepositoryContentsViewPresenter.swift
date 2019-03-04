@@ -46,7 +46,7 @@ extension RepositoryContentsViewPresenter: RepositoryContentsViewPresentation {
         let content = contents[indexPath.row]
         switch content.type {
         case .dir:
-            router.showRepositoryContentsView(path: content.name, branch: nil)
+            router.showRepositoryContentsView(content, branch: nil)
         case .file:
             break
         }
