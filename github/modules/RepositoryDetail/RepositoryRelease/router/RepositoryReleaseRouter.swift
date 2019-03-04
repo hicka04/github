@@ -19,11 +19,10 @@ final class RepositoryReleaseRouter {
     static func assembleModules(repository: Repository) -> UIViewController {
         let view = RepositoryReleaseViewController()
         let router = RepositoryReleaseRouter(viewController: view)
-        let interactor = GitHubReleaseInteractor()
+        let interactor = GitHubReleaseInteractor(repository: repository)
         let presenter = RepositoryReleaseViewPresenter(view: view,
                                                        router: router,
-                                                       interactor: interactor,
-                                                       repository: repository)
+                                                       interactor: interactor)
         
         view.presenter = presenter
         

@@ -9,23 +9,26 @@
 import Foundation
 
 protocol GitHubReleaseUsecase: AnyObject {
-    func searchReleases(from repository: Repository,
-                        completion: @escaping (Result<[Release], GitHubClientError>) -> Void)
+    
+    func searchReleases(completion: @escaping (Result<[Release], GitHubClientError>) -> Void)
 }
 
-class GitHubReleaseInteractor {
+final class GitHubReleaseInteractor {
     
     private let client: GitHubRequestable
     
-    init(client: GitHubRequestable = GitHubClient()) {
+    private let repository: Repository
+    
+    init(client: GitHubRequestable = GitHubClient(),
+         repository: Repository) {
         self.client = client
+        self.repository = repository
     }
 }
 
 extension GitHubReleaseInteractor: GitHubReleaseUsecase {
     
-    func searchReleases(from repository: Repository,
-                        completion: @escaping (Result<[Release], GitHubClientError>) -> Void) {
+    func searchReleases(completion: @escaping (Result<[Release], GitHubClientError>) -> Void) {
         let request = GitHubAPI.SearchReleases(repository: repository)
         client.send(request: request, completion: completion)
     }

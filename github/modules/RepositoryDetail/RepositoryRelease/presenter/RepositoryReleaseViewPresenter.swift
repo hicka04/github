@@ -14,8 +14,6 @@ final class RepositoryReleaseViewPresenter {
     private let router: RepositoryReleaseWireframe
     private let interactor: GitHubReleaseUsecase
     
-    private let repository: Repository
-    
     private var releases: [Release] = [] {
         didSet {
             view?.updateReleases(releases)
@@ -24,20 +22,17 @@ final class RepositoryReleaseViewPresenter {
     
     init(view: RepositoryReleaseView,
          router: RepositoryReleaseWireframe,
-         interactor: GitHubReleaseUsecase,
-         repository: Repository) {
+         interactor: GitHubReleaseUsecase) {
         self.view = view
         self.router = router
         self.interactor = interactor
-        
-        self.repository = repository
     }
 }
 
 extension RepositoryReleaseViewPresenter: RepositoryReleaseViewPresentation {
     
     func viewDidLoad() {
-        interactor.searchReleases(from: repository) { result in
+        interactor.searchReleases { result in
             switch result {
             case .success(let releases):
                 self.releases = releases
