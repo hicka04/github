@@ -32,8 +32,7 @@ final class RepositoryContentsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(DirCell.self)
-        tableView.register(FileCell.self)
+        tableView.register(RepositoryContentCell.self)
         tableView.tableFooterView = UIView(frame: .zero)
         
         presenter.viewDidLoad()
@@ -59,17 +58,9 @@ extension RepositoryContentsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let content = contents[indexPath.row]
-        switch content.type {
-        case .file:
-            let cell: FileCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.textLabel?.text = content.path
-            return cell
-            
-        case .dir:
-            let cell: DirCell = tableView.dequeueReusableCell(for: indexPath)
-            cell.textLabel?.text = content.path
-            return cell
-        }
+        let cell: RepositoryContentCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.set(content: content)
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
