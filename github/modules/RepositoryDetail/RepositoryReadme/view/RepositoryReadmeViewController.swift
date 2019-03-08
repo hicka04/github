@@ -7,18 +7,21 @@
 //
 
 import UIKit
-import MarkdownView
+import WebKit
 
 final class RepositoryReadmeViewController: UIViewController {
     
     var presenter: RepositoryReadmeViewPresentation!
     
-    @IBOutlet private weak var markdownView: MarkdownView!
+    @IBOutlet private weak var webView: WKWebView!
     
     private var readme: Readme? {
         didSet {
+            guard let url = readme?.htmlUrl else {
+                return
+            }
             DispatchQueue.main.async {
-                self.markdownView.load(markdown: self.readme?.markdown?.rawValue, enableImage: true)
+                self.webView.load(URLRequest(url: url))
             }
         }
     }
