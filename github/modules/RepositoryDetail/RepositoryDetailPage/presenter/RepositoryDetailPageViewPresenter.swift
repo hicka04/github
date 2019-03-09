@@ -16,11 +16,11 @@ final class RepositoryDetailPageViewPresenter {
     private let repository: Repository
     private var segmentedIndex: Int = -1 {
         didSet {
-            guard let content = RepositoryDetailContent(rawValue: segmentedIndex) else {
+            guard let page = RepositoryDetailPage(rawValue: segmentedIndex) else {
                 return
             }
             
-            router.showDetailContent(content)
+            router.showDetailPage(page)
         }
     }
     

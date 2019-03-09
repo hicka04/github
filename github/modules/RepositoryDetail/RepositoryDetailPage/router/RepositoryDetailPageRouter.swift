@@ -14,14 +14,14 @@ final class RepositoryDetailPageRouter {
     
     private let repository: Repository
     
-    private var currentContent: RepositoryDetailContent? {
+    private var currentPage: RepositoryDetailPage? {
         didSet {
-            guard let content = currentContent else {
+            guard let page = currentPage else {
                 return
             }
             
             DispatchQueue.main.async {
-                self.pageViewController.setViewControllers([content.contentView(repository: self.repository)],
+                self.pageViewController.setViewControllers([page.view(repository: self.repository)],
                                                            direction: .forward,
                                                            animated: false,
                                                            completion: nil)
@@ -48,19 +48,19 @@ final class RepositoryDetailPageRouter {
 
 extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     
-    func showDetailContent(_ content: RepositoryDetailContent) {
-        currentContent = content
+    func showDetailPage(_ page: RepositoryDetailPage) {
+        currentPage = page
     }
 }
 
-private extension RepositoryDetailContent {
+private extension RepositoryDetailPage {
     
-    func contentView(repository: Repository) -> UIViewController {
+    func view(repository: Repository) -> UIViewController {
         switch self {
         case .readme:
             return RepositoryReadmeRouter.assembleModules(repository: repository)
         case .contents:
-            return RepositoryContentsRouter.assembelModules(repository: repository)
+            return RepositoryContentListRouter.assembelModules(repository: repository)
         case .release:
             return RepositoryReleaseRouter.assembleModules(repository: repository)
         }

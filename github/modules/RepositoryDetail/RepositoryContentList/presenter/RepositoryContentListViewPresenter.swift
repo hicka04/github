@@ -1,5 +1,5 @@
 //
-//  RepositoryCodeViewPresenter.swift
+//  RepositoryContentListViewPresenter.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/22.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class RepositoryContentsViewPresenter {
+final class RepositoryContentListViewPresenter {
     
-    private weak var view: RepositoryContentsView?
-    private let router: RepositoryContentsWireframe
+    private weak var view: RepositoryContentListView?
+    private let router: RepositoryContentListWireframe
     private let interactor: GitHubRepositoryContentsUsecase
     
     private var contents: [RepositoryContent] = [] {
@@ -20,8 +20,8 @@ final class RepositoryContentsViewPresenter {
         }
     }
     
-    init(view: RepositoryContentsView,
-         router: RepositoryContentsWireframe,
+    init(view: RepositoryContentListView,
+         router: RepositoryContentListWireframe,
          interactor: GitHubRepositoryContentsUsecase) {
         self.view = view
         self.router = router
@@ -29,7 +29,7 @@ final class RepositoryContentsViewPresenter {
     }
 }
 
-extension RepositoryContentsViewPresenter: RepositoryContentsViewPresentation {
+extension RepositoryContentListViewPresenter: RepositoryContentListViewPresentation {
     
     func viewDidLoad() {
         interactor.searchRepositoryContents(branch: nil) { result in
@@ -46,7 +46,7 @@ extension RepositoryContentsViewPresenter: RepositoryContentsViewPresentation {
         let content = contents[indexPath.row]
         switch content.type {
         case .dir:
-            router.showRepositoryContentsView(content, branch: nil)
+            router.showRepositoryContentListView(content, branch: nil)
         case .file:
             break
         }

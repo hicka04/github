@@ -20,10 +20,10 @@ protocol RepositoryDetailPageViewPresentation: AnyObject {
 
 protocol RepositoryDetailPageWireframe: AnyObject {
     
-    func showDetailContent(_ content: RepositoryDetailContent)
+    func showDetailPage(_ page: RepositoryDetailPage)
 }
 
-enum RepositoryDetailContent: Int, CaseIterable {
+enum RepositoryDetailPage: Int, CaseIterable {
     case readme
     case contents
     case release

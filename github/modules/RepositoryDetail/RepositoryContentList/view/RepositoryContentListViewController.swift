@@ -1,5 +1,5 @@
 //
-//  RepositoryCodeViewController.swift
+//  RepositoryContentListViewController.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/22.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class RepositoryContentsViewController: UITableViewController {
+final class RepositoryContentListViewController: UITableViewController {
     
-    var presenter: RepositoryContentsViewPresentation!
+    var presenter: RepositoryContentListViewPresentation!
     
     private var contents: [RepositoryContent] = [] {
         didSet {
@@ -39,14 +39,14 @@ final class RepositoryContentsViewController: UITableViewController {
     }
 }
 
-extension RepositoryContentsViewController: RepositoryContentsView {
+extension RepositoryContentListViewController: RepositoryContentListView {
     
     func updateContents(_ contents: [RepositoryContent]) {
         self.contents = contents
     }
 }
 
-extension RepositoryContentsViewController {
+extension RepositoryContentListViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

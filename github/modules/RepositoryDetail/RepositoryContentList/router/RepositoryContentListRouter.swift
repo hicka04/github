@@ -1,5 +1,5 @@
 //
-//  RepositoryCodeRouter.swift
+//  RepositoryContentListRouter.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/22.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryContentsRouter {
+final class RepositoryContentListRouter {
     
     private unowned let viewController: UIViewController
     
@@ -24,10 +24,10 @@ final class RepositoryContentsRouter {
                                 path: String = "",
                                 name: String? = nil,
                                 branch: String? = nil) -> UIViewController {
-        let view = RepositoryContentsViewController(name: name)
-        let router = RepositoryContentsRouter(viewController: view, repository: repository)
+        let view = RepositoryContentListViewController(name: name)
+        let router = RepositoryContentListRouter(viewController: view, repository: repository)
         let interactor = GitHubRepositoryContentsInteractor(repository: repository, path: path)
-        let presenter = RepositoryContentsViewPresenter(view: view,
+        let presenter = RepositoryContentListViewPresenter(view: view,
                                                         router: router,
                                                         interactor: interactor)
         
@@ -37,10 +37,10 @@ final class RepositoryContentsRouter {
     }
 }
 
-extension RepositoryContentsRouter: RepositoryContentsWireframe {
+extension RepositoryContentListRouter: RepositoryContentListWireframe {
     
-    func showRepositoryContentsView(_ content: RepositoryContent, branch: String?) {
-        let repositoryContentsView = RepositoryContentsRouter.assembelModules(repository: repository,
+    func showRepositoryContentListView(_ content: RepositoryContent, branch: String?) {
+        let repositoryContentsView = RepositoryContentListRouter.assembelModules(repository: repository,
                                                                               path: content.path,
                                                                               name: content.name,
                                                                               branch: branch)
