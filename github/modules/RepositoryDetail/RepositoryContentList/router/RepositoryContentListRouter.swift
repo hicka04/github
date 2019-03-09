@@ -48,7 +48,7 @@ extension RepositoryContentListRouter: RepositoryContentListWireframe {
     }
     
     func showRepositoryContentView(_ content: RepositoryContent, branch: String?) {
-        let repositoryContentView = RepositoryContentRouter.assembleModules(url: content.htmlUrl)
+        let repositoryContentView = RepositoryContentRouter.assembleModules(contentName: content.name, url: content.htmlUrl)
         viewController.navigationController?.pushViewController(repositoryContentView, animated: true)
     }
 }

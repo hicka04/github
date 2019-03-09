@@ -16,10 +16,10 @@ final class RepositoryContentRouter {
         self.viewController = viewController
     }
     
-    static func assembleModules(url: URL) -> UIViewController {
-        let view = RepositoryContentViewController()
+    static func assembleModules(contentName: String, url: URL) -> UIViewController {
+        let view = RepositoryContentViewController(contentName: contentName)
         let router = RepositoryContentRouter(viewController: view)
-        let presenter = RepositoryContentViewPresenter(view: view, router: router)
+        let presenter = RepositoryContentViewPresenter(view: view, router: router, url: url)
         
         view.presenter = presenter
         

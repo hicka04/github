@@ -10,10 +10,12 @@ import Foundation
 
 protocol RepositoryContentView: AnyObject {
     
+    func load(_ url: URL)
 }
 
 protocol RepositoryContentViewPresentation: AnyObject {
     
+    func viewDidLoad()
 }
 
 protocol RepositoryContentWireframe: AnyObject {

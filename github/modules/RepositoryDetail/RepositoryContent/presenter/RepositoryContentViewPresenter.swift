@@ -13,12 +13,20 @@ final class RepositoryContentViewPresenter {
     private weak var view: RepositoryContentView?
     private let router: RepositoryContentWireframe
     
-    init(view: RepositoryContentView, router: RepositoryContentWireframe) {
+    private let url: URL
+    
+    init(view: RepositoryContentView,
+         router: RepositoryContentWireframe,
+         url: URL) {
         self.view = view
         self.router = router
+        self.url = url
     }
 }
 
 extension RepositoryContentViewPresenter: RepositoryContentViewPresentation {
     
+    func viewDidLoad() {
+        view?.load(url)
+    }
 }
