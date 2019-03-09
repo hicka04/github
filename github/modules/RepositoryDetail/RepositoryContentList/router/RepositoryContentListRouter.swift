@@ -40,10 +40,15 @@ final class RepositoryContentListRouter {
 extension RepositoryContentListRouter: RepositoryContentListWireframe {
     
     func showRepositoryContentListView(_ content: RepositoryContent, branch: String?) {
-        let repositoryContentsView = RepositoryContentListRouter.assembelModules(repository: repository,
-                                                                              path: content.path,
-                                                                              name: content.name,
-                                                                              branch: branch)
-        viewController.navigationController?.pushViewController(repositoryContentsView, animated: true)
+        let repositoryContentListView = RepositoryContentListRouter.assembelModules(repository: repository,
+                                                                                    path: content.path,
+                                                                                    name: content.name,
+                                                                                    branch: branch)
+        viewController.navigationController?.pushViewController(repositoryContentListView, animated: true)
+    }
+    
+    func showRepositoryContentView(_ content: RepositoryContent, branch: String?) {
+        let repositoryContentView = RepositoryContentRouter.assembleModules(url: content.htmlUrl)
+        viewController.navigationController?.pushViewController(repositoryContentView, animated: true)
     }
 }

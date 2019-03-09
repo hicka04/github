@@ -13,6 +13,7 @@ struct RepositoryContent: Decodable, Comparable {
     let name: String
     let path: String
     let type: Type
+    let htmlUrl: URL
     
     static func < (lhs: RepositoryContent, rhs: RepositoryContent) -> Bool {
         if lhs.type == rhs.type {

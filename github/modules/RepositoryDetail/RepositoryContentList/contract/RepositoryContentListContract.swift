@@ -22,4 +22,5 @@ protocol RepositoryContentListViewPresentation: AnyObject {
 protocol RepositoryContentListWireframe: AnyObject {
     
     func showRepositoryContentListView(_ content: RepositoryContent, branch: String?)
+    func showRepositoryContentView(_ content: RepositoryContent, branch: String?)
 }

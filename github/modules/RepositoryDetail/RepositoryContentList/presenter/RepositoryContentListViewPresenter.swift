@@ -48,7 +48,7 @@ extension RepositoryContentListViewPresenter: RepositoryContentListViewPresentat
         case .dir:
             router.showRepositoryContentListView(content, branch: nil)
         case .file:
-            break
+            router.showRepositoryContentView(content, branch: nil)
         }
     }
 }
