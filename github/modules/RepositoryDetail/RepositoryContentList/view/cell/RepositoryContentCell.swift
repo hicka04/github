@@ -12,7 +12,7 @@ class RepositoryContentCell: UITableViewCell, ClassRegistrable {
 
     func set(content: RepositoryContent) {
         imageView?.image = content.image
-        imageView?.tintColor = .darkGray
+        imageView?.tintColor = .main
         textLabel?.text = content.name
         accessoryType = .disclosureIndicator
     }
