@@ -8,13 +8,22 @@
 
 import Foundation
 
-class GitHubClient {
+protocol GitHubRequestable {
+    
+    func send<Request: GitHubRequest>(request: Request,
+                                      completion: @escaping (Result<Request.Response, GitHubClientError>) -> Void)
+}
+
+final class GitHubClient {
     
     private let session: URLSession = {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
         return session
     }()
+}
+
+extension GitHubClient: GitHubRequestable {
     
     func send<Request: GitHubRequest>(request: Request,
                                       completion: @escaping (Result<Request.Response, GitHubClientError>) -> Void) {

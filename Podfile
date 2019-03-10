@@ -6,6 +6,7 @@ target 'github' do
   use_frameworks!
 
   pod "ActionClosurable", "1.2.0"
+  pod "MarkdownView", "1.5.0"
 
   target 'githubTests' do
     inherit! :search_paths

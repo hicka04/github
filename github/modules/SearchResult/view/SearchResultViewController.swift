@@ -80,6 +80,10 @@ extension SearchResultViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(at: indexPath)
+    }
 }
 
 extension SearchResultViewController: UISearchBarDelegate {

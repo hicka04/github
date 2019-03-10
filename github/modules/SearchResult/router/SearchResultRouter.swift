@@ -19,7 +19,7 @@ final class SearchResultRouter {
     static func assembleModules() -> UIViewController {
         let view = SearchResultViewController()
         let router = SearchResultRouter(viewController: view)
-        let interactor = GitHubInteractor()
+        let interactor = GitHubRepositoryInteractor()
         let presenter = SearchResultViewPresenter(view: view, router: router, interactor: interactor)
         
         view.presenter = presenter
@@ -30,7 +30,8 @@ final class SearchResultRouter {
 
 extension SearchResultRouter: SearchResultWireframe {
     
-    func showRepositoryDetailView() {
-        
+    func showRepositoryDetailView(repository: Repository) {
+        let repositoryDetailView = RepositoryDetailPageRouter.assembleModules(repository: repository)
+        viewController.navigationController?.pushViewController(repositoryDetailView, animated: true)
     }
 }

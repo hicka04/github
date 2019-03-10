@@ -20,9 +20,10 @@ protocol SearchResultViewPresentation: AnyObject {
     
     func searchBarSearchButtonClicked(text: String)
     func refreshControlDidRefresh(text: String)
+    func didSelectRow(at indexPath: IndexPath)
 }
 
 protocol SearchResultWireframe: AnyObject {
     
-    func showRepositoryDetailView()
+    func showRepositoryDetailView(repository: Repository)
 }
