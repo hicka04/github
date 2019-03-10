@@ -20,6 +20,7 @@ final class RepositoryDetailPageViewPresenter {
                 return
             }
             
+            view?.setSegmentedIndex(segmentedIndex)
             router.showDetailPage(page)
         }
     }
@@ -41,6 +42,10 @@ extension RepositoryDetailPageViewPresenter: RepositoryDetailPageViewPresentatio
     }
     
     func selectedSegmentIndexChanged(_ index: Int) {
+        segmentedIndex = index
+    }
+    
+    func pageViewDidFinishLoadPage(_ index: Int) {
         segmentedIndex = index
     }
 }

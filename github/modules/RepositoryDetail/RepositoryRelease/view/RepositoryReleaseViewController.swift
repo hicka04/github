@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class RepositoryReleaseViewController: UITableViewController {
+final class RepositoryReleaseViewController: UITableViewController, RepositoryDetailPageContentView {
 
     var presenter: RepositoryReleaseViewPresentation!
     

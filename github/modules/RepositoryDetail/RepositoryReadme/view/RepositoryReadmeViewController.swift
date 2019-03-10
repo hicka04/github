@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-final class RepositoryReadmeViewController: UIViewController {
+final class RepositoryReadmeViewController: UIViewController, RepositoryDetailPageContentView {
     
     var presenter: RepositoryReadmeViewPresentation!
     

@@ -41,7 +41,7 @@ final class RepositoryDetailPageViewController: UIPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
+        delegate = self
         
         segmentedControl.on(.valueChanged) { segmentedControl in
             self.presenter.selectedSegmentIndexChanged(segmentedControl.selectedSegmentIndex)
@@ -54,4 +54,21 @@ final class RepositoryDetailPageViewController: UIPageViewController {
 
 extension RepositoryDetailPageViewController: RepositoryDetailPageView {
     
+    func setSegmentedIndex(_ index: Int) {
+        segmentedControl.selectedSegmentIndex = index
+    }
+}
+
+extension RepositoryDetailPageViewController: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
+        guard let currentView = pageViewController.viewControllers?.first as? RepositoryDetailPageContentView else {
+            return
+        }
+        
+        presenter.pageViewDidFinishLoadPage(currentView.index)
+    }
 }

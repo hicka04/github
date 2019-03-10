@@ -8,11 +8,13 @@
 
 import UIKit
 
-final class RepositoryDetailPageRouter {
+final class RepositoryDetailPageRouter: NSObject {
     
     private unowned let pageViewController: UIPageViewController
     
     private let repository: Repository
+    
+    private let pages: [UIViewController]
     
     private var currentPage: RepositoryDetailPage? {
         didSet {
@@ -21,9 +23,9 @@ final class RepositoryDetailPageRouter {
             }
             
             DispatchQueue.main.async {
-                self.pageViewController.setViewControllers([page.view(repository: self.repository)],
-                                                           direction: .forward,
-                                                           animated: false,
+                self.pageViewController.setViewControllers([self.pages[page.rawValue]],
+                                                           direction: page.direction(from: oldValue),
+                                                           animated: true,
                                                            completion: nil)
             }
         }
@@ -33,6 +35,12 @@ final class RepositoryDetailPageRouter {
                  repository: Repository) {
         self.pageViewController = pageViewController
         self.repository = repository
+        
+        self.pages = [
+            RepositoryReadmeRouter.assembleModules(repository: repository),
+            RepositoryContentListRouter.assembelModules(repository: repository),
+            RepositoryReleaseRouter.assembleModules(repository: repository)
+        ]
     }
     
     static func assembleModules(repository: Repository) -> UIViewController {
@@ -41,6 +49,9 @@ final class RepositoryDetailPageRouter {
         let presenter = RepositoryDetailPageViewPresenter(view: view, router: router, repository: repository)
         
         view.presenter = presenter
+        
+        view.dataSource = router
+        
         
         return view
     }
@@ -53,16 +64,30 @@ extension RepositoryDetailPageRouter: RepositoryDetailPageWireframe {
     }
 }
 
+extension RepositoryDetailPageRouter: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let contentView = viewController as? RepositoryDetailPageContentView,
+            contentView.index > 0 else {
+                return nil
+        }
+        
+        return pages[contentView.index - 1]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let contentView = viewController as? RepositoryDetailPageContentView,
+            contentView.index < pages.count - 1 else {
+                return nil
+        }
+        
+        return pages[contentView.index + 1]
+    }
+}
+
 private extension RepositoryDetailPage {
     
-    func view(repository: Repository) -> UIViewController {
-        switch self {
-        case .readme:
-            return RepositoryReadmeRouter.assembleModules(repository: repository)
-        case .contents:
-            return RepositoryContentListRouter.assembelModules(repository: repository)
-        case .release:
-            return RepositoryReleaseRouter.assembleModules(repository: repository)
-        }
+    func direction(from previousPage: RepositoryDetailPage?) -> UIPageViewController.NavigationDirection {
+        return previousPage?.rawValue ?? -1 < self.rawValue ? .forward : .reverse
     }
 }
