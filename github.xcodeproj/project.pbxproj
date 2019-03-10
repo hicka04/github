@@ -25,6 +25,8 @@
 		170844022234030300859658 /* RepositoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 170844002234030300859658 /* RepositoryContentViewController.xib */; };
 		170844042234038800859658 /* RepositoryContentViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170844032234038800859658 /* RepositoryContentViewPresenter.swift */; };
 		170844062234041900859658 /* RepositoryContentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170844052234041900859658 /* RepositoryContentRouter.swift */; };
+		1708440822353CB900859658 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1708440722353CB900859658 /* Color.xcassets */; };
+		1708440A22353EBF00859658 /* UIColor+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1708440922353EBF00859658 /* UIColor+extension.swift */; };
 		173AE5672217008A004FEC1A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55C2217008A004FEC1A /* User.swift */; };
 		173AE5682217008A004FEC1A /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55D2217008A004FEC1A /* Repository.swift */; };
 		173AE5692217008A004FEC1A /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE55E2217008A004FEC1A /* SearchResponse.swift */; };
@@ -95,6 +97,8 @@
 		170844002234030300859658 /* RepositoryContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryContentViewController.xib; sourceTree = "<group>"; };
 		170844032234038800859658 /* RepositoryContentViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContentViewPresenter.swift; sourceTree = "<group>"; };
 		170844052234041900859658 /* RepositoryContentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContentRouter.swift; sourceTree = "<group>"; };
+		1708440722353CB900859658 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		1708440922353EBF00859658 /* UIColor+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+extension.swift"; sourceTree = "<group>"; };
 		173AE55C2217008A004FEC1A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		173AE55D2217008A004FEC1A /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		173AE55E2217008A004FEC1A /* SearchResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -382,6 +386,7 @@
 			children = (
 				173AE57B221D06C3004FEC1A /* UITableView+extension.swift */,
 				173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */,
+				1708440922353EBF00859658 /* UIColor+extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				17FDB81E2216FD420033BBA0 /* Assets.xcassets */,
+				1708440722353CB900859658 /* Color.xcassets */,
 				17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */,
 			);
 			path = resources;
@@ -750,6 +756,7 @@
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
 				170844022234030300859658 /* RepositoryContentViewController.xib in Resources */,
+				1708440822353CB900859658 /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -877,6 +884,7 @@
 				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,
 				170844012234030300859658 /* RepositoryContentViewController.swift in Sources */,
 				17044C182228E4D900377FC2 /* RepositoryContent.swift in Sources */,
+				1708440A22353EBF00859658 /* UIColor+extension.swift in Sources */,
 				17744DB5221EE49C009D5A83 /* RepositoryDetailPageRouter.swift in Sources */,
 				17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */,
 				17044C01221FA8FE00377FC2 /* RepositoryContentListViewPresenter.swift in Sources */,
