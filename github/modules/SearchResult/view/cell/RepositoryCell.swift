@@ -22,6 +22,6 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
         descriptionLabel.text = repository.description
         descriptionLabel.isHidden = repository.description == nil
         languageLabel.text = repository.language
-        starCountLabel.text = "\(repository.stargazersCount)"
+        starCountLabel.text = repository.stargazersCount >= 1000 ? "\(String(format: "%.1f", Double(repository.stargazersCount) / 1000))k" : "\(repository.stargazersCount)"
     }
 }
