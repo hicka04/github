@@ -20,6 +20,7 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
         ownerImageView.load(with: repository.owner.avatarUrl)
         repositoryNameLabel.text = repository.fullName
         descriptionLabel.text = repository.description
+        descriptionLabel.isHidden = repository.description == nil
         languageLabel.text = repository.language
         starCountLabel.text = "\(repository.stargazersCount)"
     }
