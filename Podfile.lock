@@ -1,20 +1,22 @@
 PODS:
   - ActionClosurable (1.2.0)
-  - MarkdownView (1.5.0)
 
 DEPENDENCIES:
-  - ActionClosurable (= 1.2.0)
-  - MarkdownView (= 1.5.0)
+  - ActionClosurable (from `https://github.com/hicka04/ActionClosurable`, branch `swift4.2`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - ActionClosurable
-    - MarkdownView
+EXTERNAL SOURCES:
+  ActionClosurable:
+    :branch: swift4.2
+    :git: https://github.com/hicka04/ActionClosurable
+
+CHECKOUT OPTIONS:
+  ActionClosurable:
+    :commit: 0df9ca6344070d9395fff1719092b128eeb14993
+    :git: https://github.com/hicka04/ActionClosurable
 
 SPEC CHECKSUMS:
   ActionClosurable: ff826688551b031c6bd936cb4928ebf63571893a
-  MarkdownView: 5bbee438c823db1cd189002d44c84fa909b3a896
 
-PODFILE CHECKSUM: e62844509c96bffe9a3cb7e3caee74da8546d9ae
+PODFILE CHECKSUM: dbc5054616cc01428b2af65b92900db3abee0a6c
 
 COCOAPODS: 1.6.0
