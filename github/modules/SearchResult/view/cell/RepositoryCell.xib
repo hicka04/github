@@ -49,14 +49,8 @@
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" restorationIdentifier="bottom stack view" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GHe-7l-GrX">
                                 <rect key="frame" x="0.0" y="87.5" width="266" height="24"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="language label" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcv-XW-CR7">
-                                        <rect key="frame" x="0.0" y="2.5" width="129" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" restorationIdentifier="star stack view" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t3B-aJ-wvD">
-                                        <rect key="frame" x="137" y="0.0" width="129" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="129" height="24"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="star image" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="jCb-ok-4WZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -73,6 +67,12 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="language label" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lcv-XW-CR7">
+                                        <rect key="frame" x="137" y="2.5" width="129" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
