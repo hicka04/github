@@ -6,6 +6,7 @@ target 'github' do
   use_frameworks!
 
   pod "ActionClosurable", :git => "https://github.com/hicka04/ActionClosurable", :branch => "swift4.2" 
+  pod "Nuke", "7.5.2"
 
   target 'githubTests' do
     inherit! :search_paths
