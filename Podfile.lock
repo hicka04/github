@@ -2,15 +2,21 @@ PODS:
   - ActionClosurable (1.2.0)
 
 DEPENDENCIES:
-  - ActionClosurable (= 1.2.0)
+  - ActionClosurable (from `https://github.com/hicka04/ActionClosurable`, branch `swift4.2`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - ActionClosurable
+EXTERNAL SOURCES:
+  ActionClosurable:
+    :branch: swift4.2
+    :git: https://github.com/hicka04/ActionClosurable
+
+CHECKOUT OPTIONS:
+  ActionClosurable:
+    :commit: 0df9ca6344070d9395fff1719092b128eeb14993
+    :git: https://github.com/hicka04/ActionClosurable
 
 SPEC CHECKSUMS:
   ActionClosurable: ff826688551b031c6bd936cb4928ebf63571893a
 
-PODFILE CHECKSUM: c8c0ff81acb2a9dd2d9e5c3c36d1879e3a315339
+PODFILE CHECKSUM: dbc5054616cc01428b2af65b92900db3abee0a6c
 
 COCOAPODS: 1.6.0
