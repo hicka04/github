@@ -17,6 +17,7 @@ struct Repository: Decodable {
     let stargazersCount: Int
     let language: String?
     let defaultBranch: String
+    let updatedAt: Date
     let owner: User
     
     enum CodingKeys: String, CodingKey {
@@ -27,6 +28,7 @@ struct Repository: Decodable {
         case stargazersCount
         case language
         case defaultBranch
+        case updatedAt
         case owner
     }
     
@@ -39,6 +41,7 @@ struct Repository: Decodable {
         stargazersCount = try values.decode(Int.self, forKey: .stargazersCount)
         language = try values.decodeIfPresent(String.self, forKey: .language)
         defaultBranch = try values.decodeIfPresent(String.self, forKey: .defaultBranch) ?? "master"
+        updatedAt = try values.decode(Date.self, forKey: .updatedAt)
         owner = try values.decode(User.self, forKey: .owner)
     }
 }

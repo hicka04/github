@@ -15,6 +15,7 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
     @IBOutlet private weak var starCountLabel: UILabel!
+    @IBOutlet private weak var updatedDateLabel: UILabel!
     
     func set(repository: Repository) {
         ownerImageView.load(with: repository.owner.avatarUrl)
@@ -23,5 +24,8 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
         descriptionLabel.isHidden = repository.description == nil
         languageLabel.text = repository.language
         starCountLabel.text = repository.stargazersCount >= 1000 ? "\(String(format: "%.1f", Double(repository.stargazersCount) / 1000))k" : "\(repository.stargazersCount)"
+        updatedDateLabel.text = String(from: repository.updatedAt,
+                                       dateStyle: .short,
+                                       timeStyle: .short)
     }
 }

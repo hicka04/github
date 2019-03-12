@@ -46,6 +46,7 @@
 		173AE591221D7F89004FEC1A /* SearchResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE590221D7F89004FEC1A /* SearchResultViewPresenter.swift */; };
 		173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173AE59D221D9261004FEC1A /* RepositoryCell.swift */; };
 		173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 173AE59E221D9261004FEC1A /* RepositoryCell.xib */; };
+		173D23A0223765C000728D85 /* String+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D239F223765C000728D85 /* String+extension.swift */; };
 		1753EB93222BB507009BBDB5 /* ReleaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753EB92222BB507009BBDB5 /* ReleaseCell.swift */; };
 		1753EB9A222BC1F4009BBDB5 /* Readme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753EB99222BC1F4009BBDB5 /* Readme.swift */; };
 		1753EB9D222BD171009BBDB5 /* SearchReadmeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1753EB9C222BD171009BBDB5 /* SearchReadmeInteractor.swift */; };
@@ -119,6 +120,7 @@
 		173AE590221D7F89004FEC1A /* SearchResultViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewPresenter.swift; sourceTree = "<group>"; };
 		173AE59D221D9261004FEC1A /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
 		173AE59E221D9261004FEC1A /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
+		173D239F223765C000728D85 /* String+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extension.swift"; sourceTree = "<group>"; };
 		1753EB92222BB507009BBDB5 /* ReleaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseCell.swift; sourceTree = "<group>"; };
 		1753EB99222BC1F4009BBDB5 /* Readme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Readme.swift; sourceTree = "<group>"; };
 		1753EB9C222BD171009BBDB5 /* SearchReadmeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchReadmeInteractor.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				173AE57D221D06D5004FEC1A /* UITableViewCell+extension.swift */,
 				1708440922353EBF00859658 /* UIColor+extension.swift */,
 				1708440B2236992C00859658 /* UIImageView+extension.swift */,
+				173D239F223765C000728D85 /* String+extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -884,6 +887,7 @@
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
 				1753EB9A222BC1F4009BBDB5 /* Readme.swift in Sources */,
+				173D23A0223765C000728D85 /* String+extension.swift in Sources */,
 				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,
 				170844012234030300859658 /* RepositoryContentViewController.swift in Sources */,
 				17044C182228E4D900377FC2 /* RepositoryContent.swift in Sources */,
