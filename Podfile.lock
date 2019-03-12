@@ -1,8 +1,14 @@
 PODS:
   - ActionClosurable (1.2.0)
+  - Nuke (7.5.2)
 
 DEPENDENCIES:
   - ActionClosurable (from `https://github.com/hicka04/ActionClosurable`, branch `swift4.2`)
+  - Nuke (= 7.5.2)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nuke
 
 EXTERNAL SOURCES:
   ActionClosurable:
@@ -16,7 +22,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ActionClosurable: ff826688551b031c6bd936cb4928ebf63571893a
+  Nuke: 0350d346a688426e8f2331253ef28dc2fc4f6178
 
-PODFILE CHECKSUM: dbc5054616cc01428b2af65b92900db3abee0a6c
+PODFILE CHECKSUM: a62ab54d1a15400a9412aed43f33b87182138d56
 
 COCOAPODS: 1.6.0
