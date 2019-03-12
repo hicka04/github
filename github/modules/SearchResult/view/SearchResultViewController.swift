@@ -28,6 +28,7 @@ final class SearchResultViewController: UITableViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.tableView.refreshControl?.endRefreshing()
+                self.tableView.flashScrollIndicators()
             }
         }
     }
