@@ -1,0 +1,26 @@
+DefaultTemplateDirectoryPath: ./Template/
+ProjectRootPath: ./
+ProjectFileName: github.xcodeproj
+GenerateRootPath: ./github/modules/
+Target: github
+ShouldRemoveLayerNameFromDirectory: false
+
+interactor:
+  ProjectRootPath: ./
+  ProjectFileName: github.xcodeproj
+  GenerateRootPath: ./github/data/
+  Target: github
+  ShouldRemoveLayerNameFromDirectory: true
+
+interactorTests:
+  ProjectRootPath: ./
+  ProjectFileName: github.xcodeproj
+  GenerateRootPath: ./github/data/
+  Target: githubTests
+  ShouldRemoveLayerNameFromDirectory: true
+
+presenterTests:
+  ProjectRootPath: ./
+  ProjectFileName: github.xcodeproj
+  GenerateRootPath: ./github/modules/
+  Target: githubTests
