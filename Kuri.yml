@@ -1,0 +1,12 @@
+DefaultTemplateDirectoryPath: ./KuriTemplate/
+ProjectRootPath: ./
+ProjectFileName: github.xcodeproj
+GenerateRootPath: ./github/modules/
+Target: github
+ShouldRemoveLayerNameFromDirectory: false
+
+interactor:
+  ProjectRootPath: ./
+  ProjectFileName: github.xcodeproj
+  GenerateRootPath: ./github/data/
+  Target: github
