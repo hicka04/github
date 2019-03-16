@@ -349,11 +349,8 @@
 		173AE5572216FFFD004FEC1A /* data */ = {
 			isa = PBXGroup;
 			children = (
-				17044C30222A7BB800377FC2 /* GitHubRepository */,
-				1753EB9B222BD13D009BBDB5 /* GitHubReadme */,
-				17044C37222A7D9400377FC2 /* GitHubRepositoryContents */,
-				17044C3C222A860C00377FC2 /* GitHubRelease */,
-				173AE55A2217008A004FEC1A /* GitHubClient */,
+				17A420D9223D344300A2ED6E /* interactor */,
+				17A420DA223D345A00A2ED6E /* api */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -611,6 +608,25 @@
 				17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */,
 			);
 			path = presenter;
+			sourceTree = "<group>";
+		};
+		17A420D9223D344300A2ED6E /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+				17044C30222A7BB800377FC2 /* GitHubRepository */,
+				1753EB9B222BD13D009BBDB5 /* GitHubReadme */,
+				17044C37222A7D9400377FC2 /* GitHubRepositoryContents */,
+				17044C3C222A860C00377FC2 /* GitHubRelease */,
+			);
+			path = interactor;
+			sourceTree = "<group>";
+		};
+		17A420DA223D345A00A2ED6E /* api */ = {
+			isa = PBXGroup;
+			children = (
+				173AE55A2217008A004FEC1A /* GitHubClient */,
+			);
+			path = api;
 			sourceTree = "<group>";
 		};
 		17FDB80B2216FD410033BBA0 = {
