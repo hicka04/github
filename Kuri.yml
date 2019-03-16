@@ -1,4 +1,4 @@
-DefaultTemplateDirectoryPath: ./KuriTemplate/
+DefaultTemplateDirectoryPath: ./Template/
 ProjectRootPath: ./
 ProjectFileName: github.xcodeproj
 GenerateRootPath: ./github/modules/
