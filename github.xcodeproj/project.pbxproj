@@ -64,10 +64,12 @@
 		17A420C622394B6600A2ED6E /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C422394B6600A2ED6E /* Nuke.framework */; };
 		17A420CA223A073900A2ED6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C8223A073900A2ED6E /* Realm.framework */; };
 		17A420CB223A073900A2ED6E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C9223A073900A2ED6E /* RealmSwift.framework */; };
+		17A420DE223D378800A2ED6E /* SearchOptionsHistoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A420DD223D378800A2ED6E /* SearchOptionsHistoryObject.swift */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
 		17FDB82D2216FD420033BBA0 /* githubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB82C2216FD420033BBA0 /* githubTests.swift */; };
+		3EYI3EX3OFKMDNK9D6FF7CI2 /* SearchOptionsHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,7 @@
 		17A420C422394B6600A2ED6E /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		17A420C8223A073900A2ED6E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		17A420C9223A073900A2ED6E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		17A420DD223D378800A2ED6E /* SearchOptionsHistoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsHistoryObject.swift; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +149,7 @@
 		17FDB8282216FD420033BBA0 /* githubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = githubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB82C2216FD420033BBA0 /* githubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubTests.swift; sourceTree = "<group>"; };
 		17FDB82E2216FD420033BBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsHistoryInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -617,6 +621,7 @@
 				1753EB9B222BD13D009BBDB5 /* GitHubReadme */,
 				17044C37222A7D9400377FC2 /* GitHubRepositoryContents */,
 				17044C3C222A860C00377FC2 /* GitHubRelease */,
+				LDEM1H5I9OU1DO1Y3U46FWZA /* SearchOptionsHistory */,
 			);
 			path = interactor;
 			sourceTree = "<group>";
@@ -627,6 +632,14 @@
 				173AE55A2217008A004FEC1A /* GitHubClient */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		17A420DC223D373C00A2ED6E /* object */ = {
+			isa = PBXGroup;
+			children = (
+				17A420DD223D378800A2ED6E /* SearchOptionsHistoryObject.swift */,
+			);
+			path = object;
 			sourceTree = "<group>";
 		};
 		17FDB80B2216FD410033BBA0 = {
@@ -679,6 +692,15 @@
 				17A420C422394B6600A2ED6E /* Nuke.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		LDEM1H5I9OU1DO1Y3U46FWZA /* SearchOptionsHistory */ = {
+			isa = PBXGroup;
+			children = (
+				NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */,
+				17A420DC223D373C00A2ED6E /* object */,
+			);
+			path = SearchOptionsHistory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -858,8 +880,10 @@
 				17744DB3221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,
 				173AE5672217008A004FEC1A /* User.swift in Sources */,
+				17A420DE223D378800A2ED6E /* SearchOptionsHistoryObject.swift in Sources */,
 				1708440C2236992C00859658 /* UIImageView+extension.swift in Sources */,
 				173AE5682217008A004FEC1A /* Repository.swift in Sources */,
+				3EYI3EX3OFKMDNK9D6FF7CI2 /* SearchOptionsHistoryInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
