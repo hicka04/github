@@ -8,6 +8,7 @@
 
 import UIKit
 import ActionClosurable
+import Nuke
 
 final class SearchResultViewController: UITableViewController {
 
@@ -20,11 +21,14 @@ final class SearchResultViewController: UITableViewController {
         return searchContrller
     }()
     
+    private let preheater = ImagePreheater()
+    
     private var repositories: [Repository] = [] {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.tableView.refreshControl?.endRefreshing()
+                self.tableView.flashScrollIndicators()
             }
         }
     }
@@ -44,6 +48,8 @@ final class SearchResultViewController: UITableViewController {
             guard let searchBarText = self.searchController.searchBar.text else { return }
             self.presenter.refreshControlDidRefresh(text: searchBarText)
         }
+        
+        tableView.prefetchDataSource = self
         
         presenter.viewDidLoad()
     }
@@ -89,6 +95,17 @@ extension SearchResultViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRow(at: indexPath)
+    }
+}
+
+extension SearchResultViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        preheater.startPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        preheater.stopPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
     }
 }
 
