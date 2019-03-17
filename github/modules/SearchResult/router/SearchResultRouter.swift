@@ -44,6 +44,7 @@ extension SearchResultRouter: SearchResultWireframe {
         let searchOptionsView = SearchOptionsRouter.assembleModules()
         floatingPanelController.set(contentViewController: searchOptionsView)
         floatingPanelController.addPanel(toParent: viewController)
+        floatingPanelController.move(to: .tip, animated: false)
     }
     
     func showRepositoryDetailView(repository: Repository) {
