@@ -11,8 +11,8 @@ import RealmSwift
 
 protocol SearchOptionsHistoryUsecase {
     
-    func save(keyword: String) throws
-    func lastSearchOptions() -> String?
+    func save(searchOptions: SearchOptions) throws
+    func lastSearchOptions() -> SearchOptions?
 }
 
 final class SearchOptionsHistoryInteractor {
@@ -26,24 +26,28 @@ final class SearchOptionsHistoryInteractor {
 
 extension SearchOptionsHistoryInteractor: SearchOptionsHistoryUsecase {
     
-    func save(keyword: String) throws {
-        if let history = realm.object(ofType: SearchOptionsHistoryObject.self, forPrimaryKey: keyword) {
+    func save(searchOptions: SearchOptions) throws {
+        if let history = realm.objects(SearchOptionsHistoryObject.self).filter("searchOptions.keyword = %@", searchOptions.keyword).first {
             try realm.write {
                 history.updateLastSearchDate()
             }
         } else {
-            let history = SearchOptionsHistoryObject(keyword: keyword)
+            let history = SearchOptionsHistoryObject(searchOptions: searchOptions.object())
             try realm.write {
                 realm.add(history)
             }
         }
     }
     
-    func lastSearchOptions() -> String? {
-        return realm.objects(SearchOptionsHistoryObject.self)
-                    .sorted(byKeyPath: "lastSearchAt")
-                    .last?
-                    .keyword
+    func lastSearchOptions() -> SearchOptions? {
+        guard let object = realm.objects(SearchOptionsHistoryObject.self)
+                            .sorted(byKeyPath: "lastSearchAt")
+                            .last?
+                            .searchOptions else {
+            return nil
+        }
+        
+        return SearchOptions(object: object)
     }
 }
 

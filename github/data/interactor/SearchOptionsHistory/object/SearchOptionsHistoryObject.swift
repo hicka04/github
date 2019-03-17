@@ -12,16 +12,12 @@ import RealmSwift
 @objcMembers
 final class SearchOptionsHistoryObject: Object {
     
-    private(set) dynamic var keyword: String = ""
+    private(set) dynamic var searchOptions: SearchOptionsObject!
     private(set) dynamic var lastSearchAt: Date = .init()
     
-    convenience init(keyword: String) {
+    convenience init(searchOptions: SearchOptionsObject) {
         self.init()
-        self.keyword = keyword
-    }
-    
-    override static func primaryKey() -> String? {
-        return "keyword"
+        self.searchOptions = searchOptions
     }
     
     func updateLastSearchDate() {

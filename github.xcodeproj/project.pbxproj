@@ -65,6 +65,9 @@
 		17A420CA223A073900A2ED6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C8223A073900A2ED6E /* Realm.framework */; };
 		17A420CB223A073900A2ED6E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C9223A073900A2ED6E /* RealmSwift.framework */; };
 		17A420DE223D378800A2ED6E /* SearchOptionsHistoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A420DD223D378800A2ED6E /* SearchOptionsHistoryObject.swift */; };
+		17A420E1223DD5E800A2ED6E /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A420E0223DD5E800A2ED6E /* SearchOptions.swift */; };
+		17A420E3223DD65600A2ED6E /* SearchOptionsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A420E2223DD65600A2ED6E /* SearchOptionsObject.swift */; };
+		17A420E6223E28E400A2ED6E /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A420E5223E28E400A2ED6E /* Storable.swift */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
@@ -141,6 +144,9 @@
 		17A420C8223A073900A2ED6E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		17A420C9223A073900A2ED6E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		17A420DD223D378800A2ED6E /* SearchOptionsHistoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsHistoryObject.swift; sourceTree = "<group>"; };
+		17A420E0223DD5E800A2ED6E /* SearchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
+		17A420E2223DD65600A2ED6E /* SearchOptionsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionsObject.swift; sourceTree = "<group>"; };
+		17A420E5223E28E400A2ED6E /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,6 +361,7 @@
 			children = (
 				17A420D9223D344300A2ED6E /* interactor */,
 				17A420DA223D345A00A2ED6E /* api */,
+				17A420E4223E28D300A2ED6E /* store */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -485,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				173AE59B221D8780004FEC1A /* GitHub */,
+				17A420DF223DD5D200A2ED6E /* SearchOptions */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -637,9 +645,26 @@
 		17A420DC223D373C00A2ED6E /* object */ = {
 			isa = PBXGroup;
 			children = (
+				17A420E2223DD65600A2ED6E /* SearchOptionsObject.swift */,
 				17A420DD223D378800A2ED6E /* SearchOptionsHistoryObject.swift */,
 			);
 			path = object;
+			sourceTree = "<group>";
+		};
+		17A420DF223DD5D200A2ED6E /* SearchOptions */ = {
+			isa = PBXGroup;
+			children = (
+				17A420E0223DD5E800A2ED6E /* SearchOptions.swift */,
+			);
+			path = SearchOptions;
+			sourceTree = "<group>";
+		};
+		17A420E4223E28D300A2ED6E /* store */ = {
+			isa = PBXGroup;
+			children = (
+				17A420E5223E28E400A2ED6E /* Storable.swift */,
+			);
+			path = store;
 			sourceTree = "<group>";
 		};
 		17FDB80B2216FD410033BBA0 = {
@@ -859,6 +884,7 @@
 				17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */,
 				17044C0D2224199800377FC2 /* RepositoryReleaseViewController.swift in Sources */,
 				17044C03221FA97000377FC2 /* RepositoryContentListRouter.swift in Sources */,
+				17A420E3223DD65600A2ED6E /* SearchOptionsObject.swift in Sources */,
 				17044C3E222A864100377FC2 /* GitHubReleaseInteractor.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
 				173AE58D221D7E71004FEC1A /* SearchResultContract.swift in Sources */,
@@ -867,6 +893,7 @@
 				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
 				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
+				17A420E6223E28E400A2ED6E /* Storable.swift in Sources */,
 				1753EB9A222BC1F4009BBDB5 /* Readme.swift in Sources */,
 				173D23A0223765C000728D85 /* String+extension.swift in Sources */,
 				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,
@@ -875,6 +902,7 @@
 				1708440A22353EBF00859658 /* UIColor+extension.swift in Sources */,
 				17744DB5221EE49C009D5A83 /* RepositoryDetailPageRouter.swift in Sources */,
 				17044C1022241A4400377FC2 /* RepositoryReleaseViewPresenter.swift in Sources */,
+				17A420E1223DD5E800A2ED6E /* SearchOptions.swift in Sources */,
 				17044C01221FA8FE00377FC2 /* RepositoryContentListViewPresenter.swift in Sources */,
 				17744DBA221EF6CD009D5A83 /* RepositoryReadmeViewController.swift in Sources */,
 				17744DB3221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift in Sources */,
