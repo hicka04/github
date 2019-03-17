@@ -12,13 +12,14 @@ final class SearchResultViewPresenter {
     
     private weak var view: SearchResultView?
     private let router: SearchResultWireframe
-    private let interactor: GitHubRepositoryUsecase
+    private let repositoryInteractor: GitHubRepositoryUsecase
+    private let historyInteractor: SearchOptionsHistoryUsecase
     
     private var keyword: String? {
         didSet {
             guard let keyword = keyword else { return }
             
-            interactor.searchRepositories(from: keyword) { result in
+            repositoryInteractor.searchRepositories(from: keyword) { result in
                 switch result {
                 case .success(let repositories):
                     self.repositories = repositories
@@ -27,6 +28,9 @@ final class SearchResultViewPresenter {
                     self.view?.showSearchErrorAlert()
                 }
             }
+            
+            view?.setLastSearchKeyword(keyword)
+            try? historyInteractor.save(searchOptions: SearchOptions(keyword: keyword))
         }
     }
     
@@ -36,17 +40,21 @@ final class SearchResultViewPresenter {
         }
     }
     
-    init(view: SearchResultView, router: SearchResultWireframe, interactor: GitHubRepositoryUsecase) {
+    init(view: SearchResultView,
+         router: SearchResultWireframe,
+         repositoryInteractor: GitHubRepositoryUsecase,
+         historyInteractor: SearchOptionsHistoryUsecase) {
         self.view = view
         self.router = router
-        self.interactor = interactor
+        self.repositoryInteractor = repositoryInteractor
+        self.historyInteractor = historyInteractor
     }
 }
 
 extension SearchResultViewPresenter: SearchResultViewPresentation {
     
     func viewDidLoad() {
-        
+        keyword = historyInteractor.lastSearchOptions()?.keyword
     }
     
     func searchBarSearchButtonClicked(text: String) {
