@@ -1,3 +1,4 @@
 github "hicka04/ActionClosurable"
 github "kean/Nuke" == 7.5.2
 github "realm/realm-cocoa" == 3.13.1
+github "scenee/FloatingPanel" == 1.4.0
