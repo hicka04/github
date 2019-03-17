@@ -15,6 +15,7 @@ protocol SearchOptionsView: AnyObject {
 final class SearchOptionsViewController: UIViewController {
     
     var presenter: SearchOptionsViewPresentation!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
