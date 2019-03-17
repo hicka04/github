@@ -12,6 +12,7 @@ protocol SearchResultView: AnyObject {
     
     func updateSearchResults(_ repositories: [Repository])
     func showSearchErrorAlert()
+    func setLastSearchKeyword(_ keyword: String)
 }
 
 protocol SearchResultViewPresentation: AnyObject {

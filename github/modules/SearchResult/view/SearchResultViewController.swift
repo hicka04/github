@@ -44,6 +44,8 @@ final class SearchResultViewController: UITableViewController {
             guard let searchBarText = self.searchController.searchBar.text else { return }
             self.presenter.refreshControlDidRefresh(text: searchBarText)
         }
+        
+        presenter.viewDidLoad()
     }
 }
 
@@ -61,6 +63,10 @@ extension SearchResultViewController: SearchResultView {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    func setLastSearchKeyword(_ keyword: String) {
+        searchController.searchBar.text = keyword
     }
 }
 

@@ -12,6 +12,7 @@ import RealmSwift
 protocol SearchOptionsHistoryUsecase {
     
     func save(keyword: String) throws
+    func lastSearchOptions() -> String?
 }
 
 final class SearchOptionsHistoryInteractor {
@@ -36,6 +37,13 @@ extension SearchOptionsHistoryInteractor: SearchOptionsHistoryUsecase {
                 realm.add(history)
             }
         }
+    }
+    
+    func lastSearchOptions() -> String? {
+        return realm.objects(SearchOptionsHistoryObject.self)
+                    .sorted(byKeyPath: "lastSearchAt")
+                    .last?
+                    .keyword
     }
 }
 

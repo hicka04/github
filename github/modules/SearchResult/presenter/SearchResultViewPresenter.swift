@@ -29,6 +29,10 @@ final class SearchResultViewPresenter {
                 }
             }
             
+            guard oldValue != nil else {
+                view?.setLastSearchKeyword(keyword)
+                return
+            }
             try? historyInteractor.save(keyword: keyword)
         }
     }
@@ -53,7 +57,7 @@ final class SearchResultViewPresenter {
 extension SearchResultViewPresenter: SearchResultViewPresentation {
     
     func viewDidLoad() {
-        
+        keyword = historyInteractor.lastSearchOptions()
     }
     
     func searchBarSearchButtonClicked(text: String) {
