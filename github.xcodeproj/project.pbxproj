@@ -70,6 +70,7 @@
 		17A420E6223E28E400A2ED6E /* Storable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A420E5223E28E400A2ED6E /* Storable.swift */; };
 		17A420E8223E34B000A2ED6E /* SearchOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A420E7223E34B000A2ED6E /* SearchOptionsViewController.xib */; };
 		17A420EA223E370400A2ED6E /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420E9223E370400A2ED6E /* FloatingPanel.framework */; };
+		17A420EE223E3D6A00A2ED6E /* SearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A420ED223E3D6A00A2ED6E /* SearchResultViewController.xib */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
@@ -154,6 +155,7 @@
 		17A420E5223E28E400A2ED6E /* Storable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storable.swift; sourceTree = "<group>"; };
 		17A420E7223E34B000A2ED6E /* SearchOptionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchOptionsViewController.xib; sourceTree = "<group>"; };
 		17A420E9223E370400A2ED6E /* FloatingPanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FloatingPanel.framework; path = Carthage/Build/iOS/FloatingPanel.framework; sourceTree = "<group>"; };
+		17A420ED223E3D6A00A2ED6E /* SearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultViewController.xib; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				173AE581221D7BF1004FEC1A /* SearchResultViewController.swift */,
+				17A420ED223E3D6A00A2ED6E /* SearchResultViewController.xib */,
 				173AE59C221D923E004FEC1A /* cell */,
 			);
 			path = view;
@@ -861,6 +864,7 @@
 				17A420E8223E34B000A2ED6E /* SearchOptionsViewController.xib in Resources */,
 				17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */,
 				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
+				17A420EE223E3D6A00A2ED6E /* SearchResultViewController.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
 				170844022234030300859658 /* RepositoryContentViewController.xib in Resources */,

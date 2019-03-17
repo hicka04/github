@@ -10,10 +10,16 @@ import UIKit
 import ActionClosurable
 import Nuke
 
-final class SearchResultViewController: UITableViewController {
+final class SearchResultViewController: UIViewController {
 
     var presenter: SearchResultViewPresentation!
     
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+        }
+    }
     lazy var searchController: UISearchController = {
         let searchContrller = UISearchController(searchResultsController: nil)
         searchContrller.searchBar.delegate = self
@@ -53,6 +59,14 @@ final class SearchResultViewController: UITableViewController {
         
         presenter.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
 
 extension SearchResultViewController: SearchResultView {
@@ -76,24 +90,24 @@ extension SearchResultViewController: SearchResultView {
     }
 }
 
-extension SearchResultViewController {
+extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RepositoryCell = tableView.dequeueReusableCell(for: indexPath)
         cell.set(repository: repositories[indexPath.row])
         
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRow(at: indexPath)
     }
 }
