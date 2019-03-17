@@ -55,6 +55,7 @@ extension SearchResultViewPresenter: SearchResultViewPresentation {
     
     func viewDidLoad() {
         keyword = historyInteractor.lastSearchOptions()?.keyword
+        router.showSearchOptionsView()
     }
     
     func searchBarSearchButtonClicked(text: String) {

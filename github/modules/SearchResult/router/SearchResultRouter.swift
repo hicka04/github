@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FloatingPanel
 
 final class SearchResultRouter {
     
     private unowned let viewController: UIViewController
+    private let floatingPanelController = FloatingPanelController()
     
     private init(viewController: UIViewController) {
         self.viewController = viewController
@@ -33,6 +35,12 @@ final class SearchResultRouter {
 }
 
 extension SearchResultRouter: SearchResultWireframe {
+    
+    func showSearchOptionsView() {
+        let searchOptionsView = SearchOptionsRouter.assembleModules()
+        floatingPanelController.set(contentViewController: searchOptionsView)
+        floatingPanelController.addPanel(toParent: viewController)
+    }
     
     func showRepositoryDetailView(repository: Repository) {
         let repositoryDetailView = RepositoryDetailPageRouter.assembleModules(repository: repository)

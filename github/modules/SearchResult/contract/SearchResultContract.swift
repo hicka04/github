@@ -26,5 +26,6 @@ protocol SearchResultViewPresentation: AnyObject {
 
 protocol SearchResultWireframe: AnyObject {
     
+    func showSearchOptionsView()
     func showRepositoryDetailView(repository: Repository)
 }
