@@ -12,7 +12,11 @@ import FloatingPanel
 final class SearchResultRouter {
     
     private unowned let viewController: UIViewController
-    private let floatingPanelController = FloatingPanelController()
+    private let floatingPanelController: FloatingPanelController = {
+        let floatingPanelController = FloatingPanelController()
+        floatingPanelController.surfaceView.cornerRadius = 16
+        return floatingPanelController
+    }()
     
     private init(viewController: UIViewController) {
         self.viewController = viewController
