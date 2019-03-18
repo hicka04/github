@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .foregroundColor: UIColor.white
         ]
         UINavigationBar.appearance().isTranslucent = false
-        UISearchBar.appearance().tintColor = .white
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [.foregroundColor: UIColor.white]
         
         rootRouter.showFirstView()
         
