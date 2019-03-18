@@ -13,11 +13,13 @@ protocol SearchOptionsHistoryUsecase {
     
     func save(searchOptions: SearchOptions) throws
     func lastSearchOptions() -> SearchOptions?
+    func observe(lastSearchOptions: @escaping (SearchOptions?) -> Void)
 }
 
 final class SearchOptionsHistoryInteractor {
     
     private let realm: Realm
+    private var token: NotificationToken?
     
     init(realm: Realm = try! Realm()) {
         self.realm = realm
@@ -48,6 +50,20 @@ extension SearchOptionsHistoryInteractor: SearchOptionsHistoryUsecase {
         }
         
         return SearchOptions(object: object)
+    }
+    
+    func observe(lastSearchOptions: @escaping (SearchOptions?) -> Void) {
+        token = realm.objects(SearchOptionsHistoryObject.self).sorted(byKeyPath: "lastSearchAt").observe { change in
+            switch change {
+            case .initial(let histories),
+                 .update(let histories, _, _, _):
+                guard let last = histories.last?.searchOptions else {
+                    return
+                }
+                lastSearchOptions(SearchOptions(object: last))
+            default: break
+            }
+        }
     }
 }
 

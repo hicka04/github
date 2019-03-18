@@ -15,24 +15,7 @@ final class SearchResultViewPresenter {
     private let repositoryInteractor: GitHubRepositoryUsecase
     private let historyInteractor: SearchOptionsHistoryUsecase
     
-    private var keyword: String? {
-        didSet {
-            guard let keyword = keyword else { return }
-            
-            repositoryInteractor.searchRepositories(from: keyword) { result in
-                switch result {
-                case .success(let repositories):
-                    self.repositories = repositories
-                case .failure(let error):
-                    debugPrint(error)
-                    self.view?.showSearchErrorAlert()
-                }
-            }
-            
-            view?.setLastSearchKeyword(keyword)
-            try? historyInteractor.save(searchOptions: SearchOptions(keyword: keyword))
-        }
-    }
+    private var keyword: String?
     
     private var repositories: [Repository] = [] {
         didSet {
@@ -54,7 +37,19 @@ final class SearchResultViewPresenter {
 extension SearchResultViewPresenter: SearchResultViewPresentation {
     
     func viewDidLoad() {
-        keyword = historyInteractor.lastSearchOptions()?.keyword
+        historyInteractor.observe { [weak self] lastSearchOptions in
+            guard let keyword = lastSearchOptions?.keyword else { return }
+            
+            self?.repositoryInteractor.searchRepositories(from: keyword) { result in
+                switch result {
+                case .success(let repositories):
+                    self?.repositories = repositories
+                case .failure(let error):
+                    debugPrint(error)
+                    self?.view?.showSearchErrorAlert()
+                }
+            }
+        }
         router.showSearchOptionsView()
     }
     
