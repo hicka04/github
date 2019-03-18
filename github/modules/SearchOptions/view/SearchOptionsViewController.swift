@@ -10,6 +10,7 @@ import UIKit
 
 protocol SearchOptionsView: AnyObject {
     
+    func setLastSearchKeyword(_ keyword: String)
 }
 
 final class SearchOptionsViewController: UIViewController {
@@ -30,6 +31,9 @@ final class SearchOptionsViewController: UIViewController {
 
 extension SearchOptionsViewController: SearchOptionsView {
     
+    func setLastSearchKeyword(_ keyword: String) {
+        searchBar.text = keyword
+    }
 }
 
 extension SearchOptionsViewController: UISearchBarDelegate {

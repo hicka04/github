@@ -23,7 +23,10 @@ final class SearchOptionsRouter {
     static func assembleModules() -> UIViewController {
         let view = SearchOptionsViewController()
         let router = SearchOptionsRouter(viewController: view)
-        let presenter = SearchOptionsViewPresenter(view: view, router: router)
+        let historyInteractor = SearchOptionsHistoryInteractor()
+        let presenter = SearchOptionsViewPresenter(view: view,
+                                                   router: router,
+                                                   historyInteractor: historyInteractor)
         
         view.presenter = presenter
         

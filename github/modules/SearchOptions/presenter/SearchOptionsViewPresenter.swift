@@ -18,18 +18,24 @@ final class SearchOptionsViewPresenter {
 
     private weak var view: SearchOptionsView?
     private let router: SearchOptionsWireframe
+    private let historyInteractor: SearchOptionsHistoryUsecase
     
     init(view: SearchOptionsView,
-         router: SearchOptionsWireframe) {
+         router: SearchOptionsWireframe,
+         historyInteractor: SearchOptionsHistoryUsecase) {
         self.view = view
         self.router = router
+        self.historyInteractor = historyInteractor
     }
 }
 
 extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
     
     func viewDidLoad() {
-        
+        guard let lastKeyword = historyInteractor.lastSearchOptions()?.keyword else {
+            return
+        }
+        view?.setLastSearchKeyword(lastKeyword)
     }
 }
 
