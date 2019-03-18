@@ -15,7 +15,12 @@ final class SearchResultViewPresenter {
     private let repositoryInteractor: GitHubRepositoryUsecase
     private let historyInteractor: SearchOptionsHistoryUsecase
     
-    private var keyword: String?
+    private var keyword: String? {
+        didSet {
+            view?.scrollToTop()
+            searchRepositories()
+        }
+    }
     
     private var repositories: [Repository] = [] {
         didSet {
@@ -32,33 +37,33 @@ final class SearchResultViewPresenter {
         self.repositoryInteractor = repositoryInteractor
         self.historyInteractor = historyInteractor
     }
+    
+    private func searchRepositories() {
+        guard let keyword = keyword else { return }
+        
+        repositoryInteractor.searchRepositories(from: keyword) { [weak self] result in
+            switch result {
+            case .success(let repositories):
+                self?.repositories = repositories
+            case .failure(let error):
+                debugPrint(error)
+                self?.view?.showSearchErrorAlert()
+            }
+        }
+    }
 }
 
 extension SearchResultViewPresenter: SearchResultViewPresentation {
     
     func viewDidLoad() {
         historyInteractor.observe { [weak self] lastSearchOptions in
-            guard let keyword = lastSearchOptions?.keyword else { return }
-            
-            self?.repositoryInteractor.searchRepositories(from: keyword) { result in
-                switch result {
-                case .success(let repositories):
-                    self?.repositories = repositories
-                case .failure(let error):
-                    debugPrint(error)
-                    self?.view?.showSearchErrorAlert()
-                }
-            }
+            self?.keyword = lastSearchOptions?.keyword
         }
         router.showSearchOptionsView()
     }
     
-    func searchBarSearchButtonClicked(text: String) {
-        self.keyword = text
-    }
-    
-    func refreshControlDidRefresh(text: String) {
-        self.keyword = text
+    func refreshControlDidRefresh() {
+        searchRepositories()
     }
     
     func didSelectRow(at indexPath: IndexPath) {

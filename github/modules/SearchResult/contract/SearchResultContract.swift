@@ -12,15 +12,14 @@ protocol SearchResultView: AnyObject {
     
     func updateSearchResults(_ repositories: [Repository])
     func showSearchErrorAlert()
-    func setLastSearchKeyword(_ keyword: String)
+    func scrollToTop()
 }
 
 protocol SearchResultViewPresentation: AnyObject {
     
     func viewDidLoad()
     
-    func searchBarSearchButtonClicked(text: String)
-    func refreshControlDidRefresh(text: String)
+    func refreshControlDidRefresh()
     func didSelectRow(at indexPath: IndexPath)
 }
 

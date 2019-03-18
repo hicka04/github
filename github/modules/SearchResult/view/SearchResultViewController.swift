@@ -20,12 +20,6 @@ final class SearchResultViewController: UIViewController {
             tableView.dataSource = self
         }
     }
-    lazy var searchController: UISearchController = {
-        let searchContrller = UISearchController(searchResultsController: nil)
-        searchContrller.searchBar.delegate = self
-        searchContrller.searchBar.placeholder = "キーワードを入力"
-        return searchContrller
-    }()
     
     private let preheater = ImagePreheater()
     
@@ -42,17 +36,11 @@ final class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Search"
-        
-        definesPresentationContext = true
-        
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.title = "Search"
         
         tableView.register(RepositoryCell.self)
         tableView.refreshControl = UIRefreshControl { _ in
-            guard let searchBarText = self.searchController.searchBar.text else { return }
-            self.presenter.refreshControlDidRefresh(text: searchBarText)
+            self.presenter.refreshControlDidRefresh()
         }
         
         tableView.prefetchDataSource = self
@@ -85,8 +73,10 @@ extension SearchResultViewController: SearchResultView {
         }
     }
     
-    func setLastSearchKeyword(_ keyword: String) {
-        searchController.searchBar.text = keyword
+    func scrollToTop() {
+        DispatchQueue.main.async {
+            self.tableView.setContentOffset(.zero, animated: true)
+        }
     }
 }
 
@@ -120,20 +110,5 @@ extension SearchResultViewController: UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         preheater.stopPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
-    }
-}
-
-extension SearchResultViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        defer {
-            searchController.dismiss(animated: true, completion: nil)
-        }
-        
-        guard let searchBarText = searchBar.text else {
-            return
-        }
-        
-        presenter.searchBarSearchButtonClicked(text: searchBarText)
     }
 }
