@@ -10,7 +10,8 @@ import Foundation
 
 protocol SearchOptionsViewPresentation: AnyObject {
 
-    func viewDidLoad()    
+    func viewDidLoad()
+    func searchBarSearchButtonClicked(_ searchBarText: String)
 }
 
 
@@ -36,6 +37,10 @@ extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
             return
         }
         view?.setLastSearchKeyword(lastKeyword)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBarText: String) {
+        try? historyInteractor.save(searchOptions: SearchOptions(keyword: searchBarText))
     }
 }
 

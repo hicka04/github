@@ -45,6 +45,11 @@ extension SearchOptionsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+        
+        guard let searchBarText = searchBar.text else {
+            return
+        }
+        presenter.searchBarSearchButtonClicked(searchBarText)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
