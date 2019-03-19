@@ -41,7 +41,7 @@ final class SearchResultRouter {
 extension SearchResultRouter: SearchResultWireframe {
     
     func showSearchOptionsView() {
-        let searchOptionsView = SearchOptionsRouter.assembleModules()
+        let searchOptionsView = SearchOptionsRouter.assembleModules(floatingPanelController: floatingPanelController)
         floatingPanelController.set(contentViewController: searchOptionsView)
         floatingPanelController.addPanel(toParent: viewController)
         floatingPanelController.move(to: .tip, animated: false)

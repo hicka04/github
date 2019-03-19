@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FloatingPanel
 
 protocol SearchOptionsView: AnyObject {
     
@@ -53,6 +54,17 @@ extension SearchOptionsViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension SearchOptionsViewController: FloatingPanelControllerDelegate {
+    
+    func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
+        guard vc.position == .full else {
+            return
+        }
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FloatingPanel
 
 protocol SearchOptionsWireframe: AnyObject {
     
@@ -20,7 +21,7 @@ final class SearchOptionsRouter {
         self.viewController = viewController
     }
 
-    static func assembleModules() -> UIViewController {
+    static func assembleModules(floatingPanelController: FloatingPanelController) -> UIViewController {
         let view = SearchOptionsViewController()
         let router = SearchOptionsRouter(viewController: view)
         let historyInteractor = SearchOptionsHistoryInteractor()
@@ -29,6 +30,8 @@ final class SearchOptionsRouter {
                                                    historyInteractor: historyInteractor)
         
         view.presenter = presenter
+        
+        floatingPanelController.delegate = view
         
         return view
     }
