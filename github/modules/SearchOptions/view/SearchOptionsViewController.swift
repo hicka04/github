@@ -70,4 +70,13 @@ extension SearchOptionsViewController: FloatingPanelControllerDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
     }
+    
+    func floatingPanelDidEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetPosition: FloatingPanelPosition) {
+        guard targetPosition == .full,
+            !searchBar.isFirstResponder else {
+            return
+        }
+        searchBar.setShowsCancelButton(true, animated: true)
+        searchBar.becomeFirstResponder()
+    }
 }
