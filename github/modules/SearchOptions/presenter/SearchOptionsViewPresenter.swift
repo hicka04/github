@@ -11,7 +11,9 @@ import Foundation
 protocol SearchOptionsViewPresentation: AnyObject {
 
     func viewDidLoad()
+    func searchBarTextDidBeginEditing()
     func searchBarSearchButtonClicked(_ searchBarText: String)
+    func searchBarSearchButtonClicked()
 }
 
 
@@ -39,8 +41,17 @@ extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
         view?.setLastSearchKeyword(lastKeyword)
     }
     
+    func searchBarTextDidBeginEditing() {
+        router.moveToFull()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBarText: String) {
         try? historyInteractor.save(searchOptions: SearchOptions(keyword: searchBarText))
+        router.moveToTip()
+    }
+    
+    func searchBarSearchButtonClicked() {
+        router.moveToHalf()
     }
 }
 

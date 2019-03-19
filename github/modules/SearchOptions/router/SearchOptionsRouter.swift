@@ -11,19 +11,26 @@ import FloatingPanel
 
 protocol SearchOptionsWireframe: AnyObject {
     
+    func moveToTip()
+    func moveToHalf()
+    func moveToFull()
 }
 
 final class SearchOptionsRouter {
     
     private unowned let viewController: UIViewController
+    private unowned let floatingPanelController: FloatingPanelController
     
-    private init(viewController: UIViewController) {
+    private init(viewController: UIViewController,
+                 floatingPanelController: FloatingPanelController) {
         self.viewController = viewController
+        self.floatingPanelController = floatingPanelController
     }
 
     static func assembleModules(floatingPanelController: FloatingPanelController) -> UIViewController {
         let view = SearchOptionsViewController()
-        let router = SearchOptionsRouter(viewController: view)
+        let router = SearchOptionsRouter(viewController: view,
+                                         floatingPanelController: floatingPanelController)
         let historyInteractor = SearchOptionsHistoryInteractor()
         let presenter = SearchOptionsViewPresenter(view: view,
                                                    router: router,
@@ -39,4 +46,15 @@ final class SearchOptionsRouter {
 
 extension SearchOptionsRouter: SearchOptionsWireframe {
     
+    func moveToTip() {
+        floatingPanelController.move(to: .tip, animated: true)
+    }
+    
+    func moveToHalf() {
+        floatingPanelController.move(to: .half, animated: true)
+    }
+    
+    func moveToFull() {
+        floatingPanelController.move(to: .full, animated: true)
+    }
 }
