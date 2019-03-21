@@ -27,7 +27,8 @@ final class SearchOptionsViewController: UIViewController {
     @IBOutlet weak var searchTypeSegment: UISegmentedControl! {
         didSet {
             searchTypeSegment.on(.valueChanged) { segmentedControl in
-                // TODO: presenterに伝える
+                let index = segmentedControl.selectedSegmentIndex
+                self.presenter.searchTypeSegmentValueChanged(selectedSegmentIndex: index)
             }
         }
     }

@@ -13,9 +13,12 @@ import RealmSwift
 final class SearchOptionsObject: Object {
     
     private(set) dynamic var keyword: String = ""
+    private(set) dynamic var searchType: SearchOptions.SearchType = .repository
     
-    convenience init(keyword: String) {
+    convenience init(keyword: String,
+                     searchType: SearchOptions.SearchType) {
         self.init()
         self.keyword = keyword
+        self.searchType = searchType
     }
 }

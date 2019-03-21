@@ -29,7 +29,8 @@ final class SearchOptionsHistoryInteractor {
 extension SearchOptionsHistoryInteractor: SearchOptionsHistoryUsecase {
     
     func save(searchOptions: SearchOptions) throws {
-        if let history = realm.objects(SearchOptionsHistoryObject.self).filter("searchOptions.keyword = %@", searchOptions.keyword).first {
+        if let history = realm.objects(SearchOptionsHistoryObject.self)
+                            .filter("searchOptions.keyword = %@ AND searchOptions.searchType = %@", searchOptions.keyword, searchOptions.searchType.rawValue).first {
             try realm.write {
                 history.updateLastSearchDate()
             }
