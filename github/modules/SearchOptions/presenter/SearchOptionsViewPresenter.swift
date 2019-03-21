@@ -31,10 +31,10 @@ final class SearchOptionsViewPresenter {
                 assertionFailure("nil not supported")
                 
             case .loaded(let searchOptions):
-                guard let lastKeyword = searchOptions?.keyword else {
+                guard let searchOptions = searchOptions else {
                     return
                 }
-                view?.setLastSearchKeyword(lastKeyword)
+                view?.setLastSearchOptions(searchOptions)
                 
             case .updated(let searchOptions):
                 try? historyInteractor.save(searchOptions: searchOptions)

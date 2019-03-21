@@ -12,7 +12,7 @@ import ActionClosurable
 
 protocol SearchOptionsView: AnyObject {
     
-    func setLastSearchKeyword(_ keyword: String)
+    func setLastSearchOptions(_ searchOptions: SearchOptions)
 }
 
 final class SearchOptionsViewController: UIViewController {
@@ -42,8 +42,9 @@ final class SearchOptionsViewController: UIViewController {
 
 extension SearchOptionsViewController: SearchOptionsView {
     
-    func setLastSearchKeyword(_ keyword: String) {
-        searchBar.text = keyword
+    func setLastSearchOptions(_ searchOptions: SearchOptions) {
+        searchBar.text = searchOptions.keyword
+        searchTypeSegment.selectedSegmentIndex = searchOptions.searchType.rawValue
     }
 }
 
