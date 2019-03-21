@@ -76,6 +76,7 @@ extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
         }
         
         searchOptionsState.update(searchType: searchType)
+        router.moveToHalf()
     }
 }
 
