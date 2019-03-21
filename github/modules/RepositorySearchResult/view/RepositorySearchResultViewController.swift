@@ -1,5 +1,5 @@
 //
-//  SearchResultViewController.swift
+//  RepositorySearchResultViewController.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/20.
@@ -10,9 +10,9 @@ import UIKit
 import ActionClosurable
 import Nuke
 
-final class SearchResultViewController: UIViewController {
+final class RepositorySearchResultViewController: UIViewController {
 
-    var presenter: SearchResultViewPresentation!
+    var presenter: RepositorySearchResultViewPresentation!
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
@@ -57,7 +57,7 @@ final class SearchResultViewController: UIViewController {
     }
 }
 
-extension SearchResultViewController: SearchResultView {
+extension RepositorySearchResultViewController: RepositorySearchResultView {
     
     func updateSearchResults(_ repositories: [Repository]) {
         self.repositories = repositories
@@ -80,7 +80,7 @@ extension SearchResultViewController: SearchResultView {
     }
 }
 
-extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
+extension RepositorySearchResultViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -102,7 +102,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension SearchResultViewController: UITableViewDataSourcePrefetching {
+extension RepositorySearchResultViewController: UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         preheater.startPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })

@@ -1,5 +1,5 @@
 //
-//  SearchResultViewPresenter.swift
+//  RepositorySearchResultViewPresenter.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/20.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class SearchResultViewPresenter {
+final class RepositorySearchResultViewPresenter {
     
-    private weak var view: SearchResultView?
-    private let router: SearchResultWireframe
+    private weak var view: RepositorySearchResultView?
+    private let router: RepositorySearchResultWireframe
     private let repositoryInteractor: GitHubRepositoryUsecase
     private let historyInteractor: SearchOptionsHistoryUsecase
     
@@ -28,8 +28,8 @@ final class SearchResultViewPresenter {
         }
     }
     
-    init(view: SearchResultView,
-         router: SearchResultWireframe,
+    init(view: RepositorySearchResultView,
+         router: RepositorySearchResultWireframe,
          repositoryInteractor: GitHubRepositoryUsecase,
          historyInteractor: SearchOptionsHistoryUsecase) {
         self.view = view
@@ -53,7 +53,7 @@ final class SearchResultViewPresenter {
     }
 }
 
-extension SearchResultViewPresenter: SearchResultViewPresentation {
+extension RepositorySearchResultViewPresenter: RepositorySearchResultViewPresentation {
     
     func viewDidLoad() {
         historyInteractor.observe { [weak self] lastSearchOptions in

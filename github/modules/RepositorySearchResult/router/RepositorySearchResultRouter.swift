@@ -1,5 +1,5 @@
 //
-//  SearchResultRouter.swift
+//  RepositorySearchResultRouter.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/20.
@@ -9,7 +9,7 @@
 import UIKit
 import FloatingPanel
 
-final class SearchResultRouter {
+final class RepositorySearchResultRouter {
     
     private unowned let viewController: UIViewController
     private let floatingPanelController: FloatingPanelController = {
@@ -23,11 +23,11 @@ final class SearchResultRouter {
     }
     
     static func assembleModules() -> UIViewController {
-        let view = SearchResultViewController()
-        let router = SearchResultRouter(viewController: view)
+        let view = RepositorySearchResultViewController()
+        let router = RepositorySearchResultRouter(viewController: view)
         let repositoryInteractor = GitHubRepositoryInteractor()
         let historyInteractor = SearchOptionsHistoryInteractor()
-        let presenter = SearchResultViewPresenter(view: view,
+        let presenter = RepositorySearchResultViewPresenter(view: view,
                                                   router: router,
                                                   repositoryInteractor: repositoryInteractor,
                                                   historyInteractor: historyInteractor)
@@ -38,7 +38,7 @@ final class SearchResultRouter {
     }
 }
 
-extension SearchResultRouter: SearchResultWireframe {
+extension RepositorySearchResultRouter: RepositorySearchResultWireframe {
     
     func showSearchOptionsView() {
         let searchOptionsView = SearchOptionsRouter.assembleModules(floatingPanelController: floatingPanelController)

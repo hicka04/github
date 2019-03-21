@@ -1,5 +1,5 @@
 //
-//  SearchResultContract.swift
+//  RepositorySearchResultContract.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/20.
@@ -8,14 +8,14 @@
 
 import Foundation
 
-protocol SearchResultView: AnyObject {
+protocol RepositorySearchResultView: AnyObject {
     
     func updateSearchResults(_ repositories: [Repository])
     func showSearchErrorAlert()
     func scrollToTop()
 }
 
-protocol SearchResultViewPresentation: AnyObject {
+protocol RepositorySearchResultViewPresentation: AnyObject {
     
     func viewDidLoad()
     
@@ -23,7 +23,7 @@ protocol SearchResultViewPresentation: AnyObject {
     func didSelectRow(at indexPath: IndexPath)
 }
 
-protocol SearchResultWireframe: AnyObject {
+protocol RepositorySearchResultWireframe: AnyObject {
     
     func showSearchOptionsView()
     func showRepositoryDetailView(repository: Repository)

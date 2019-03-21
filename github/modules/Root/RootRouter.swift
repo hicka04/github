@@ -17,8 +17,8 @@ final class RootRouter {
     }
     
     func showFirstView() {
-        let searchResultView = UINavigationController(rootViewController: SearchResultRouter.assembleModules())
-        window.rootViewController = searchResultView
+        let repositorySearchResultView = UINavigationController(rootViewController: RepositorySearchResultRouter.assembleModules())
+        window.rootViewController = repositorySearchResultView
         window.makeKeyAndVisible()
     }
 }
