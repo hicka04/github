@@ -8,6 +8,14 @@
 
 import Foundation
 
+protocol RepositorySearchResultViewPresentation: AnyObject {
+    
+    func viewDidLoad()
+    
+    func refreshControlDidRefresh()
+    func didSelectRow(at indexPath: IndexPath)
+}
+
 final class RepositorySearchResultViewPresenter {
     
     private weak var view: RepositorySearchResultView?
@@ -59,7 +67,6 @@ extension RepositorySearchResultViewPresenter: RepositorySearchResultViewPresent
         historyInteractor.observe { [weak self] lastSearchOptions in
             self?.keyword = lastSearchOptions?.keyword
         }
-        router.showSearchOptionsView()
     }
     
     func refreshControlDidRefresh() {

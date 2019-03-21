@@ -9,14 +9,14 @@
 import UIKit
 import FloatingPanel
 
+protocol RepositorySearchResultWireframe: AnyObject {
+    
+    func showRepositoryDetailView(repository: Repository)
+}
+
 final class RepositorySearchResultRouter {
     
     private unowned let viewController: UIViewController
-    private let floatingPanelController: FloatingPanelController = {
-        let floatingPanelController = FloatingPanelController()
-        floatingPanelController.surfaceView.cornerRadius = 16
-        return floatingPanelController
-    }()
     
     private init(viewController: UIViewController) {
         self.viewController = viewController
@@ -28,9 +28,9 @@ final class RepositorySearchResultRouter {
         let repositoryInteractor = GitHubRepositoryInteractor()
         let historyInteractor = SearchOptionsHistoryInteractor()
         let presenter = RepositorySearchResultViewPresenter(view: view,
-                                                  router: router,
-                                                  repositoryInteractor: repositoryInteractor,
-                                                  historyInteractor: historyInteractor)
+                                                            router: router,
+                                                            repositoryInteractor: repositoryInteractor,
+                                                            historyInteractor: historyInteractor)
         
         view.presenter = presenter
         
@@ -39,13 +39,6 @@ final class RepositorySearchResultRouter {
 }
 
 extension RepositorySearchResultRouter: RepositorySearchResultWireframe {
-    
-    func showSearchOptionsView() {
-        let searchOptionsView = SearchOptionsRouter.assembleModules(floatingPanelController: floatingPanelController)
-        floatingPanelController.set(contentViewController: searchOptionsView)
-        floatingPanelController.addPanel(toParent: viewController)
-        floatingPanelController.move(to: .tip, animated: false)
-    }
     
     func showRepositoryDetailView(repository: Repository) {
         let repositoryDetailView = RepositoryDetailPageRouter.assembleModules(repository: repository)

@@ -10,6 +10,13 @@ import UIKit
 import ActionClosurable
 import Nuke
 
+protocol RepositorySearchResultView: AnyObject {
+    
+    func updateSearchResults(_ repositories: [Repository])
+    func showSearchErrorAlert()
+    func scrollToTop()
+}
+
 final class RepositorySearchResultViewController: UIViewController {
 
     var presenter: RepositorySearchResultViewPresentation!
@@ -35,8 +42,6 @@ final class RepositorySearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.title = "Search"
         
         tableView.register(RepositoryCell.self)
         tableView.refreshControl = UIRefreshControl { _ in

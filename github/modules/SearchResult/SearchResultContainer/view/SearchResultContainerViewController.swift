@@ -18,6 +18,10 @@ final class SearchResultContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Search"
+        
+        view.backgroundColor = .white
 
         presenter.viewDidLoad()
     }

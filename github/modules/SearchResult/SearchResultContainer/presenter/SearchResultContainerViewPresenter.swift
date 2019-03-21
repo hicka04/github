@@ -20,6 +20,22 @@ final class SearchResultContainerViewPresenter {
     private let router: SearchResultContainerWireframe
     private let interactor: SearchOptionsHistoryUsecase
     
+    private var searchType: SearchOptions.SearchType? {
+        didSet {
+            guard let searchType = searchType,
+                searchType != oldValue else {
+                return
+            }
+            
+            switch searchType {
+            case .repository:
+                router.showRepositorySearchResultView()
+            case .user:
+                router.showUserSearchResultView()
+            }
+        }
+    }
+    
     init(view: SearchResultContainerView,
          router: SearchResultContainerWireframe,
          interactor: SearchOptionsHistoryUsecase) {
@@ -32,7 +48,10 @@ final class SearchResultContainerViewPresenter {
 extension SearchResultContainerViewPresenter: SearchResultContainerViewPresentation {
     
     func viewDidLoad() {
+        interactor.observe { [weak self] searchOptions in
+            self?.searchType = searchOptions?.searchType
+        }
         
+        router.showSearchOptionsView()
     }
 }
-
