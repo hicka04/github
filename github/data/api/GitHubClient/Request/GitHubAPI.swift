@@ -16,17 +16,30 @@ final class GitHubAPI {
         
         typealias Response = SearchResponse<Repository>
         
-        let keyword: String
-        
-        var path: String {
-            return "/search/repositories"
-        }
+        let path: String = "/search/repositories"
         
         let method: HTTPMethod = .get
         
         var queryItems: [URLQueryItem] {
             return [URLQueryItem(name: "q", value: keyword)]
         }
+        
+        let keyword: String
+    }
+    
+    struct SearchUsers: GitHubRequest {
+        
+        typealias Response = SearchResponse<User>
+        
+        let path: String = "/search/users"
+        
+        let method: HTTPMethod = .get
+        
+        var queryItems: [URLQueryItem] {
+            return [URLQueryItem(name: "q", value: keyword)]
+        }
+        
+        let keyword: String
     }
     
     struct SearchReadme: GitHubRequest {
