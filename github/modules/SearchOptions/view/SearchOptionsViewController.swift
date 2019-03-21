@@ -8,6 +8,7 @@
 
 import UIKit
 import FloatingPanel
+import ActionClosurable
 
 protocol SearchOptionsView: AnyObject {
     
@@ -20,6 +21,14 @@ final class SearchOptionsViewController: UIViewController {
     @IBOutlet private weak var searchBar: UISearchBar! {
         didSet {
             searchBar.delegate = self
+        }
+    }
+    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet weak var searchTypeSegment: UISegmentedControl! {
+        didSet {
+            searchTypeSegment.on(.valueChanged) { segmentedControl in
+                // TODO: presenterに伝える
+            }
         }
     }
     
@@ -64,19 +73,36 @@ extension SearchOptionsViewController: UISearchBarDelegate {
 extension SearchOptionsViewController: FloatingPanelControllerDelegate {
     
     func floatingPanelWillBeginDragging(_ vc: FloatingPanelController) {
-        guard vc.position == .full else {
-            return
+        switch vc.position {
+        case .tip:
+            UIView.animate(withDuration: 0.2) {
+                self.stackView.alpha = 1
+            }
+        case .full:
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchBar.resignFirstResponder()
+        default:
+            break
         }
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
     }
     
-    func floatingPanelDidEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetPosition: FloatingPanelPosition) {
-        guard targetPosition == .full,
-            !searchBar.isFirstResponder else {
-            return
+    func floatingPanelDidChangePosition(_ vc: FloatingPanelController) {
+        switch vc.position {
+        case .tip:
+            UIView.animate(withDuration: 0.1) {
+                self.stackView.alpha = 0
+            }
+        case .full:
+            if !searchBar.isFirstResponder {
+                searchBar.setShowsCancelButton(true, animated: true)
+                searchBar.becomeFirstResponder()
+            }
+            
+            fallthrough
+        default:
+            UIView.animate(withDuration: 0.2) {
+                self.stackView.alpha = 1
+            }
         }
-        searchBar.setShowsCancelButton(true, animated: true)
-        searchBar.becomeFirstResponder()
     }
 }

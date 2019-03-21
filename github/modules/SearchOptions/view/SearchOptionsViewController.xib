@@ -14,6 +14,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchOptionsViewController" customModule="github" customModuleProvider="target">
             <connections>
                 <outlet property="searchBar" destination="Vl9-DX-TkO" id="xoD-b3-lFh"/>
+                <outlet property="searchTypeSegment" destination="Doj-uq-MAI" id="oYP-OC-SDS"/>
+                <outlet property="stackView" destination="UyD-rF-YIi" id="H6X-vO-Zah"/>
                 <outlet property="view" destination="iN0-l3-epB" id="JRS-ZV-lhn"/>
             </connections>
         </placeholder>
@@ -22,17 +24,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="enter a keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Vl9-DX-TkO">
-                    <rect key="frame" x="0.0" y="28" width="375" height="56"/>
-                    <color key="tintColor" name="main"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-Z1-eiX">
+                    <rect key="frame" x="8" y="28" width="359" height="92"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="enter a keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Vl9-DX-TkO">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="56"/>
+                            <color key="tintColor" name="main"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UyD-rF-YIi">
+                            <rect key="frame" x="0.0" y="64" width="359" height="28"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Doj-uq-MAI">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="29"/>
+                                    <segments>
+                                        <segment title="Repository"/>
+                                        <segment title="User"/>
+                                    </segments>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="tintColor" name="main"/>
+                        </stackView>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Vl9-DX-TkO" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="R5G-rn-QZo"/>
-                <constraint firstItem="Vl9-DX-TkO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SCj-iB-taf"/>
-                <constraint firstItem="Vl9-DX-TkO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="sGM-sA-3vt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VJX-Z1-eiX" secondAttribute="trailing" constant="8" id="6M9-Z7-iNr"/>
+                <constraint firstItem="VJX-Z1-eiX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Hng-8A-wux"/>
+                <constraint firstItem="VJX-Z1-eiX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="Siu-YQ-T0e"/>
+                <constraint firstItem="VJX-Z1-eiX" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="mz1-1J-Jsx"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
