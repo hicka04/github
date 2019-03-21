@@ -76,7 +76,10 @@
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
 		17FDB82D2216FD420033BBA0 /* githubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB82C2216FD420033BBA0 /* githubTests.swift */; };
 		3EYI3EX3OFKMDNK9D6FF7CI2 /* SearchOptionsHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */; };
+		68Y9QDT2PP2T16W8XXLBV3DB /* UserSearchResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */; };
+		6XTTDNRT2CNFCEOFOE90Y5TU /* UserSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */; };
 		A3Q9YRH5GYQ391IVGETTJVH3 /* SearchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */; };
+		D8N8K0DCIL9M8YY26AYJ6O8K /* UserSearchResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */; };
 		EUZLG4F22FRZOOOW2H9WD6K7 /* SearchOptionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = J0GCEQOQ8481R7YOH2DCQ32J /* SearchOptionsRouter.swift */; };
 		IQMHT851GD98SHAG5I56E6YH /* SearchOptionsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = RRPNJHSDSDHKXDYH8VSENN7R /* SearchOptionsViewPresenter.swift */; };
 		WBYO77M188K0HN20TC18XJTI /* GithubUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = VF79BH26SPPG7K0207AGWK4O /* GithubUserInteractor.swift */; };
@@ -165,8 +168,11 @@
 		17FDB8282216FD420033BBA0 /* githubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = githubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB82C2216FD420033BBA0 /* githubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubTests.swift; sourceTree = "<group>"; };
 		17FDB82E2216FD420033BBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewController.swift; sourceTree = "<group>"; };
 		4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewController.swift; sourceTree = "<group>"; };
+		DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultRouter.swift; sourceTree = "<group>"; };
 		J0GCEQOQ8481R7YOH2DCQ32J /* SearchOptionsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsRouter.swift; sourceTree = "<group>"; };
+		J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewPresenter.swift; sourceTree = "<group>"; };
 		NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsHistoryInteractor.swift; sourceTree = "<group>"; };
 		RRPNJHSDSDHKXDYH8VSENN7R /* SearchOptionsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewPresenter.swift; sourceTree = "<group>"; };
 		VF79BH26SPPG7K0207AGWK4O /* GithubUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUserInteractor.swift; sourceTree = "<group>"; };
@@ -426,7 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				173AE584221D7C52004FEC1A /* Root */,
-				173AE583221D7C39004FEC1A /* RepositorySearchResult */,
+				1793BA592243CDEB00EB190C /* SearchResult */,
 				17044BF4221F028C00377FC2 /* RepositoryDetail */,
 				K69J9HGSNEVQP3J3GNQ7J51B /* SearchOptions */,
 			);
@@ -639,6 +645,15 @@
 			path = presenter;
 			sourceTree = "<group>";
 		};
+		1793BA592243CDEB00EB190C /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				173AE583221D7C39004FEC1A /* RepositorySearchResult */,
+				A9JOA7954TZKMXZOXU6LUKXN /* UserSearchResult */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
 		17A420D9223D344300A2ED6E /* interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -738,12 +753,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9JOK8GP8FJSUXE8MLBS2TP9S /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		A9JOA7954TZKMXZOXU6LUKXN /* UserSearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				9JOK8GP8FJSUXE8MLBS2TP9S /* view */,
+				IAB2PLNLDQ2CP3SQ73REB8US /* presenter */,
+				Y9Q7C7TAS02I3AZSQR7OPG6H /* router */,
+			);
+			path = UserSearchResult;
+			sourceTree = "<group>";
+		};
 		GT9Z102BAYZHTMHZMXBWP788 /* GithubUser */ = {
 			isa = PBXGroup;
 			children = (
 				VF79BH26SPPG7K0207AGWK4O /* GithubUserInteractor.swift */,
 			);
 			path = GithubUser;
+			sourceTree = "<group>";
+		};
+		IAB2PLNLDQ2CP3SQ73REB8US /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 		K69J9HGSNEVQP3J3GNQ7J51B /* SearchOptions */ = {
@@ -786,6 +827,14 @@
 			isa = PBXGroup;
 			children = (
 				J0GCEQOQ8481R7YOH2DCQ32J /* SearchOptionsRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		Y9Q7C7TAS02I3AZSQR7OPG6H /* router */ = {
+			isa = PBXGroup;
+			children = (
+				DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */,
 			);
 			path = router;
 			sourceTree = "<group>";
@@ -981,6 +1030,9 @@
 				A3Q9YRH5GYQ391IVGETTJVH3 /* SearchOptionsViewController.swift in Sources */,
 				EUZLG4F22FRZOOOW2H9WD6K7 /* SearchOptionsRouter.swift in Sources */,
 				WBYO77M188K0HN20TC18XJTI /* GithubUserInteractor.swift in Sources */,
+				68Y9QDT2PP2T16W8XXLBV3DB /* UserSearchResultViewPresenter.swift in Sources */,
+				6XTTDNRT2CNFCEOFOE90Y5TU /* UserSearchResultViewController.swift in Sources */,
+				D8N8K0DCIL9M8YY26AYJ6O8K /* UserSearchResultRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
