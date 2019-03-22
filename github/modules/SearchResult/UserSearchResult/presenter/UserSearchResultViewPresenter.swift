@@ -14,13 +14,13 @@ protocol UserSearchResultViewPresentation: AnyObject {
 }
 
 
-final class UserSearchResultViewPresenter {
+final class UserSearchResultViewPresenter<View: UserSearchResultView> {
 
-    private weak var view: UserSearchResultView?
+    private weak var view: View?
     private let router: UserSearchResultWireframe
     private let interactor: GithubUserUsecase
     
-    init(view: UserSearchResultView,
+    init(view: View,
          router: UserSearchResultWireframe,
          interactor: GithubUserUsecase) {
         self.view = view

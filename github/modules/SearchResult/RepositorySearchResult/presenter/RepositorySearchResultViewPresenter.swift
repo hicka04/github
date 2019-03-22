@@ -16,9 +16,9 @@ protocol RepositorySearchResultViewPresentation: AnyObject {
     func didSelectRow(at indexPath: IndexPath)
 }
 
-final class RepositorySearchResultViewPresenter {
+final class RepositorySearchResultViewPresenter<View: RepositorySearchResultView> {
     
-    private weak var view: RepositorySearchResultView?
+    private weak var view: View?
     private let router: RepositorySearchResultWireframe
     private let repositoryInteractor: GitHubRepositoryUsecase
     private let historyInteractor: SearchOptionsHistoryUsecase
@@ -36,7 +36,7 @@ final class RepositorySearchResultViewPresenter {
         }
     }
     
-    init(view: RepositorySearchResultView,
+    init(view: View,
          router: RepositorySearchResultWireframe,
          repositoryInteractor: GitHubRepositoryUsecase,
          historyInteractor: SearchOptionsHistoryUsecase) {

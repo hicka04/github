@@ -10,9 +10,8 @@ import UIKit
 import ActionClosurable
 import Nuke
 
-protocol RepositorySearchResultView: SearchResultView {
+protocol RepositorySearchResultView: SearchResultView where Result == Repository {
     
-    func updateSearchResults(_ repositories: [Repository])
     func showSearchErrorAlert()
     func scrollToTop()
 }
@@ -57,8 +56,8 @@ final class RepositorySearchResultViewController: UITableViewController {
 
 extension RepositorySearchResultViewController: RepositorySearchResultView {
     
-    func updateSearchResults(_ repositories: [Repository]) {
-        self.repositories = repositories
+    func updateSearchResults(_ results: [Repository]) {
+        repositories = results
     }
     
     func showSearchErrorAlert() {

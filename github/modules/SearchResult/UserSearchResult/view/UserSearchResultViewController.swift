@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UserSearchResultView: SearchResultView {
+protocol UserSearchResultView: SearchResultView where Result == User {
     
 }
 
@@ -25,5 +25,8 @@ final class UserSearchResultViewController: UIViewController {
 
 extension UserSearchResultViewController: UserSearchResultView {
     
+    func updateSearchResults(_ results: [User]) {
+        
+    }
 }
 

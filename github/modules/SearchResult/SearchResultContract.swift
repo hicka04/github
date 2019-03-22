@@ -10,4 +10,7 @@ import Foundation
 
 protocol SearchResultView: AnyObject {
     
+    associatedtype Result
+    
+    func updateSearchResults(_ results: [Result])
 }

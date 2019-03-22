@@ -42,11 +42,7 @@ final class SearchResultContainerRouter {
     }
     
     private func changeSearchResultView(_ searchResultView: UIViewController) {
-        viewController.children.forEach { child in
-            guard child is SearchResultView else {
-                return
-            }
-            
+        viewController.children.dropFirst().forEach { child in
             child.willMove(toParent: viewController)
             child.view.removeFromSuperview()
             child.removeFromParent()
