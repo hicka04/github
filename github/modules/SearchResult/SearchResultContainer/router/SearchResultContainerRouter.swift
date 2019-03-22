@@ -42,7 +42,16 @@ final class SearchResultContainerRouter {
     }
     
     private func changeSearchResultView(_ searchResultView: UIViewController) {
-        // TODO: 前の検索結果画面を取り除く
+        viewController.children.forEach { child in
+            guard child is SearchResultView else {
+                return
+            }
+            
+            child.willMove(toParent: viewController)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        }
+        
         viewController.addChild(searchResultView)
         viewController.view.insertSubview(searchResultView.view, at: 0)
         searchResultView.didMove(toParent: viewController)

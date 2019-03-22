@@ -10,7 +10,7 @@ import UIKit
 import ActionClosurable
 import Nuke
 
-protocol RepositorySearchResultView: AnyObject {
+protocol RepositorySearchResultView: SearchResultView {
     
     func updateSearchResults(_ repositories: [Repository])
     func showSearchErrorAlert()

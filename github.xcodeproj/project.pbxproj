@@ -59,6 +59,7 @@
 		17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */; };
 		17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */; };
 		17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */; };
+		1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5A2244507D00EB190C /* SearchResultContract.swift */; };
 		17A420C522394B6600A2ED6E /* ActionClosurable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C322394B6600A2ED6E /* ActionClosurable.framework */; };
 		17A420C622394B6600A2ED6E /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C422394B6600A2ED6E /* Nuke.framework */; };
 		17A420CA223A073900A2ED6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C8223A073900A2ED6E /* Realm.framework */; };
@@ -150,6 +151,7 @@
 		17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeViewPresenter.swift; sourceTree = "<group>"; };
 		17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeContract.swift; sourceTree = "<group>"; };
 		17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeRouter.swift; sourceTree = "<group>"; };
+		1793BA5A2244507D00EB190C /* SearchResultContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultContract.swift; sourceTree = "<group>"; };
 		17A420C322394B6600A2ED6E /* ActionClosurable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActionClosurable.framework; path = Carthage/Build/iOS/ActionClosurable.framework; sourceTree = "<group>"; };
 		17A420C422394B6600A2ED6E /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		17A420C8223A073900A2ED6E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				8CV1EGZVNCPEZ9QEC876QAPO /* SearchResultContainer */,
 				173AE583221D7C39004FEC1A /* RepositorySearchResult */,
 				A9JOA7954TZKMXZOXU6LUKXN /* UserSearchResult */,
+				1793BA5A2244507D00EB190C /* SearchResultContract.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -1051,6 +1054,7 @@
 				17744DB3221EE353009D5A83 /* RepositoryDetailPageViewPresenter.swift in Sources */,
 				173AE56D2217008A004FEC1A /* GitHubClient.swift in Sources */,
 				173AE5672217008A004FEC1A /* User.swift in Sources */,
+				1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */,
 				17A420DE223D378800A2ED6E /* SearchOptionsHistoryObject.swift in Sources */,
 				1708440C2236992C00859658 /* UIImageView+extension.swift in Sources */,
 				173AE5682217008A004FEC1A /* Repository.swift in Sources */,

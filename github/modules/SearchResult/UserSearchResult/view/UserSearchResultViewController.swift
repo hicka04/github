@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UserSearchResultView: AnyObject {
+protocol UserSearchResultView: SearchResultView {
     
 }
 
