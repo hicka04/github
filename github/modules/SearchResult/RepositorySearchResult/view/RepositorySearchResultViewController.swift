@@ -17,16 +17,9 @@ protocol RepositorySearchResultView: SearchResultView {
     func scrollToTop()
 }
 
-final class RepositorySearchResultViewController: UIViewController {
+final class RepositorySearchResultViewController: UITableViewController {
 
     var presenter: RepositorySearchResultViewPresentation!
-    
-    @IBOutlet private weak var tableView: UITableView! {
-        didSet {
-            tableView.delegate = self
-            tableView.dataSource = self
-        }
-    }
     
     private let preheater = ImagePreheater()
     
@@ -85,24 +78,24 @@ extension RepositorySearchResultViewController: RepositorySearchResultView {
     }
 }
 
-extension RepositorySearchResultViewController: UITableViewDelegate, UITableViewDataSource {
+extension RepositorySearchResultViewController {
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repositories.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RepositoryCell = tableView.dequeueReusableCell(for: indexPath)
         cell.set(repository: repositories[indexPath.row])
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRow(at: indexPath)
     }
 }
