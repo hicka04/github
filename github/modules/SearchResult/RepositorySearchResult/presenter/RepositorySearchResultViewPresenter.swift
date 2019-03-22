@@ -8,12 +8,8 @@
 
 import Foundation
 
-protocol RepositorySearchResultViewPresentation: AnyObject {
+protocol RepositorySearchResultViewPresentation: SearchResultViewPresentation {
     
-    func viewDidLoad()
-    
-    func refreshControlDidRefresh()
-    func didSelectRow(at indexPath: IndexPath)
 }
 
 final class RepositorySearchResultViewPresenter<View: RepositorySearchResultView> {

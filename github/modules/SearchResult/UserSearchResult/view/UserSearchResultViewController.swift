@@ -23,6 +23,8 @@ final class UserSearchResultViewController: UITableViewController {
         didSet {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.flashScrollIndicators()
             }
         }
     }
@@ -31,6 +33,9 @@ final class UserSearchResultViewController: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UserCell.self)
+        tableView.refreshControl = UIRefreshControl { _ in
+            self.presenter.refreshControlDidRefresh()
+        }
         
         tableView.prefetchDataSource = self
 

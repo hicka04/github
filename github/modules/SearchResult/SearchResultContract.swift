@@ -24,3 +24,10 @@ extension SearchResultView where Self: UITableViewController {
         }
     }
 }
+
+protocol SearchResultViewPresentation: AnyObject {
+    
+    func viewDidLoad()
+    func refreshControlDidRefresh()
+    func didSelectRow(at indexPath: IndexPath)
+}

@@ -8,9 +8,8 @@
 
 import Foundation
 
-protocol UserSearchResultViewPresentation: AnyObject {
-
-    func viewDidLoad()    
+protocol UserSearchResultViewPresentation: SearchResultViewPresentation {
+    
 }
 
 
@@ -64,6 +63,14 @@ extension UserSearchResultViewPresenter: UserSearchResultViewPresentation {
         historyInteractor.observe { [weak self] lastSearchOptions in
             self?.keyword = lastSearchOptions?.keyword
         }
+    }
+    
+    func refreshControlDidRefresh() {
+        searchUsers()
+    }
+    
+    func didSelectRow(at indexPath: IndexPath) {
+        
     }
 }
 
