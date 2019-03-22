@@ -60,6 +60,8 @@
 		17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */; };
 		17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */; };
 		1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5A2244507D00EB190C /* SearchResultContract.swift */; };
+		1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5D22453FFA00EB190C /* UserCell.swift */; };
+		1793BA6022453FFA00EB190C /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA5E22453FFA00EB190C /* UserCell.xib */; };
 		17A420C522394B6600A2ED6E /* ActionClosurable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C322394B6600A2ED6E /* ActionClosurable.framework */; };
 		17A420C622394B6600A2ED6E /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C422394B6600A2ED6E /* Nuke.framework */; };
 		17A420CA223A073900A2ED6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C8223A073900A2ED6E /* Realm.framework */; };
@@ -151,6 +153,8 @@
 		17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeContract.swift; sourceTree = "<group>"; };
 		17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeRouter.swift; sourceTree = "<group>"; };
 		1793BA5A2244507D00EB190C /* SearchResultContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultContract.swift; sourceTree = "<group>"; };
+		1793BA5D22453FFA00EB190C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		1793BA5E22453FFA00EB190C /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		17A420C322394B6600A2ED6E /* ActionClosurable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActionClosurable.framework; path = Carthage/Build/iOS/ActionClosurable.framework; sourceTree = "<group>"; };
 		17A420C422394B6600A2ED6E /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		17A420C8223A073900A2ED6E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -650,6 +654,15 @@
 			path = SearchResult;
 			sourceTree = "<group>";
 		};
+		1793BA5C22453FB400EB190C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				1793BA5D22453FFA00EB190C /* UserCell.swift */,
+				1793BA5E22453FFA00EB190C /* UserCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		17A420D9223D344300A2ED6E /* interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -763,6 +776,7 @@
 			isa = PBXGroup;
 			children = (
 				4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */,
+				1793BA5C22453FB400EB190C /* cell */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -955,6 +969,7 @@
 				17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */,
 				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
+				1793BA6022453FFA00EB190C /* UserCell.xib in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
 				170844022234030300859658 /* RepositoryContentViewController.xib in Resources */,
 				1708440822353CB900859658 /* Color.xcassets in Resources */,
@@ -1020,6 +1035,7 @@
 				17744DAF221EDD8A009D5A83 /* RepositoryDetailContract.swift in Sources */,
 				173AE582221D7BF1004FEC1A /* RepositorySearchResultViewController.swift in Sources */,
 				170844062234041900859658 /* RepositoryContentRouter.swift in Sources */,
+				1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */,
 				17744DB1221EE21E009D5A83 /* RepositoryDetailPageViewController.swift in Sources */,
 				1753EB93222BB507009BBDB5 /* ReleaseCell.swift in Sources */,
 				17044C0A2224190500377FC2 /* RepositoryReleaseContract.swift in Sources */,

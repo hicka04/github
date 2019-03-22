@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 protocol UserSearchResultView: SearchResultView where Result == User {
     
@@ -15,6 +16,8 @@ protocol UserSearchResultView: SearchResultView where Result == User {
 final class UserSearchResultViewController: UITableViewController {
     
     var presenter: UserSearchResultViewPresentation!
+    
+    private let preheater = ImagePreheater()
     
     private var users: [User] = [] {
         didSet {
@@ -26,6 +29,10 @@ final class UserSearchResultViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UserCell.self)
+        
+        tableView.prefetchDataSource = self
 
         presenter.viewDidLoad()
     }
@@ -49,8 +56,19 @@ extension UserSearchResultViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = users[indexPath.row].login
+        let cell: UserCell = tableView.dequeueReusableCell(for: indexPath)
+        cell.set(user: users[indexPath.row])
         return cell
+    }
+}
+
+extension UserSearchResultViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        preheater.startPreheating(with: indexPaths.map { users[$0.row].avatarUrl })
+    }
+    
+    func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        preheater.stopPreheating(with: indexPaths.map { users[$0.row].avatarUrl })
     }
 }
