@@ -13,7 +13,6 @@ import Nuke
 protocol RepositorySearchResultView: SearchResultView where Result == Repository {
     
     func showSearchErrorAlert()
-    func scrollToTop()
 }
 
 final class RepositorySearchResultViewController: UITableViewController {
@@ -67,12 +66,6 @@ extension RepositorySearchResultViewController: RepositorySearchResultView {
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func scrollToTop() {
-        DispatchQueue.main.async {
-            self.tableView.setContentOffset(.zero, animated: true)
         }
     }
 }

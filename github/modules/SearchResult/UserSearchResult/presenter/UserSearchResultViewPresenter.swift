@@ -18,21 +18,52 @@ final class UserSearchResultViewPresenter<View: UserSearchResultView> {
 
     private weak var view: View?
     private let router: UserSearchResultWireframe
-    private let interactor: GithubUserUsecase
+    private let userInteractor: GithubUserUsecase
+    private let historyInteractor: SearchOptionsHistoryUsecase
+    
+    private var keyword: String? {
+        didSet {
+            view?.scrollToTop()
+            searchUsers()
+        }
+    }
+    
+    private var users: [User] = [] {
+        didSet {
+            view?.updateSearchResults(users)
+        }
+    }
     
     init(view: View,
          router: UserSearchResultWireframe,
-         interactor: GithubUserUsecase) {
+         userInteractor: GithubUserUsecase,
+         historyInteractor: SearchOptionsHistoryUsecase) {
         self.view = view
-        self.interactor = interactor
         self.router = router
+        self.userInteractor = userInteractor
+        self.historyInteractor = historyInteractor
+    }
+    
+    private func searchUsers() {
+        guard let keyword = keyword else { return }
+        
+        userInteractor.searchUsers(from: keyword) { [weak self] result in
+            switch result {
+            case .success(let users):
+                self?.users = users
+            case .failure(let error):
+                debugPrint(error)
+            }
+        }
     }
 }
 
 extension UserSearchResultViewPresenter: UserSearchResultViewPresentation {
     
     func viewDidLoad() {
-        
+        historyInteractor.observe { [weak self] lastSearchOptions in
+            self?.keyword = lastSearchOptions?.keyword
+        }
     }
 }
 
