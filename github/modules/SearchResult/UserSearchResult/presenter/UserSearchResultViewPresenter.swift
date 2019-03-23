@@ -70,7 +70,7 @@ extension UserSearchResultViewPresenter: UserSearchResultViewPresentation {
     }
     
     func didSelectRow(at indexPath: IndexPath) {
-        
+        router.showUserDetailView(user: users[indexPath.row])
     }
 }
 

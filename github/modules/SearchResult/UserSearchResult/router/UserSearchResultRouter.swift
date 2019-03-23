@@ -10,6 +10,7 @@ import UIKit
 
 protocol UserSearchResultWireframe: AnyObject {
     
+    func showUserDetailView(user: User)
 }
 
 final class UserSearchResultRouter {
@@ -38,4 +39,8 @@ final class UserSearchResultRouter {
 
 extension UserSearchResultRouter: UserSearchResultWireframe {
     
+    func showUserDetailView(user: User) {
+        let userDetailView = UserDetailRouter.assembleModules(user: user)
+        viewController.navigationController?.pushViewController(userDetailView, animated: true)
+    }
 }

@@ -65,6 +65,10 @@ extension UserSearchResultViewController {
         cell.set(user: users[indexPath.row])
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.didSelectRow(at: indexPath)
+    }
 }
 
 extension UserSearchResultViewController: UITableViewDataSourcePrefetching {

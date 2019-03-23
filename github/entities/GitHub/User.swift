@@ -13,6 +13,7 @@ struct User: Decodable {
     let id: ID
     let login: String
     let avatarUrl: URL
+    let htmlUrl: URL
 }
 
 extension User {
