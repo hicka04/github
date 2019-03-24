@@ -24,13 +24,18 @@ final class SearchOptionsViewController: UIViewController {
         }
     }
     @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet weak var searchTypeSegment: UISegmentedControl! {
+    @IBOutlet private weak var searchTypeSegment: UISegmentedControl! {
         didSet {
             searchTypeSegment.on(.valueChanged) { segmentedControl in
                 self.hideKeyboard()
                 let index = segmentedControl.selectedSegmentIndex
                 self.presenter.searchTypeSegmentValueChanged(selectedSegmentIndex: index)
             }
+        }
+    }
+    @IBOutlet private weak var languageTextField: LanguageTextField! {
+        didSet {
+            languageTextField.languageTextFieldDelegate = self
         }
     }
     
@@ -68,6 +73,10 @@ extension SearchOptionsViewController: UISearchBarDelegate {
         presenter.searchBarTextDidBeginEditing()
     }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        hideKeyboard()
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
         
@@ -80,6 +89,21 @@ extension SearchOptionsViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
         presenter.searchBarSearchButtonClicked()
+    }
+}
+
+extension SearchOptionsViewController: LanguageTextFieldDelegate {
+    
+    func languageTextFieldDidBeginSelecting(_ textField: LanguageTextField) {
+        presenter.languageTextFieldDidBeginSelecting()
+    }
+    
+    func languageTextFieldDidPushDoneButton(_ textField: LanguageTextField, selectedLanguage: SearchLanguage) {
+        presenter.languageTextFieldDidPushDoneButton(selectedLanguage: selectedLanguage)
+    }
+    
+    func languageTextFieldDidPushCancelButton(_ textField: LanguageTextField) {
+        presenter.languageTextFieldDidPushCancelButton()
     }
 }
 
@@ -104,10 +128,6 @@ extension SearchOptionsViewController: FloatingPanelControllerDelegate {
             UIView.animate(withDuration: 0.1) {
                 self.stackView.alpha = 0
             }
-        case .full:
-            showKeyboard()
-            
-            fallthrough
         default:
             UIView.animate(withDuration: 0.2) {
                 self.stackView.alpha = 1

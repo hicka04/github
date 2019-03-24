@@ -15,6 +15,9 @@ protocol SearchOptionsViewPresentation: AnyObject {
     func searchBarSearchButtonClicked(_ searchBarText: String)
     func searchBarSearchButtonClicked()
     func searchTypeSegmentValueChanged(selectedSegmentIndex: Int)
+    func languageTextFieldDidBeginSelecting()
+    func languageTextFieldDidPushDoneButton(selectedLanguage: SearchLanguage)
+    func languageTextFieldDidPushCancelButton()
 }
 
 
@@ -76,6 +79,18 @@ extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
         }
         
         searchOptionsState.update(searchType: searchType)
+        router.moveToHalf()
+    }
+    
+    func languageTextFieldDidBeginSelecting() {
+        router.moveToFull()
+    }
+    
+    func languageTextFieldDidPushDoneButton(selectedLanguage: SearchLanguage) {
+        router.moveToHalf()
+    }
+    
+    func languageTextFieldDidPushCancelButton() {
         router.moveToHalf()
     }
 }

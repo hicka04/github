@@ -63,6 +63,9 @@
 		1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5D22453FFA00EB190C /* UserCell.swift */; };
 		1793BA6022453FFA00EB190C /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA5E22453FFA00EB190C /* UserCell.xib */; };
 		1793BA622245E48900EB190C /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA612245E48900EB190C /* UserDetailViewController.xib */; };
+		1793BA6422460EF100EB190C /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA6322460EF100EB190C /* Language.swift */; };
+		1793BA6722462D7F00EB190C /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA6622462D7F00EB190C /* LanguagePickerView.swift */; };
+		1793BA69224656C700EB190C /* LanguageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA68224656C700EB190C /* LanguageTextField.swift */; };
 		17A420C522394B6600A2ED6E /* ActionClosurable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C322394B6600A2ED6E /* ActionClosurable.framework */; };
 		17A420C622394B6600A2ED6E /* Nuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C422394B6600A2ED6E /* Nuke.framework */; };
 		17A420CA223A073900A2ED6E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420C8223A073900A2ED6E /* Realm.framework */; };
@@ -160,6 +163,9 @@
 		1793BA5D22453FFA00EB190C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1793BA5E22453FFA00EB190C /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		1793BA612245E48900EB190C /* UserDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
+		1793BA6322460EF100EB190C /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		1793BA6622462D7F00EB190C /* LanguagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
+		1793BA68224656C700EB190C /* LanguageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTextField.swift; sourceTree = "<group>"; };
 		17A420C322394B6600A2ED6E /* ActionClosurable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ActionClosurable.framework; path = Carthage/Build/iOS/ActionClosurable.framework; sourceTree = "<group>"; };
 		17A420C422394B6600A2ED6E /* Nuke.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nuke.framework; path = Carthage/Build/iOS/Nuke.framework; sourceTree = "<group>"; };
 		17A420C8223A073900A2ED6E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -536,6 +542,7 @@
 				17044C172228E4D900377FC2 /* RepositoryContent.swift */,
 				17044C3A222A827A00377FC2 /* Release.swift */,
 				1753EB99222BC1F4009BBDB5 /* Readme.swift */,
+				1793BA6322460EF100EB190C /* Language.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -670,6 +677,15 @@
 				1793BA5E22453FFA00EB190C /* UserCell.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		1793BA6522462D0B00EB190C /* subView */ = {
+			isa = PBXGroup;
+			children = (
+				1793BA68224656C700EB190C /* LanguageTextField.swift */,
+				1793BA6622462D7F00EB190C /* LanguagePickerView.swift */,
+			);
+			path = subView;
 			sourceTree = "<group>";
 		};
 		17A420D9223D344300A2ED6E /* interactor */ = {
@@ -874,6 +890,7 @@
 			children = (
 				4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */,
 				17A420E7223E34B000A2ED6E /* SearchOptionsViewController.xib */,
+				1793BA6522462D0B00EB190C /* subView */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1083,6 +1100,7 @@
 				1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */,
 				17744DB1221EE21E009D5A83 /* RepositoryDetailPageViewController.swift in Sources */,
 				1753EB93222BB507009BBDB5 /* ReleaseCell.swift in Sources */,
+				1793BA69224656C700EB190C /* LanguageTextField.swift in Sources */,
 				17044C0A2224190500377FC2 /* RepositoryReleaseContract.swift in Sources */,
 				173AE58F221D7EDE004FEC1A /* RepositorySearchResultRouter.swift in Sources */,
 				17044C1222241BBB00377FC2 /* RepositoryReleaseRouter.swift in Sources */,
@@ -1091,7 +1109,9 @@
 				17A420E3223DD65600A2ED6E /* SearchOptionsObject.swift in Sources */,
 				17044C3E222A864100377FC2 /* GitHubReleaseInteractor.swift in Sources */,
 				173AE56F2217008A004FEC1A /* GitHubClientError.swift in Sources */,
+				1793BA6422460EF100EB190C /* Language.swift in Sources */,
 				17044BFE221FA8C100377FC2 /* RepositoryContentListViewController.swift in Sources */,
+				1793BA6722462D7F00EB190C /* LanguagePickerView.swift in Sources */,
 				17044C33222A7BF100377FC2 /* GitHubRepositoryInteractor.swift in Sources */,
 				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
 				173AE56E2217008A004FEC1A /* GitHubAPIError.swift in Sources */,
