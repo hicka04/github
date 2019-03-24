@@ -13,8 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchOptionsViewController" customModule="github" customModuleProvider="target">
             <connections>
+                <outlet property="keywordSearchBar" destination="Vl9-DX-TkO" id="xoD-b3-lFh"/>
                 <outlet property="languageTextField" destination="JLJ-rZ-NUc" id="gyz-Me-ukK"/>
-                <outlet property="searchBar" destination="Vl9-DX-TkO" id="xoD-b3-lFh"/>
                 <outlet property="searchTypeSegment" destination="Doj-uq-MAI" id="oYP-OC-SDS"/>
                 <outlet property="stackView" destination="VJX-Z1-eiX" id="iUq-Nd-DMN"/>
                 <outlet property="view" destination="iN0-l3-epB" id="JRS-ZV-lhn"/>
@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="enter a keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Vl9-DX-TkO">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="enter a keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Vl9-DX-TkO" customClass="KeywordSearchBar" customModule="github" customModuleProvider="target">
                     <rect key="frame" x="8" y="28" width="359" height="56"/>
                     <color key="tintColor" name="main"/>
                     <textInputTraits key="textInputTraits"/>

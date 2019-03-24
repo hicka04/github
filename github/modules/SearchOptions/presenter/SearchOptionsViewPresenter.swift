@@ -11,10 +11,13 @@ import Foundation
 protocol SearchOptionsViewPresentation: AnyObject {
 
     func viewDidLoad()
-    func searchBarTextDidBeginEditing()
-    func searchBarSearchButtonClicked(_ searchBarText: String)
-    func searchBarSearchButtonClicked()
+    // KeywordSearchBar
+    func keywordSearchBarTextDidBeginEditing()
+    func keywordSearchBarSearchButtonClicked(_ searchBarText: String)
+    func keywordSearchBarCancelButtonClicked()
+    // SearchTypeSegment
     func searchTypeSegmentValueChanged(selectedSegmentIndex: Int)
+    // LanguageTextField
     func languageTextFieldDidBeginSelecting()
     func languageTextFieldDidPushDoneButton(selectedLanguage: SearchLanguage)
     func languageTextFieldDidPushCancelButton()
@@ -60,16 +63,16 @@ extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
         searchOptionsState = .loaded(historyInteractor.lastSearchOptions())
     }
     
-    func searchBarTextDidBeginEditing() {
+    func keywordSearchBarTextDidBeginEditing() {
         router.moveToFull()
     }
     
-    func searchBarSearchButtonClicked(_ searchBarText: String) {
+    func keywordSearchBarSearchButtonClicked(_ searchBarText: String) {
         searchOptionsState.update(keyword: searchBarText)
         router.moveToTip()
     }
     
-    func searchBarSearchButtonClicked() {
+    func keywordSearchBarCancelButtonClicked() {
         router.moveToHalf()
     }
     

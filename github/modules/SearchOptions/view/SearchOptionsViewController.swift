@@ -18,17 +18,27 @@ protocol SearchOptionsView: AnyObject {
 final class SearchOptionsViewController: UIViewController {
     
     var presenter: SearchOptionsViewPresentation!
-    @IBOutlet private weak var searchBar: UISearchBar! {
+    @IBOutlet private weak var keywordSearchBar: KeywordSearchBar! {
         didSet {
-            searchBar.delegate = self
+            keywordSearchBar.on(.textDidBeginEditing) { [weak self] _ in
+                self?.presenter.keywordSearchBarTextDidBeginEditing()
+            }
+            keywordSearchBar.on(.cancelButtonClicked) { [weak self] _ in
+                self?.presenter.keywordSearchBarCancelButtonClicked()
+            }
+            keywordSearchBar.on(.searchButtonClicked) { [weak self] searchBar in
+                guard let searchBarText = searchBar.text else {
+                    return
+                }
+                self?.presenter.keywordSearchBarSearchButtonClicked(searchBarText)
+            }
         }
     }
     @IBOutlet private weak var stackView: UIStackView!
     @IBOutlet private weak var searchTypeSegment: UISegmentedControl! {
         didSet {
             searchTypeSegment.on(.valueChanged) { segmentedControl in
-                self.searchBar.setShowsCancelButton(false, animated: true)
-                self.searchBar.resignFirstResponder()
+                self.keywordSearchBar.endEditing(false)
                 self.languageTextField.resignFirstResponder()
                 
                 let index = segmentedControl.selectedSegmentIndex
@@ -47,46 +57,13 @@ final class SearchOptionsViewController: UIViewController {
 
         presenter.viewDidLoad()
     }
-    
-    private func hideKeyboard() {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
-    }
 }
 
 extension SearchOptionsViewController: SearchOptionsView {
     
     func setLastSearchOptions(_ searchOptions: SearchOptions) {
-        searchBar.text = searchOptions.keyword
+        keywordSearchBar.text = searchOptions.keyword
         searchTypeSegment.selectedSegmentIndex = searchOptions.searchType.rawValue
-    }
-}
-
-extension SearchOptionsViewController: UISearchBarDelegate {
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-        presenter.searchBarTextDidBeginEditing()
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
-        
-        guard let searchBarText = searchBar.text else {
-            return
-        }
-        presenter.searchBarSearchButtonClicked(searchBarText)
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-        searchBar.resignFirstResponder()
-        presenter.searchBarSearchButtonClicked()
     }
 }
 
@@ -114,8 +91,8 @@ extension SearchOptionsViewController: FloatingPanelControllerDelegate {
                 self.stackView.alpha = 1
             }
         case .full:
-            searchBar.setShowsCancelButton(false, animated: true)
-            searchBar.resignFirstResponder()
+            keywordSearchBar.endEditing(false)
+            languageTextField.endEditing(false)
         default:
             break
         }
