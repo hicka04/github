@@ -27,7 +27,10 @@ final class SearchOptionsViewController: UIViewController {
     @IBOutlet private weak var searchTypeSegment: UISegmentedControl! {
         didSet {
             searchTypeSegment.on(.valueChanged) { segmentedControl in
-                self.hideKeyboard()
+                self.searchBar.setShowsCancelButton(false, animated: true)
+                self.searchBar.resignFirstResponder()
+                self.languageTextField.resignFirstResponder()
+                
                 let index = segmentedControl.selectedSegmentIndex
                 self.presenter.searchTypeSegmentValueChanged(selectedSegmentIndex: index)
             }
@@ -43,13 +46,6 @@ final class SearchOptionsViewController: UIViewController {
         super.viewDidLoad()
 
         presenter.viewDidLoad()
-    }
-    
-    private func showKeyboard() {
-        if !searchBar.isFirstResponder {
-            searchBar.becomeFirstResponder()
-        }
-        searchBar.setShowsCancelButton(true, animated: true)
     }
     
     private func hideKeyboard() {
@@ -69,16 +65,17 @@ extension SearchOptionsViewController: SearchOptionsView {
 extension SearchOptionsViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        showKeyboard()
+        searchBar.setShowsCancelButton(true, animated: true)
         presenter.searchBarTextDidBeginEditing()
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        hideKeyboard()
+        searchBar.setShowsCancelButton(false, animated: true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        hideKeyboard()
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
         
         guard let searchBarText = searchBar.text else {
             return
@@ -87,7 +84,8 @@ extension SearchOptionsViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        hideKeyboard()
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
         presenter.searchBarSearchButtonClicked()
     }
 }
@@ -116,7 +114,8 @@ extension SearchOptionsViewController: FloatingPanelControllerDelegate {
                 self.stackView.alpha = 1
             }
         case .full:
-            hideKeyboard()
+            searchBar.setShowsCancelButton(false, animated: true)
+            searchBar.resignFirstResponder()
         default:
             break
         }
