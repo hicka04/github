@@ -18,6 +18,7 @@ protocol SearchOptionsView: AnyObject {
 final class SearchOptionsViewController: UIViewController {
     
     var presenter: SearchOptionsViewPresentation!
+    
     @IBOutlet private weak var keywordSearchBar: KeywordSearchBar! {
         didSet {
             keywordSearchBar.on(.textDidBeginEditing) { [weak self] _ in
@@ -39,7 +40,7 @@ final class SearchOptionsViewController: UIViewController {
         didSet {
             searchTypeSegment.on(.valueChanged) { segmentedControl in
                 self.keywordSearchBar.endEditing(false)
-                self.languageTextField.resignFirstResponder()
+                self.languageTextField.endEditing(false)
                 
                 let index = segmentedControl.selectedSegmentIndex
                 self.presenter.searchTypeSegmentValueChanged(selectedSegmentIndex: index)
@@ -48,7 +49,15 @@ final class SearchOptionsViewController: UIViewController {
     }
     @IBOutlet private weak var languageTextField: LanguageTextField! {
         didSet {
-            languageTextField.languageTextFieldDelegate = self
+            languageTextField.didBeginSelecting { [weak self] _ in
+                self?.presenter.languageTextFieldDidBeginSelecting()
+            }
+            languageTextField.doneButtonClicked { [weak self] _, language in
+                self?.presenter.languageTextFieldDoneButtonClicked(selectedLanguage: language)
+            }
+            languageTextField.cancelButtonClicked { [weak self] _ in
+                self?.presenter.languageTextFieldCancelButtonClicked()
+            }
         }
     }
     
@@ -64,21 +73,6 @@ extension SearchOptionsViewController: SearchOptionsView {
     func setLastSearchOptions(_ searchOptions: SearchOptions) {
         keywordSearchBar.text = searchOptions.keyword
         searchTypeSegment.selectedSegmentIndex = searchOptions.searchType.rawValue
-    }
-}
-
-extension SearchOptionsViewController: LanguageTextFieldDelegate {
-    
-    func languageTextFieldDidBeginSelecting(_ textField: LanguageTextField) {
-        presenter.languageTextFieldDidBeginSelecting()
-    }
-    
-    func languageTextFieldDidPushDoneButton(_ textField: LanguageTextField, selectedLanguage: SearchLanguage) {
-        presenter.languageTextFieldDidPushDoneButton(selectedLanguage: selectedLanguage)
-    }
-    
-    func languageTextFieldDidPushCancelButton(_ textField: LanguageTextField) {
-        presenter.languageTextFieldDidPushCancelButton()
     }
 }
 

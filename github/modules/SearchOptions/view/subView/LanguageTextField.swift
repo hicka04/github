@@ -8,13 +8,6 @@
 
 import UIKit
 
-protocol LanguageTextFieldDelegate: AnyObject {
-    
-    func languageTextFieldDidBeginSelecting(_ textField: LanguageTextField)
-    func languageTextFieldDidPushDoneButton(_ textField: LanguageTextField, selectedLanguage: SearchLanguage)
-    func languageTextFieldDidPushCancelButton(_ textField: LanguageTextField)
-}
-
 class LanguageTextField: UITextField {
     
     private lazy var languagePickerView: LanguagePickerView = {
@@ -24,8 +17,6 @@ class LanguageTextField: UITextField {
     }()
     
     private var selectedLanguage: SearchLanguage = .any
-    
-    weak var languageTextFieldDelegate: LanguageTextFieldDelegate?
     
     override func caretRect(for position: UITextPosition) -> CGRect {
         return .zero
@@ -55,23 +46,44 @@ class LanguageTextField: UITextField {
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
             UIBarButtonItem(barButtonSystemItem: .cancel) { _ in
                 self.resignFirstResponder()
-                self.languageTextFieldDelegate?.languageTextFieldDidPushCancelButton(self)
+                self.cancelButtonClickedHandler?(self)
             },
             UIBarButtonItem(barButtonSystemItem: .done) { _ in
                 self.resignFirstResponder()
                 self.text = self.selectedLanguage.title
-                self.languageTextFieldDelegate?.languageTextFieldDidPushDoneButton(self,
-                                                                                   selectedLanguage: self.selectedLanguage)
+                self.doneButtonClickedHandler?(self, self.selectedLanguage)
             }
         ], animated: true)
         inputAccessoryView = toolbar
+    }
+    
+    // Event Handlers
+    private var didBeginSelectingHandler: ((LanguageTextField) -> Void)?
+    func didBeginSelecting(handler: @escaping (LanguageTextField) -> Void) {
+        didBeginSelectingHandler = handler
+    }
+    
+    private var doneButtonClickedHandler: ((LanguageTextField, SearchLanguage) -> Void)?
+    func doneButtonClicked(handler: @escaping (LanguageTextField, SearchLanguage) -> Void) {
+        doneButtonClickedHandler = handler
+    }
+    
+    private var cancelButtonClickedHandler: ((LanguageTextField) -> Void)?
+    func cancelButtonClicked(handler: @escaping (LanguageTextField) -> Void) {
+        cancelButtonClickedHandler = handler
     }
 }
 
 extension LanguageTextField: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        languageTextFieldDelegate?.languageTextFieldDidBeginSelecting(self)
+        didBeginSelectingHandler?(self)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if isFirstResponder {
+            resignFirstResponder()
+        }
     }
 }
 
