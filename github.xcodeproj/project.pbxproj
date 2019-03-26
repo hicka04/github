@@ -77,6 +77,7 @@
 		17A420E8223E34B000A2ED6E /* SearchOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17A420E7223E34B000A2ED6E /* SearchOptionsViewController.xib */; };
 		17A420EA223E370400A2ED6E /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420E9223E370400A2ED6E /* FloatingPanel.framework */; };
 		17D5C93B224781D60004F6D6 /* KeywordSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C93A224781D60004F6D6 /* KeywordSearchBar.swift */; };
+		17F3E394224A81CE006F6F0A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3E393224A81CE006F6F0A /* WebKit.framework */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
@@ -178,6 +179,7 @@
 		17A420E7223E34B000A2ED6E /* SearchOptionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchOptionsViewController.xib; sourceTree = "<group>"; };
 		17A420E9223E370400A2ED6E /* FloatingPanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FloatingPanel.framework; path = Carthage/Build/iOS/FloatingPanel.framework; sourceTree = "<group>"; };
 		17D5C93A224781D60004F6D6 /* KeywordSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordSearchBar.swift; sourceTree = "<group>"; };
+		17F3E393224A81CE006F6F0A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F3E394224A81CE006F6F0A /* WebKit.framework in Frameworks */,
 				17A420EA223E370400A2ED6E /* FloatingPanel.framework in Frameworks */,
 				17A420CA223A073900A2ED6E /* Realm.framework in Frameworks */,
 				17A420CB223A073900A2ED6E /* RealmSwift.framework in Frameworks */,
@@ -789,6 +792,7 @@
 		3F2E968AFEF970A21FD2E324 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17F3E393224A81CE006F6F0A /* WebKit.framework */,
 				17A420E9223E370400A2ED6E /* FloatingPanel.framework */,
 				17A420C8223A073900A2ED6E /* Realm.framework */,
 				17A420C9223A073900A2ED6E /* RealmSwift.framework */,
@@ -998,9 +1002,11 @@
 				TargetAttributes = {
 					17FDB8132216FD410033BBA0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					17FDB8272216FD420033BBA0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 17FDB8132216FD410033BBA0;
 					};
 				};
@@ -1320,7 +1326,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hicka04.github;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1343,7 +1349,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hicka04.github;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1363,7 +1369,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hicka04.githubTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/github.app/github";
 			};
@@ -1384,7 +1390,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hicka04.githubTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/github.app/github";
 			};
