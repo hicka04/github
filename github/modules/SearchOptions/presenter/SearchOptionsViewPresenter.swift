@@ -90,6 +90,7 @@ extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
     }
     
     func languageTextFieldDoneButtonClicked(selectedLanguage: SearchLanguage) {
+        searchOptionsState.update(language: selectedLanguage)
         router.moveToHalf()
     }
     
@@ -107,14 +108,24 @@ extension SearchOptionsViewPresenter {
         
         mutating func update(keyword: String) {
             self = .updated(SearchOptions(keyword: keyword,
-                                          searchType: currentSearchType))
+                                          searchType: currentSearchType,
+                                          language: currentLanguage))
         }
         
         mutating func update(searchType: SearchOptions.SearchType) {
             guard let keyword = currentSearchKeyword else { return }
             
             self = .updated(SearchOptions(keyword: keyword,
-                                          searchType: searchType))
+                                          searchType: searchType,
+                                          language: currentLanguage))
+        }
+        
+        mutating func update(language: SearchLanguage) {
+            guard let keyword = currentSearchKeyword else { return }
+            
+            self = .updated(SearchOptions(keyword: keyword,
+                                          searchType: currentSearchType,
+                                          language: language.language))
         }
         
         private var currentSearchKeyword: String? {
@@ -134,6 +145,16 @@ extension SearchOptionsViewPresenter {
                 return options.searchType
             default:
                 return .repository
+            }
+        }
+        
+        private var currentLanguage: Language? {
+            switch self {
+            case .loaded(let options?),
+                 .updated(let options):
+                return options.language
+            default:
+                return nil
             }
         }
     }

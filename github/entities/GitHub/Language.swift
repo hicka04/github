@@ -24,6 +24,15 @@ enum SearchLanguage: CaseIterable {
             return language.rawValue
         }
     }
+    
+    var language: Language? {
+        switch self {
+        case .any:
+            return nil
+        case .language(let language):
+            return language
+        }
+    }
 }
 
 enum Language: String, CaseIterable {

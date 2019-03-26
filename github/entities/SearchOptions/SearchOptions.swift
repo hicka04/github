@@ -13,21 +13,26 @@ struct SearchOptions: Storable {
     
     let keyword: String
     let searchType: SearchType
+    let language: Language?
     
     init(keyword: String,
-         searchType: SearchType) {
+         searchType: SearchType,
+         language: Language?) {
         self.keyword = keyword
         self.searchType = searchType
+        self.language = language
     }
     
     init(object: SearchOptionsObject) {
         self.keyword = object.keyword
         self.searchType = object.searchType
+        self.language = Language(rawValue: object.language ?? "")
     }
     
     func object() -> SearchOptionsObject {
         return SearchOptionsObject(keyword: keyword,
-                                   searchType: searchType)
+                                   searchType: searchType,
+                                   language: language)
     }
 }
 
