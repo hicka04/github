@@ -1,5 +1,5 @@
 //
-//  SearchResultRouter.swift
+//  RepositorySearchResultRouter.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/20.
@@ -7,8 +7,14 @@
 //
 
 import UIKit
+import FloatingPanel
 
-final class SearchResultRouter {
+protocol RepositorySearchResultWireframe: AnyObject {
+    
+    func showRepositoryDetailView(repository: Repository)
+}
+
+final class RepositorySearchResultRouter {
     
     private unowned let viewController: UIViewController
     
@@ -17,14 +23,14 @@ final class SearchResultRouter {
     }
     
     static func assembleModules() -> UIViewController {
-        let view = SearchResultViewController()
-        let router = SearchResultRouter(viewController: view)
+        let view = RepositorySearchResultViewController()
+        let router = RepositorySearchResultRouter(viewController: view)
         let repositoryInteractor = GitHubRepositoryInteractor()
         let historyInteractor = SearchOptionsHistoryInteractor()
-        let presenter = SearchResultViewPresenter(view: view,
-                                                  router: router,
-                                                  repositoryInteractor: repositoryInteractor,
-                                                  historyInteractor: historyInteractor)
+        let presenter = RepositorySearchResultViewPresenter(view: view,
+                                                            router: router,
+                                                            repositoryInteractor: repositoryInteractor,
+                                                            historyInteractor: historyInteractor)
         
         view.presenter = presenter
         
@@ -32,7 +38,7 @@ final class SearchResultRouter {
     }
 }
 
-extension SearchResultRouter: SearchResultWireframe {
+extension RepositorySearchResultRouter: RepositorySearchResultWireframe {
     
     func showRepositoryDetailView(repository: Repository) {
         let repositoryDetailView = RepositoryDetailPageRouter.assembleModules(repository: repository)

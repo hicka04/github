@@ -1,5 +1,5 @@
 //
-//  SearchResultViewController.swift
+//  RepositorySearchResultViewController.swift
 //  github
 //
 //  Created by hicka04 on 2019/02/20.
@@ -10,16 +10,14 @@ import UIKit
 import ActionClosurable
 import Nuke
 
-final class SearchResultViewController: UITableViewController {
-
-    var presenter: SearchResultViewPresentation!
+protocol RepositorySearchResultView: SearchResultView where Result == Repository {
     
-    lazy var searchController: UISearchController = {
-        let searchContrller = UISearchController(searchResultsController: nil)
-        searchContrller.searchBar.delegate = self
-        searchContrller.searchBar.placeholder = "キーワードを入力"
-        return searchContrller
-    }()
+    func showSearchErrorAlert()
+}
+
+final class RepositorySearchResultViewController: UITableViewController {
+
+    var presenter: RepositorySearchResultViewPresentation!
     
     private let preheater = ImagePreheater()
     
@@ -36,29 +34,29 @@ final class SearchResultViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Search"
-        
-        definesPresentationContext = true
-        
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        
         tableView.register(RepositoryCell.self)
         tableView.refreshControl = UIRefreshControl { _ in
-            guard let searchBarText = self.searchController.searchBar.text else { return }
-            self.presenter.refreshControlDidRefresh(text: searchBarText)
+            self.presenter.refreshControlDidRefresh()
         }
         
         tableView.prefetchDataSource = self
         
         presenter.viewDidLoad()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
 
-extension SearchResultViewController: SearchResultView {
+extension RepositorySearchResultViewController: RepositorySearchResultView {
     
-    func updateSearchResults(_ repositories: [Repository]) {
-        self.repositories = repositories
+    func updateSearchResults(_ results: [Repository]) {
+        repositories = results
     }
     
     func showSearchErrorAlert() {
@@ -70,13 +68,9 @@ extension SearchResultViewController: SearchResultView {
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-    func setLastSearchKeyword(_ keyword: String) {
-        searchController.searchBar.text = keyword
-    }
 }
 
-extension SearchResultViewController {
+extension RepositorySearchResultViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -98,7 +92,7 @@ extension SearchResultViewController {
     }
 }
 
-extension SearchResultViewController: UITableViewDataSourcePrefetching {
+extension RepositorySearchResultViewController: UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         preheater.startPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
@@ -106,20 +100,5 @@ extension SearchResultViewController: UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
         preheater.stopPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
-    }
-}
-
-extension SearchResultViewController: UISearchBarDelegate {
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        defer {
-            searchController.dismiss(animated: true, completion: nil)
-        }
-        
-        guard let searchBarText = searchBar.text else {
-            return
-        }
-        
-        presenter.searchBarSearchButtonClicked(text: searchBarText)
     }
 }

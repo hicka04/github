@@ -12,21 +12,28 @@ final class GitHubAPI {
     
     private init() {}
     
-    struct SearchRepositories: GitHubRequest {
+    struct SearchRepositories: GitHubSearchRequest {
         
         typealias Response = SearchResponse<Repository>
         
-        let keyword: String
-        
-        var path: String {
-            return "/search/repositories"
-        }
+        let path: String = "/search/repositories"
         
         let method: HTTPMethod = .get
         
-        var queryItems: [URLQueryItem] {
-            return [URLQueryItem(name: "q", value: keyword)]
-        }
+        let keyword: String
+        let language: Language?
+    }
+    
+    struct SearchUsers: GitHubSearchRequest {
+        
+        typealias Response = SearchResponse<User>
+        
+        let path: String = "/search/users"
+        
+        let method: HTTPMethod = .get
+        
+        let keyword: String
+        let language: Language?
     }
     
     struct SearchReadme: GitHubRequest {

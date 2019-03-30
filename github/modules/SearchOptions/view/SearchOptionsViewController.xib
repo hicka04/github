@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchOptionsViewController" customModule="github" customModuleProvider="target">
+            <connections>
+                <outlet property="keywordSearchBar" destination="Vl9-DX-TkO" id="xoD-b3-lFh"/>
+                <outlet property="languageTextField" destination="JLJ-rZ-NUc" id="gyz-Me-ukK"/>
+                <outlet property="searchTypeSegment" destination="Doj-uq-MAI" id="oYP-OC-SDS"/>
+                <outlet property="stackView" destination="VJX-Z1-eiX" id="iUq-Nd-DMN"/>
+                <outlet property="view" destination="iN0-l3-epB" id="JRS-ZV-lhn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="enter a keyword..." translatesAutoresizingMaskIntoConstraints="NO" id="Vl9-DX-TkO" customClass="KeywordSearchBar" customModule="github" customModuleProvider="target">
+                    <rect key="frame" x="8" y="28" width="359" height="56"/>
+                    <color key="tintColor" name="main"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-Z1-eiX">
+                    <rect key="frame" x="16" y="92" width="343" height="92"/>
+                    <subviews>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Doj-uq-MAI">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="29"/>
+                            <segments>
+                                <segment title="Repository"/>
+                                <segment title="User"/>
+                            </segments>
+                            <color key="tintColor" name="main"/>
+                        </segmentedControl>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QCE-WP-Yoe">
+                            <rect key="frame" x="0.0" y="36" width="343" height="56"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqr-0k-t1M">
+                                    <rect key="frame" x="0.0" y="18" width="76" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JLJ-rZ-NUc" customClass="LanguageTextField" customModule="github" customModuleProvider="target">
+                                    <rect key="frame" x="84" y="13" width="259" height="30"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="c87-Zc-USp"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="VJX-Z1-eiX" secondAttribute="trailing" constant="16" id="6M9-Z7-iNr"/>
+                <constraint firstItem="VJX-Z1-eiX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="Hng-8A-wux"/>
+                <constraint firstItem="VJX-Z1-eiX" firstAttribute="top" secondItem="Vl9-DX-TkO" secondAttribute="bottom" constant="8" id="Siu-YQ-T0e"/>
+                <constraint firstItem="Vl9-DX-TkO" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="gja-82-crB"/>
+                <constraint firstItem="Vl9-DX-TkO" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="lF2-sL-dgH"/>
+                <constraint firstItem="VJX-Z1-eiX" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="mz1-1J-Jsx"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Vl9-DX-TkO" secondAttribute="trailing" constant="8" id="w8q-Cd-PIZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="main">
+            <color red="0.14117647058823529" green="0.16078431372549021" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

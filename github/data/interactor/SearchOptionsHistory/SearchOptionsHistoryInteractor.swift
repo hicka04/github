@@ -13,11 +13,13 @@ protocol SearchOptionsHistoryUsecase {
     
     func save(searchOptions: SearchOptions) throws
     func lastSearchOptions() -> SearchOptions?
+    func observe(lastSearchOptions: @escaping (SearchOptions?) -> Void)
 }
 
 final class SearchOptionsHistoryInteractor {
     
     private let realm: Realm
+    private var token: NotificationToken?
     
     init(realm: Realm = try! Realm()) {
         self.realm = realm
@@ -27,7 +29,8 @@ final class SearchOptionsHistoryInteractor {
 extension SearchOptionsHistoryInteractor: SearchOptionsHistoryUsecase {
     
     func save(searchOptions: SearchOptions) throws {
-        if let history = realm.objects(SearchOptionsHistoryObject.self).filter("searchOptions.keyword = %@", searchOptions.keyword).first {
+        if let history = realm.objects(SearchOptionsHistoryObject.self)
+                            .filter("searchOptions.keyword = %@ AND searchOptions.searchType = %@ AND searchOptions.language = %@", searchOptions.keyword, searchOptions.searchType.rawValue, searchOptions.language?.rawValue ?? "nil").first {
             try realm.write {
                 history.updateLastSearchDate()
             }
@@ -48,6 +51,20 @@ extension SearchOptionsHistoryInteractor: SearchOptionsHistoryUsecase {
         }
         
         return SearchOptions(object: object)
+    }
+    
+    func observe(lastSearchOptions: @escaping (SearchOptions?) -> Void) {
+        token = realm.objects(SearchOptionsHistoryObject.self).sorted(byKeyPath: "lastSearchAt").observe { change in
+            switch change {
+            case .initial(let histories),
+                 .update(let histories, _, _, _):
+                guard let last = histories.last?.searchOptions else {
+                    return
+                }
+                lastSearchOptions(SearchOptions(object: last))
+            default: break
+            }
+        }
     }
 }
 

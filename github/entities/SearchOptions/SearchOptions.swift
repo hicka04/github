@@ -12,16 +12,34 @@ import RealmSwift
 struct SearchOptions: Storable {
     
     let keyword: String
+    let searchType: SearchType
+    let language: Language?
     
-    init(keyword: String) {
+    init(keyword: String,
+         searchType: SearchType,
+         language: Language?) {
         self.keyword = keyword
+        self.searchType = searchType
+        self.language = language
     }
     
     init(object: SearchOptionsObject) {
         self.keyword = object.keyword
+        self.searchType = object.searchType
+        self.language = Language(rawValue: object.language ?? "")
     }
     
     func object() -> SearchOptionsObject {
-        return SearchOptionsObject(keyword: keyword)
+        return SearchOptionsObject(keyword: keyword,
+                                   searchType: searchType,
+                                   language: language)
+    }
+}
+
+extension SearchOptions {
+    
+    @objc enum SearchType: Int {
+        case repository
+        case user
     }
 }

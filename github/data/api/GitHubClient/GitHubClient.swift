@@ -29,6 +29,7 @@ extension GitHubClient: GitHubRequestable {
                                       completion: @escaping (Result<Request.Response, GitHubClientError>) -> Void) {
         
         let urlRequest = request.buildURLRequest()
+        print(urlRequest.url ?? "")
         let task = session.dataTask(with: urlRequest) { data, response, error in
             switch (data, response, error) {
             case (_, _, let error?):

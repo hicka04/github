@@ -1,3 +1,4 @@
-github "hicka04/ActionClosurable" "1.2.0"
+github "hicka04/ActionClosurable" "f3dc48a6a7870a5c02618d3c3cddf99fe5625e38"
 github "kean/Nuke" "7.5.2"
-github "realm/realm-cocoa" "v3.13.1"
+github "realm/realm-cocoa" "66b7d63a8fe5fa02536672a7289713fc402d798b"
+github "scenee/FloatingPanel" "v1.4.0"
