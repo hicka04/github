@@ -32,7 +32,7 @@ extension GitHubRequest {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         switch method {
         case .get:
-            components?.queryItems = queryItems
+            components?.percentEncodedQueryItems = queryItems.map { $0.addingUrlQueryEncode() }
         }
         
         var urlRequest = URLRequest(url: url)

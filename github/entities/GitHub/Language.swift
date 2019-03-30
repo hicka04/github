@@ -12,6 +12,14 @@ enum SearchLanguage: CaseIterable {
     case any
     case language(Language)
     
+    init(language: Language?) {
+        guard let language = language else {
+            self = .any
+            return
+        }
+        self = .language(language)
+    }
+    
     static var allCases: [SearchLanguage] {
         return [.any] + Language.allCases.map { SearchLanguage.language($0) }
     }
@@ -32,6 +40,14 @@ enum SearchLanguage: CaseIterable {
         case .language(let language):
             return language
         }
+    }
+    
+    var index: Int {
+        guard let language = language else {
+            return 0
+        }
+        
+        return Language.allCases.firstIndex(of: language)! + 1
     }
 }
 

@@ -19,7 +19,7 @@ final class RepositorySearchResultViewPresenter<View: RepositorySearchResultView
     private let repositoryInteractor: GitHubRepositoryUsecase
     private let historyInteractor: SearchOptionsHistoryUsecase
     
-    private var keyword: String? {
+    private var latestSearchOptions: SearchOptions? {
         didSet {
             view?.scrollToTop()
             searchRepositories()
@@ -43,9 +43,10 @@ final class RepositorySearchResultViewPresenter<View: RepositorySearchResultView
     }
     
     private func searchRepositories() {
-        guard let keyword = keyword else { return }
+        guard let latestSearchOptions = latestSearchOptions else { return }
         
-        repositoryInteractor.searchRepositories(from: keyword) { [weak self] result in
+        repositoryInteractor.searchRepositories(from: latestSearchOptions.keyword,
+                                                language: latestSearchOptions.language) { [weak self] result in
             switch result {
             case .success(let repositories):
                 self?.repositories = repositories
@@ -60,8 +61,8 @@ final class RepositorySearchResultViewPresenter<View: RepositorySearchResultView
 extension RepositorySearchResultViewPresenter: RepositorySearchResultViewPresentation {
     
     func viewDidLoad() {
-        historyInteractor.observe { [weak self] lastSearchOptions in
-            self?.keyword = lastSearchOptions?.keyword
+        historyInteractor.observe { [weak self] latestSearchOptions in
+            self?.latestSearchOptions = latestSearchOptions
         }
     }
     

@@ -9,14 +9,19 @@
 import UIKit
 
 class LanguageTextField: UITextField {
-    
+
     private lazy var languagePickerView: LanguagePickerView = {
         let languagePickerView = LanguagePickerView()
         languagePickerView.languagePickerViewDelegate = self
         return languagePickerView
     }()
     
-    private var selectedLanguage: SearchLanguage = .any
+    private var selectedLanguage: SearchLanguage = .any {
+        didSet {
+            languagePickerView.selectRow(selectedLanguage.index, inComponent: 0, animated: false)
+            text = selectedLanguage.title
+        }
+    }
     
     override func caretRect(for position: UITextPosition) -> CGRect {
         return .zero
@@ -55,6 +60,10 @@ class LanguageTextField: UITextField {
             }
         ], animated: true)
         inputAccessoryView = toolbar
+    }
+    
+    func set(language: Language?) {
+        selectedLanguage = SearchLanguage(language: language)
     }
     
     // Event Handlers

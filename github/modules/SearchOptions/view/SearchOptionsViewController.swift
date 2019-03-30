@@ -73,6 +73,7 @@ extension SearchOptionsViewController: SearchOptionsView {
     func setLastSearchOptions(_ searchOptions: SearchOptions) {
         keywordSearchBar.text = searchOptions.keyword
         searchTypeSegment.selectedSegmentIndex = searchOptions.searchType.rawValue
+        languageTextField.set(language: searchOptions.language)
     }
 }
 

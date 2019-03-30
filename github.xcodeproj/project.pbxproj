@@ -78,6 +78,8 @@
 		17A420EA223E370400A2ED6E /* FloatingPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A420E9223E370400A2ED6E /* FloatingPanel.framework */; };
 		17D5C93B224781D60004F6D6 /* KeywordSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D5C93A224781D60004F6D6 /* KeywordSearchBar.swift */; };
 		17F3E394224A81CE006F6F0A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F3E393224A81CE006F6F0A /* WebKit.framework */; };
+		17F3E398224BC7B0006F6F0A /* enum+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3E397224BC7B0006F6F0A /* enum+extension.swift */; };
+		17F3E39A224F0A1C006F6F0A /* URLQueryItem+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3E399224F0A1C006F6F0A /* URLQueryItem+extension.swift */; };
 		17FDB8182216FD410033BBA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDB8172216FD410033BBA0 /* AppDelegate.swift */; };
 		17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB81E2216FD420033BBA0 /* Assets.xcassets */; };
 		17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FDB8202216FD420033BBA0 /* LaunchScreen.storyboard */; };
@@ -180,6 +182,8 @@
 		17A420E9223E370400A2ED6E /* FloatingPanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FloatingPanel.framework; path = Carthage/Build/iOS/FloatingPanel.framework; sourceTree = "<group>"; };
 		17D5C93A224781D60004F6D6 /* KeywordSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordSearchBar.swift; sourceTree = "<group>"; };
 		17F3E393224A81CE006F6F0A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		17F3E397224BC7B0006F6F0A /* enum+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "enum+extension.swift"; sourceTree = "<group>"; };
+		17F3E399224F0A1C006F6F0A /* URLQueryItem+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLQueryItem+extension.swift"; sourceTree = "<group>"; };
 		17FDB8142216FD410033BBA0 /* github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FDB8172216FD410033BBA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17FDB81E2216FD420033BBA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -451,6 +455,8 @@
 				1708440922353EBF00859658 /* UIColor+extension.swift */,
 				1708440B2236992C00859658 /* UIImageView+extension.swift */,
 				173D239F223765C000728D85 /* String+extension.swift */,
+				17F3E397224BC7B0006F6F0A /* enum+extension.swift */,
+				17F3E399224F0A1C006F6F0A /* URLQueryItem+extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -1092,6 +1098,7 @@
 				170843FE223402A400859658 /* RepositoryContentContract.swift in Sources */,
 				173AE586221D7C68004FEC1A /* RootRouter.swift in Sources */,
 				173AE56A2217008A004FEC1A /* GitHubAPI.swift in Sources */,
+				17F3E398224BC7B0006F6F0A /* enum+extension.swift in Sources */,
 				17044C3B222A827A00377FC2 /* Release.swift in Sources */,
 				1753EB9D222BD171009BBDB5 /* SearchReadmeInteractor.swift in Sources */,
 				173AE56C2217008A004FEC1A /* GitHubRequest.swift in Sources */,
@@ -1151,6 +1158,7 @@
 				EUZLG4F22FRZOOOW2H9WD6K7 /* SearchOptionsRouter.swift in Sources */,
 				WBYO77M188K0HN20TC18XJTI /* GithubUserInteractor.swift in Sources */,
 				68Y9QDT2PP2T16W8XXLBV3DB /* UserSearchResultViewPresenter.swift in Sources */,
+				17F3E39A224F0A1C006F6F0A /* URLQueryItem+extension.swift in Sources */,
 				6XTTDNRT2CNFCEOFOE90Y5TU /* UserSearchResultViewController.swift in Sources */,
 				D8N8K0DCIL9M8YY26AYJ6O8K /* UserSearchResultRouter.swift in Sources */,
 				ZIKMGBMLM8AQORLOYUF7Y17Y /* SearchResultContainerViewPresenter.swift in Sources */,

@@ -21,10 +21,20 @@ final class GitHubAPI {
         let method: HTTPMethod = .get
         
         var queryItems: [URLQueryItem] {
-            return [URLQueryItem(name: "q", value: keyword)]
+            return [URLQueryItem(name: "q", value: query)]
         }
         
         let keyword: String
+        let language: Language?
+        
+        private var query: String {
+            guard let language = language,
+                !language.rawValue.isEmpty else {
+                return keyword
+            }
+            
+            return "\(keyword) language:\(language.rawValue)"
+        }
     }
     
     struct SearchUsers: GitHubRequest {

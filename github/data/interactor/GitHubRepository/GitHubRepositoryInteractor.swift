@@ -10,6 +10,7 @@ import Foundation
 
 protocol GitHubRepositoryUsecase: AnyObject {
     func searchRepositories(from keyword: String,
+                            language: Language?,
                             completion: @escaping (Result<[Repository], GitHubClientError>) -> Void)
 }
 
@@ -25,8 +26,9 @@ class GitHubRepositoryInteractor {
 extension GitHubRepositoryInteractor: GitHubRepositoryUsecase {
     
     func searchRepositories(from keyword: String,
+                            language: Language?,
                             completion: @escaping (Result<[Repository], GitHubClientError>) -> Void) {
-        let request = GitHubAPI.SearchRepositories(keyword: keyword)
+        let request = GitHubAPI.SearchRepositories(keyword: keyword, language: language)
         client.send(request: request) { result in
             switch result {
             case .success(let response):
