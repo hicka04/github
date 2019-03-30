@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import entity
 
 protocol LanguagePickerViewDelegate: AnyObject {
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import entity
 
 final class RepositoryContentListViewController: UITableViewController, RepositoryDetailPageContentView {
     

@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import data
+import entity
 
 protocol SearchOptionsViewPresentation: AnyObject {
 
@@ -60,7 +62,7 @@ final class SearchOptionsViewPresenter {
 extension SearchOptionsViewPresenter: SearchOptionsViewPresentation {
     
     func viewDidLoad() {
-        searchOptionsState = .loaded(historyInteractor.lastSearchOptions())
+        searchOptionsState = .loaded(historyInteractor.latestSearchOptions())
     }
     
     func keywordSearchBarTextDidBeginEditing() {

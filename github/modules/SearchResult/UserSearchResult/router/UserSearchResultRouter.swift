@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import data
+import entity
 
 protocol UserSearchResultWireframe: AnyObject {
     
