@@ -33,16 +33,16 @@ extension GitHubClient: GitHubRequestable {
         let task = session.dataTask(with: urlRequest) { data, response, error in
             switch (data, response, error) {
             case (_, _, let error?):
-                completion(Result(error: .connectionError(error)))
+                completion(.failure(.connectionError(error)))
                 
             case (let data?, let response?, _):
                 do {
                     let response = try request.response(from: data, urlResponse: response)
-                    completion(Result(value: response))
+                    completion(.success(response))
                 } catch let error as GitHubAPIError {
-                    completion(Result(error: .apiError(error)))
+                    completion(.failure(.apiError(error)))
                 } catch {
-                    completion(Result(error: .responseParseError(error)))
+                    completion(.failure(.responseParseError(error)))
                 }
                 
             default:
@@ -51,18 +51,5 @@ extension GitHubClient: GitHubRequestable {
         }
         
         task.resume()
-    }
-}
-
-enum Result<T, Error: Swift.Error> {
-    case success(T)
-    case failure(Error)
-    
-    init(value: T) {
-        self = .success(value)
-    }
-    
-    init(error: Error) {
-        self = .failure(error)
     }
 }
