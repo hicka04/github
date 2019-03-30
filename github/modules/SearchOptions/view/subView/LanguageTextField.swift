@@ -22,6 +22,7 @@ class LanguageTextField: UITextField {
             text = selectedLanguage.title
         }
     }
+    private var selectingLanguage: SearchLanguage = .any
     
     override func caretRect(for position: UITextPosition) -> CGRect {
         return .zero
@@ -55,7 +56,7 @@ class LanguageTextField: UITextField {
             },
             UIBarButtonItem(barButtonSystemItem: .done) { _ in
                 self.resignFirstResponder()
-                self.text = self.selectedLanguage.title
+                self.selectedLanguage = self.selectingLanguage
                 self.doneButtonClickedHandler?(self, self.selectedLanguage)
             }
         ], animated: true)
@@ -93,12 +94,13 @@ extension LanguageTextField: UITextFieldDelegate {
         if isFirstResponder {
             resignFirstResponder()
         }
+        self.selectedLanguage = SearchLanguage(language: self.selectedLanguage.language)
     }
 }
 
 extension LanguageTextField: LanguagePickerViewDelegate {
     
     func languagePickerView(_ pickerView: LanguagePickerView, didSelectLanguage language: SearchLanguage) {
-        selectedLanguage = language
+        selectingLanguage = language
     }
 }
