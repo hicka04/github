@@ -55,3 +55,25 @@ extension GitHubRequest {
         return try decoder.decode(Response.self, from: data)
     }
 }
+
+protocol GitHubSearchRequest: GitHubRequest {
+    
+    var keyword: String { get }
+    var language: Language? { get }
+}
+
+extension GitHubSearchRequest {
+    
+    private var query: String {
+        guard let language = language,
+            !language.rawValue.isEmpty else {
+                return keyword
+        }
+        
+        return "\(keyword) language:\(language.rawValue)"
+    }
+    
+    var queryItems: [URLQueryItem] {
+        return [URLQueryItem(name: "q", value: query)]
+    }
+}

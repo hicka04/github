@@ -20,7 +20,7 @@ final class UserSearchResultViewPresenter<View: UserSearchResultView> {
     private let userInteractor: GithubUserUsecase
     private let historyInteractor: SearchOptionsHistoryUsecase
     
-    private var keyword: String? {
+    private var latestSearchOptions: SearchOptions? {
         didSet {
             view?.scrollToTop()
             searchUsers()
@@ -44,9 +44,10 @@ final class UserSearchResultViewPresenter<View: UserSearchResultView> {
     }
     
     private func searchUsers() {
-        guard let keyword = keyword else { return }
+        guard let latestSearchOptions = latestSearchOptions else { return }
         
-        userInteractor.searchUsers(from: keyword) { [weak self] result in
+        userInteractor.searchUsers(from: latestSearchOptions.keyword,
+                                   language: latestSearchOptions.language) { [weak self] result in
             switch result {
             case .success(let users):
                 self?.users = users
@@ -61,7 +62,7 @@ extension UserSearchResultViewPresenter: UserSearchResultViewPresentation {
     
     func viewDidLoad() {
         historyInteractor.observe { [weak self] lastSearchOptions in
-            self?.keyword = lastSearchOptions?.keyword
+            self?.latestSearchOptions = lastSearchOptions
         }
     }
     

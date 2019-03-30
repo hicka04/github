@@ -11,6 +11,7 @@ import Foundation
 protocol GithubUserUsecase {
     
     func searchUsers(from keyword: String,
+                     language: Language?,
                      completion: @escaping (Result<[User], GitHubClientError>) -> Void)
 }
 
@@ -26,8 +27,9 @@ final class GithubUserInteractor {
 extension GithubUserInteractor: GithubUserUsecase {
     
     func searchUsers(from keyword: String,
+                     language: Language?,
                      completion: @escaping (Result<[User], GitHubClientError>) -> Void) {
-        let request = GitHubAPI.SearchUsers(keyword: keyword)
+        let request = GitHubAPI.SearchUsers(keyword: keyword, language: language)
         client.send(request: request) { result in
             switch result {
             case .success(let response):

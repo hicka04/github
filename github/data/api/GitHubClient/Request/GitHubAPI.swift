@@ -12,7 +12,7 @@ final class GitHubAPI {
     
     private init() {}
     
-    struct SearchRepositories: GitHubRequest {
+    struct SearchRepositories: GitHubSearchRequest {
         
         typealias Response = SearchResponse<Repository>
         
@@ -20,24 +20,11 @@ final class GitHubAPI {
         
         let method: HTTPMethod = .get
         
-        var queryItems: [URLQueryItem] {
-            return [URLQueryItem(name: "q", value: query)]
-        }
-        
         let keyword: String
         let language: Language?
-        
-        private var query: String {
-            guard let language = language,
-                !language.rawValue.isEmpty else {
-                return keyword
-            }
-            
-            return "\(keyword) language:\(language.rawValue)"
-        }
     }
     
-    struct SearchUsers: GitHubRequest {
+    struct SearchUsers: GitHubSearchRequest {
         
         typealias Response = SearchResponse<User>
         
@@ -45,11 +32,8 @@ final class GitHubAPI {
         
         let method: HTTPMethod = .get
         
-        var queryItems: [URLQueryItem] {
-            return [URLQueryItem(name: "q", value: keyword)]
-        }
-        
         let keyword: String
+        let language: Language?
     }
     
     struct SearchReadme: GitHubRequest {
