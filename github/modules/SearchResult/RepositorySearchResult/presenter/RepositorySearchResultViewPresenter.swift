@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import data
+import entity
 
 protocol RepositorySearchResultViewPresentation: SearchResultViewPresentation {
     

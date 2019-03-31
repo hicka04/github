@@ -8,6 +8,7 @@
 
 import UIKit
 import FloatingPanel
+import data
 
 protocol SearchResultContainerWireframe: AnyObject {
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import entity
 
 final class RepositoryReadmeViewController: UIViewController, RepositoryDetailPageContentView {
     

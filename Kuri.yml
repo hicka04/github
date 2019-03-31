@@ -8,15 +8,15 @@ ShouldRemoveLayerNameFromDirectory: false
 interactor:
   ProjectRootPath: ./
   ProjectFileName: github.xcodeproj
-  GenerateRootPath: ./github/data/interactor/
-  Target: github
+  GenerateRootPath: ./data/interactor/
+  Target: data
   ShouldRemoveLayerNameFromDirectory: true
 
 interactorTests:
   ProjectRootPath: ./
   ProjectFileName: github.xcodeproj
-  GenerateRootPath: ./github/data/interactor/
-  Target: githubTests
+  GenerateRootPath: ./data/interactor/
+  Target: dataTests
   ShouldRemoveLayerNameFromDirectory: true
 
 presenterTests:

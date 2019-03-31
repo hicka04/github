@@ -9,6 +9,7 @@
 import UIKit
 import FloatingPanel
 import ActionClosurable
+import entity
 
 protocol SearchOptionsView: AnyObject {
     

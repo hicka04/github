@@ -9,6 +9,7 @@
 import UIKit
 import ActionClosurable
 import Nuke
+import entity
 
 protocol RepositorySearchResultView: SearchResultView where Result == Repository {
     

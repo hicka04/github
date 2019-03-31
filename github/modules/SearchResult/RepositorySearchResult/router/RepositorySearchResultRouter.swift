@@ -8,6 +8,8 @@
 
 import UIKit
 import FloatingPanel
+import data
+import entity
 
 protocol RepositorySearchResultWireframe: AnyObject {
     

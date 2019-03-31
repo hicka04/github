@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import entity
 
 class RepositoryContentCell: UITableViewCell, ClassRegistrable {
 

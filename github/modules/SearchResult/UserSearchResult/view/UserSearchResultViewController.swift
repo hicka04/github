@@ -8,6 +8,7 @@
 
 import UIKit
 import Nuke
+import entity
 
 protocol UserSearchResultView: SearchResultView where Result == User {
     
