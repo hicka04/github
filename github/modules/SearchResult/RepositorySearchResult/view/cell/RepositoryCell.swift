@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import SkeletonView
 import entity
 
 class RepositoryCell: UITableViewCell, NibRegistrable {
 
     @IBOutlet private weak var ownerImageView: UIImageView!
+    @IBOutlet private weak var ownerNameLabel: UILabel!
     @IBOutlet private weak var repositoryNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var languageLabel: UILabel!
@@ -19,8 +21,10 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
     @IBOutlet private weak var updatedDateLabel: UILabel!
     
     func set(repository: Repository) {
+        hideSkeleton()
         ownerImageView.load(with: repository.owner.avatarUrl)
-        repositoryNameLabel.text = repository.fullName
+        ownerNameLabel.text = repository.owner.login
+        repositoryNameLabel.text = repository.name
         descriptionLabel.text = repository.description
         descriptionLabel.isHidden = repository.description == nil
         languageLabel.text = repository.language

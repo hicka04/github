@@ -1,4 +1,5 @@
 github "hicka04/ActionClosurable" "feat/swift5.0"
 github "kean/Nuke" == 7.5.2
-github "realm/realm-cocoa" "tg/xcode-10.2"
+github "realm/realm-cocoa" == 3.14.0
 github "scenee/FloatingPanel" == 1.4.0
+github "Juanpe/SkeletonView" == 1.4.2
