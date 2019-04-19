@@ -67,7 +67,7 @@ final class UserSearchResultViewController: UIViewController {
 extension UserSearchResultViewController: UserSearchResultView {
     
     func updateSearchResults(_ results: [User]) {
-        users = results
+        self.users = results
     }
     
     func scrollToTop() {
@@ -80,7 +80,7 @@ extension UserSearchResultViewController: UserSearchResultView {
 extension UserSearchResultViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users?.count ?? 10
+        return users?.count ?? 0
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {

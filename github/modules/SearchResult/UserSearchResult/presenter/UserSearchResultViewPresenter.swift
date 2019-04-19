@@ -55,6 +55,7 @@ final class UserSearchResultViewPresenter<View: UserSearchResultView> {
                 self?.users = users
             case .failure(let error):
                 debugPrint(error)
+                self?.view?.showSearchErrorAlert()
             }
         }
     }

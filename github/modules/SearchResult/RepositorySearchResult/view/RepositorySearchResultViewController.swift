@@ -77,22 +77,12 @@ extension RepositorySearchResultViewController: RepositorySearchResultView {
             self.tableView.setContentOffset(.zero, animated: true)
         }
     }
-    
-    func showSearchErrorAlert() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "エラー",
-                                          message: "検索に失敗しました。時間をおいて再度お試しください。",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
 }
 
 extension RepositorySearchResultViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories?.count ?? 10
+        return repositories?.count ?? 0
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
