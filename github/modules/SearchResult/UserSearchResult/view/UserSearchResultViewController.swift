@@ -35,6 +35,7 @@ final class UserSearchResultViewController: UIViewController {
                 self.tableView.reloadData()
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.flashScrollIndicators()
+                self.tableView.allowsSelection = self.users != nil
             }
         }
     }
@@ -90,6 +91,10 @@ extension UserSearchResultViewController: SkeletonTableViewDelegate, SkeletonTab
         let cell: UserCell = tableView.dequeueReusableCell(for: indexPath)
         cell.set(user: users![indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return users != nil ? indexPath : nil
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
