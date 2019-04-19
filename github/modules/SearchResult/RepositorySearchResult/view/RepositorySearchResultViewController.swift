@@ -25,6 +25,13 @@ final class RepositorySearchResultViewController: UIViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            
+            tableView.register(RepositoryCell.self)
+            tableView.refreshControl = UIRefreshControl { _ in
+                self.presenter.refreshControlDidRefresh()
+            }
+            
+            tableView.prefetchDataSource = self
         }
     }
     
@@ -45,12 +52,6 @@ final class RepositorySearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(RepositoryCell.self)
-        tableView.refreshControl = UIRefreshControl { _ in
-            self.presenter.refreshControlDidRefresh()
-        }
-        
-        tableView.prefetchDataSource = self
         view.showAnimatedSkeleton()
         
         presenter.viewDidLoad()

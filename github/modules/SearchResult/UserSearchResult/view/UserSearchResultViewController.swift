@@ -23,6 +23,13 @@ final class UserSearchResultViewController: UIViewController {
         didSet {
             tableView.delegate = self
             tableView.dataSource = self
+            
+            tableView.register(UserCell.self)
+            tableView.refreshControl = UIRefreshControl { _ in
+                self.presenter.refreshControlDidRefresh()
+            }
+            
+            tableView.prefetchDataSource = self
         }
     }
     
@@ -42,13 +49,6 @@ final class UserSearchResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        tableView.register(UserCell.self)
-        tableView.refreshControl = UIRefreshControl { _ in
-            self.presenter.refreshControlDidRefresh()
-        }
-        
-        tableView.prefetchDataSource = self
         
         view.showAnimatedSkeleton()
 
