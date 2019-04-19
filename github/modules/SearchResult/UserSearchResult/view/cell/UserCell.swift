@@ -15,6 +15,7 @@ class UserCell: UITableViewCell, NibRegistrable {
     @IBOutlet private weak var userNameLabel: UILabel!
     
     func set(user: User) {
+        hideSkeleton()
         userImageView.load(with: user.avatarUrl)
         userNameLabel.text = user.login
     }

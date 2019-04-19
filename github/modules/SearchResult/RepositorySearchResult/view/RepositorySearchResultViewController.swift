@@ -90,7 +90,7 @@ extension RepositorySearchResultViewController: RepositorySearchResultView {
 extension RepositorySearchResultViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories?.count ?? 0
+        return repositories?.count ?? 10
     }
     
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {

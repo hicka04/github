@@ -43,6 +43,7 @@
 		17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */; };
 		17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */; };
 		17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */; };
+		177ADA19226626E400D9B89D /* UserSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177ADA18226626E400D9B89D /* UserSearchResultViewController.xib */; };
 		1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5A2244507D00EB190C /* SearchResultContract.swift */; };
 		1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5D22453FFA00EB190C /* UserCell.swift */; };
 		1793BA6022453FFA00EB190C /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA5E22453FFA00EB190C /* UserCell.xib */; };
@@ -217,6 +218,7 @@
 		17744DBF221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeViewPresenter.swift; sourceTree = "<group>"; };
 		17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeContract.swift; sourceTree = "<group>"; };
 		17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeRouter.swift; sourceTree = "<group>"; };
+		177ADA18226626E400D9B89D /* UserSearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSearchResultViewController.xib; sourceTree = "<group>"; };
 		1793BA5A2244507D00EB190C /* SearchResultContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultContract.swift; sourceTree = "<group>"; };
 		1793BA5D22453FFA00EB190C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1793BA5E22453FFA00EB190C /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -946,6 +948,7 @@
 			isa = PBXGroup;
 			children = (
 				4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */,
+				177ADA18226626E400D9B89D /* UserSearchResultViewController.xib */,
 				1793BA5C22453FB400EB190C /* cell */,
 			);
 			path = view;
@@ -1269,6 +1272,7 @@
 				17744DBB221EF6CD009D5A83 /* RepositoryReadmeViewController.xib in Resources */,
 				1793BA622245E48900EB190C /* UserDetailViewController.xib in Resources */,
 				173AE5A0221D9261004FEC1A /* RepositoryCell.xib in Resources */,
+				177ADA19226626E400D9B89D /* UserSearchResultViewController.xib in Resources */,
 				17FDB8222216FD420033BBA0 /* LaunchScreen.storyboard in Resources */,
 				1793BA6022453FFA00EB190C /* UserCell.xib in Resources */,
 				17FDB81F2216FD420033BBA0 /* Assets.xcassets in Resources */,
