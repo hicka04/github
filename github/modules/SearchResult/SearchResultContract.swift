@@ -14,13 +14,18 @@ protocol SearchResultView: AnyObject {
     
     func updateSearchResults(_ results: [Result])
     func scrollToTop()
+    func showSearchErrorAlert()
 }
 
-extension SearchResultView where Self: UITableViewController {
+extension SearchResultView where Self: UIViewController {
     
-    func scrollToTop() {
+    func showSearchErrorAlert() {
         DispatchQueue.main.async {
-            self.tableView.setContentOffset(.zero, animated: true)
+            let alert = UIAlertController(title: "エラー",
+                                          message: "検索に失敗しました。時間をおいて再度お試しください。",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
 }

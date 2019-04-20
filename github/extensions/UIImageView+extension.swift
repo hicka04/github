@@ -12,6 +12,11 @@ import Nuke
 extension UIImageView {
     
     func load(with url: URL) {
-        Nuke.loadImage(with: url, into: self)
+        showAnimatedSkeleton()
+        Nuke.loadImage(with: url, into: self) { (_, _) in
+            DispatchQueue.main.async {
+                self.hideSkeleton()
+            }
+        }
     }
 }

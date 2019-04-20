@@ -9,6 +9,7 @@
 import UIKit
 import ActionClosurable
 import Nuke
+import SkeletonView
 import entity
 
 protocol RepositorySearchResultView: SearchResultView where Result == Repository {
@@ -16,18 +17,34 @@ protocol RepositorySearchResultView: SearchResultView where Result == Repository
     func showSearchErrorAlert()
 }
 
-final class RepositorySearchResultViewController: UITableViewController {
+final class RepositorySearchResultViewController: UIViewController {
 
     var presenter: RepositorySearchResultViewPresentation!
     
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            tableView.delegate = self
+            tableView.dataSource = self
+            
+            tableView.register(RepositoryCell.self)
+            tableView.refreshControl = UIRefreshControl { _ in
+                self.presenter.refreshControlDidRefresh()
+            }
+            
+            tableView.prefetchDataSource = self
+        }
+    }
+    
     private let preheater = ImagePreheater()
     
-    private var repositories: [Repository] = [] {
+    private var repositories: [Repository]? {
         didSet {
             DispatchQueue.main.async {
+                self.view.hideSkeleton()
                 self.tableView.reloadData()
                 self.tableView.refreshControl?.endRefreshing()
                 self.tableView.flashScrollIndicators()
+                self.tableView.allowsSelection = self.repositories != nil
             }
         }
     }
@@ -35,12 +52,7 @@ final class RepositorySearchResultViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(RepositoryCell.self)
-        tableView.refreshControl = UIRefreshControl { _ in
-            self.presenter.refreshControlDidRefresh()
-        }
-        
-        tableView.prefetchDataSource = self
+        view.showAnimatedSkeleton()
         
         presenter.viewDidLoad()
     }
@@ -60,35 +72,30 @@ extension RepositorySearchResultViewController: RepositorySearchResultView {
         repositories = results
     }
     
-    func showSearchErrorAlert() {
+    func scrollToTop() {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "エラー",
-                                          message: "検索に失敗しました。時間をおいて再度お試しください。",
-                                          preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.tableView.setContentOffset(.zero, animated: true)
         }
     }
 }
 
-extension RepositorySearchResultViewController {
+extension RepositorySearchResultViewController: SkeletonTableViewDelegate, SkeletonTableViewDataSource {
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repositories?.count ?? 0
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        return RepositoryCell.reuseIdentifier
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: RepositoryCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.set(repository: repositories[indexPath.row])
-        
+        cell.set(repository: repositories![indexPath.row])
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.didSelectRow(at: indexPath)
     }
 }
@@ -96,10 +103,16 @@ extension RepositorySearchResultViewController {
 extension RepositorySearchResultViewController: UITableViewDataSourcePrefetching {
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let repositories = repositories else {
+            return
+        }
         preheater.startPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
+        guard let repositories = repositories else {
+            return
+        }
         preheater.stopPreheating(with: indexPaths.map { repositories[$0.row].owner.avatarUrl })
     }
 }
