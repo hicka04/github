@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .foregroundColor: UIColor.white
         ]
         UINavigationBar.appearance().isTranslucent = false
+        UITabBar.appearance().tintColor = .main
         
         rootRouter.showFirstView()
         

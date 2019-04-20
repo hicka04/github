@@ -108,7 +108,10 @@
 		FW5BGP9U978S338K2LLNMFVF /* UserDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FLT30PZ26C1ZJDAKIAAABWY6 /* UserDetailRouter.swift */; };
 		IQMHT851GD98SHAG5I56E6YH /* SearchOptionsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = RRPNJHSDSDHKXDYH8VSENN7R /* SearchOptionsViewPresenter.swift */; };
 		JW3HZ63022CUOQAX9R03XIZ4 /* SearchResultContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = XF7O5QR6OBBQOSKCRAHY88CA /* SearchResultContainerRouter.swift */; };
+		KO9UNMXWWARP8WD0PDPV5KNU /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */; };
 		QPVH9GOCTXQ9DUZONOPSN5BA /* SearchResultContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = GP1XBPDZIBOCRBD05TS045ZK /* SearchResultContainerViewController.swift */; };
+		RI1GBWDVBNMQVX75JOV3YQYH /* TabViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5VE6S501BCCL6X9ID674EFX6 /* TabViewPresenter.swift */; };
+		VUM1TEW2FWPOXEVZYFLT6KY0 /* TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3RO7OM3R1P8E670H1IOSWSD7 /* TabRouter.swift */; };
 		ZIKMGBMLM8AQORLOYUF7Y17Y /* SearchResultContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1NOVOSKEZNYKWRG36Q5B7E8N /* SearchResultContainerViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
@@ -259,8 +262,10 @@
 		17FDB82E2216FD420033BBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1NOVOSKEZNYKWRG36Q5B7E8N /* SearchResultContainerViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerViewPresenter.swift; sourceTree = "<group>"; };
 		1TVFYPC6QG1IZG4PEQGZQP0E /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		3RO7OM3R1P8E670H1IOSWSD7 /* TabRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
 		4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewController.swift; sourceTree = "<group>"; };
 		4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewController.swift; sourceTree = "<group>"; };
+		5VE6S501BCCL6X9ID674EFX6 /* TabViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewPresenter.swift; sourceTree = "<group>"; };
 		DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultRouter.swift; sourceTree = "<group>"; };
 		FLT30PZ26C1ZJDAKIAAABWY6 /* UserDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailRouter.swift; sourceTree = "<group>"; };
 		GP1XBPDZIBOCRBD05TS045ZK /* SearchResultContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +276,7 @@
 		RRPNJHSDSDHKXDYH8VSENN7R /* SearchOptionsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewPresenter.swift; sourceTree = "<group>"; };
 		VF79BH26SPPG7K0207AGWK4O /* GithubUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUserInteractor.swift; sourceTree = "<group>"; };
 		XF7O5QR6OBBQOSKCRAHY88CA /* SearchResultContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerRouter.swift; sourceTree = "<group>"; };
+		ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -547,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				173AE584221D7C52004FEC1A /* Root */,
+				HITIU3EUJ0HM1GTV4T2ZAES3 /* Tab */,
 				K69J9HGSNEVQP3J3GNQ7J51B /* SearchOptions */,
 				1793BA592243CDEB00EB190C /* SearchResult */,
 				17044BF4221F028C00377FC2 /* RepositoryDetail */,
@@ -998,6 +1005,16 @@
 			path = GithubUser;
 			sourceTree = "<group>";
 		};
+		HITIU3EUJ0HM1GTV4T2ZAES3 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				N80C6XWEJEVLNH9VSRSGI2QN /* view */,
+				S1PV5MW09FS6ECRRHY3L5CZG /* presenter */,
+				NSRNF6Z867GO7T2NLZFV59GL /* router */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 		IAB2PLNLDQ2CP3SQ73REB8US /* presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1049,6 +1066,30 @@
 				J0GCEQOQ8481R7YOH2DCQ32J /* SearchOptionsRouter.swift */,
 			);
 			path = router;
+			sourceTree = "<group>";
+		};
+		N80C6XWEJEVLNH9VSRSGI2QN /* view */ = {
+			isa = PBXGroup;
+			children = (
+				ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		NSRNF6Z867GO7T2NLZFV59GL /* router */ = {
+			isa = PBXGroup;
+			children = (
+				3RO7OM3R1P8E670H1IOSWSD7 /* TabRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		S1PV5MW09FS6ECRRHY3L5CZG /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5VE6S501BCCL6X9ID674EFX6 /* TabViewPresenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 		UD045LN4U2OP2IWYJ2J393WN /* presenter */ = {
@@ -1421,6 +1462,9 @@
 				9HAKF35GWZMCYCTU2T1K5HT2 /* UserDetailViewPresenter.swift in Sources */,
 				4F8U43T6FNZ024AW52CBTPCL /* UserDetailViewController.swift in Sources */,
 				FW5BGP9U978S338K2LLNMFVF /* UserDetailRouter.swift in Sources */,
+				RI1GBWDVBNMQVX75JOV3YQYH /* TabViewPresenter.swift in Sources */,
+				KO9UNMXWWARP8WD0PDPV5KNU /* TabViewController.swift in Sources */,
+				VUM1TEW2FWPOXEVZYFLT6KY0 /* TabRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
