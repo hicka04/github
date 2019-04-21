@@ -1,5 +1,5 @@
 //
-//  BookmarkRouter.swift
+//  BookmarkContainerRouter.swift
 //  github
 //
 //  Created by hikaru on 2019/4/21.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol BookmarkWireframe: AnyObject {
+protocol BookmarkContainerWireframe: AnyObject {
     
 }
 
-final class BookmarkRouter {
+final class BookmarkContainerRouter {
     
     private unowned let viewController: UIViewController
     
@@ -21,9 +21,9 @@ final class BookmarkRouter {
     }
 
     static func assembleModules() -> UIViewController {
-        let view = BookmarkViewController()
-        let router = BookmarkRouter(viewController: view)
-        let presenter = BookmarkViewPresenter(view: view, router: router)
+        let view = BookmarkContainerViewController()
+        let router = BookmarkContainerRouter(viewController: view)
+        let presenter = BookmarkContainerViewPresenter(view: view, router: router)
         
         view.presenter = presenter
         
@@ -31,6 +31,6 @@ final class BookmarkRouter {
     }
 }
 
-extension BookmarkRouter: BookmarkWireframe {
+extension BookmarkContainerRouter: BookmarkContainerWireframe {
     
 }

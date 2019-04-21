@@ -37,7 +37,7 @@ final class TabRouter {
         searchResultView.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         // bookmark
-        let bookmarkView = UINavigationController(rootViewController: BookmarkRouter.assembleModules())
+        let bookmarkView = UINavigationController(rootViewController: BookmarkContainerRouter.assembleModules())
         bookmarkView.tabBarItem = UITabBarItem(title: "Bookmarks", image: #imageLiteral(resourceName: "bookmarks"), tag: 1)
         
         return [searchResultView, bookmarkView]

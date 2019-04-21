@@ -25,8 +25,15 @@ public struct SearchOptions {
 
 extension SearchOptions {
     
-    @objc public enum SearchType: Int {
+    @objc public enum SearchType: Int, CaseIterable {
         case repository
         case user
+        
+        public var title: String {
+            switch self {
+            case .repository: return "Repository"
+            case .user:       return "User"
+            }
+        }
     }
 }
