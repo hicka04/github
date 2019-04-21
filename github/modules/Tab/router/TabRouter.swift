@@ -32,9 +32,15 @@ final class TabRouter {
     }
     
     private static func createTabContents() -> [UIViewController] {
+        // search
         let searchResultView = UINavigationController(rootViewController: SearchResultContainerRouter.assembleModules())
         searchResultView.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
-        return [searchResultView]
+        
+        // bookmark
+        let bookmarkView = UINavigationController(rootViewController: BookmarkRouter.assembleModules())
+        bookmarkView.tabBarItem = UITabBarItem(title: "Bookmarks", image: #imageLiteral(resourceName: "bookmarks"), tag: 1)
+        
+        return [searchResultView, bookmarkView]
     }
 }
 
