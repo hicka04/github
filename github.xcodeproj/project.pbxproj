@@ -44,6 +44,8 @@
 		17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */; };
 		17744DC4221EF7F3009D5A83 /* RepositoryReadmeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */; };
 		177ADA19226626E400D9B89D /* UserSearchResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 177ADA18226626E400D9B89D /* UserSearchResultViewController.xib */; };
+		1780EB97226C60A3007C115D /* RepositoryBookmarkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EB96226C60A3007C115D /* RepositoryBookmarkInteractor.swift */; };
+		1780EB99226C612D007C115D /* UserBookmarkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EB98226C612D007C115D /* UserBookmarkInteractor.swift */; };
 		1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5A2244507D00EB190C /* SearchResultContract.swift */; };
 		1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5D22453FFA00EB190C /* UserCell.swift */; };
 		1793BA6022453FFA00EB190C /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA5E22453FFA00EB190C /* UserCell.xib */; };
@@ -112,6 +114,7 @@
 		KO9UNMXWWARP8WD0PDPV5KNU /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */; };
 		OJK5DK6UPEVW6T3SNR5JASG1 /* BookmarkContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = TWLM577XWVKX2WT03Q4PT6NC /* BookmarkContainerViewPresenter.swift */; };
 		PA39VQX42H77JUC95A3NYZFY /* BookmarkContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = KT4IDN3D71Q13QPDBPWUNFVN /* BookmarkContainerRouter.swift */; };
+		PJWSH0KR351ERUGCJO9R0AVH /* BookmarkContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8HBZGVK303RGZY90ACELS5BR /* BookmarkContract.swift */; };
 		QPVH9GOCTXQ9DUZONOPSN5BA /* SearchResultContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = GP1XBPDZIBOCRBD05TS045ZK /* SearchResultContainerViewController.swift */; };
 		RI1GBWDVBNMQVX75JOV3YQYH /* TabViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5VE6S501BCCL6X9ID674EFX6 /* TabViewPresenter.swift */; };
 		VUM1TEW2FWPOXEVZYFLT6KY0 /* TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3RO7OM3R1P8E670H1IOSWSD7 /* TabRouter.swift */; };
@@ -225,6 +228,8 @@
 		17744DC1221EF7E0009D5A83 /* RepositoryReadmeContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeContract.swift; sourceTree = "<group>"; };
 		17744DC3221EF7F3009D5A83 /* RepositoryReadmeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryReadmeRouter.swift; sourceTree = "<group>"; };
 		177ADA18226626E400D9B89D /* UserSearchResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserSearchResultViewController.xib; sourceTree = "<group>"; };
+		1780EB96226C60A3007C115D /* RepositoryBookmarkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkInteractor.swift; sourceTree = "<group>"; };
+		1780EB98226C612D007C115D /* UserBookmarkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBookmarkInteractor.swift; sourceTree = "<group>"; };
 		1793BA5A2244507D00EB190C /* SearchResultContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultContract.swift; sourceTree = "<group>"; };
 		1793BA5D22453FFA00EB190C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1793BA5E22453FFA00EB190C /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -269,6 +274,7 @@
 		4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewController.swift; sourceTree = "<group>"; };
 		4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewController.swift; sourceTree = "<group>"; };
 		5VE6S501BCCL6X9ID674EFX6 /* TabViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewPresenter.swift; sourceTree = "<group>"; };
+		8HBZGVK303RGZY90ACELS5BR /* BookmarkContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkContract.swift; sourceTree = "<group>"; };
 		DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultRouter.swift; sourceTree = "<group>"; };
 		FLT30PZ26C1ZJDAKIAAABWY6 /* UserDetailRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailRouter.swift; sourceTree = "<group>"; };
 		GP1XBPDZIBOCRBD05TS045ZK /* SearchResultContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerViewController.swift; sourceTree = "<group>"; };
@@ -768,6 +774,22 @@
 			path = BookmarkContainer;
 			sourceTree = "<group>";
 		};
+		1780EB9A226C950A007C115D /* RepositoryBookmark */ = {
+			isa = PBXGroup;
+			children = (
+				1780EB96226C60A3007C115D /* RepositoryBookmarkInteractor.swift */,
+			);
+			path = RepositoryBookmark;
+			sourceTree = "<group>";
+		};
+		1780EB9B226C9515007C115D /* UserBookmark */ = {
+			isa = PBXGroup;
+			children = (
+				1780EB98226C612D007C115D /* UserBookmarkInteractor.swift */,
+			);
+			path = UserBookmark;
+			sourceTree = "<group>";
+		};
 		1793BA592243CDEB00EB190C /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
@@ -846,6 +868,7 @@
 				17044C37222A7D9400377FC2 /* GitHubRepositoryContents */,
 				17044C3C222A860C00377FC2 /* GitHubRelease */,
 				LDEM1H5I9OU1DO1Y3U46FWZA /* SearchOptionsHistory */,
+				FF5X77X2MXTQBUMW2HNCFBO6 /* Bookmark */,
 			);
 			path = interactor;
 			sourceTree = "<group>";
@@ -1020,6 +1043,16 @@
 				2M4L3CIN2OESXNBLPPJEBS9D /* router */,
 			);
 			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		FF5X77X2MXTQBUMW2HNCFBO6 /* Bookmark */ = {
+			isa = PBXGroup;
+			children = (
+				8HBZGVK303RGZY90ACELS5BR /* BookmarkContract.swift */,
+				1780EB9A226C950A007C115D /* RepositoryBookmark */,
+				1780EB9B226C9515007C115D /* UserBookmark */,
+			);
+			path = Bookmark;
 			sourceTree = "<group>";
 		};
 		GT9Z102BAYZHTMHZMXBWP788 /* GithubUser */ = {
@@ -1423,12 +1456,15 @@
 				1794193C224FD98900F188A2 /* URLQueryItem+extension.swift in Sources */,
 				17941902224FD0C100F188A2 /* SearchOptionsHistoryObject.swift in Sources */,
 				17941907224FD0E000F188A2 /* GitHubAPIError.swift in Sources */,
+				1780EB99226C612D007C115D /* UserBookmarkInteractor.swift in Sources */,
 				179418FC224FD09400F188A2 /* GithubUserInteractor.swift in Sources */,
 				17941903224FD0C600F188A2 /* GitHubClient.swift in Sources */,
 				179418FB224FD08C00F188A2 /* GitHubRepositoryInteractor.swift in Sources */,
 				17941906224FD0D700F188A2 /* GitHubRequest.swift in Sources */,
+				1780EB97226C60A3007C115D /* RepositoryBookmarkInteractor.swift in Sources */,
 				17941908224FD0EE00F188A2 /* GitHubClientError.swift in Sources */,
 				179418FE224FD09F00F188A2 /* GitHubRepositoryContentsInteractor.swift in Sources */,
+				PJWSH0KR351ERUGCJO9R0AVH /* BookmarkContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
