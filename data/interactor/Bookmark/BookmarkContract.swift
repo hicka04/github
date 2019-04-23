@@ -10,14 +10,18 @@ import Foundation
 import RealmSwift
 import entity
 
-public protocol Bookmarkable {}
+public protocol Bookmarkable where Self: Codable {
+    
+    associatedtype ID: RawRepresentable
+    var id: ID { get }
+}
 
 public protocol BookmarkUsecase {
     
-    associatedtype BookmarkableEntity: Bookmarkable
+    associatedtype Entity: Bookmarkable
     
-    func add(_ object: BookmarkableEntity)
-    func delete(_ object: BookmarkableEntity)
-    func contains(_ object: BookmarkableEntity) -> Bool
-    func observe(handler: ([BookmarkableEntity]) -> Void)
+    func add(_ entity: Entity)
+    func delete(_ entity: Entity)
+    func contains(_ entity: Entity) -> Bool
+    func observe(handler: @escaping ([Entity]) -> Void)
 }

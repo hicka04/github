@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct User: Decodable {
+public struct User: Codable {
     
     public let id: ID
     public let login: String
@@ -18,7 +18,7 @@ public struct User: Decodable {
 
 extension User {
     
-    public struct ID: RawRepresentable, Decodable {
+    public struct ID: RawRepresentable, Codable {
         public let rawValue: Int
         
         public init(rawValue: Int) {

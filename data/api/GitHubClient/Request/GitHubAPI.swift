@@ -63,7 +63,7 @@ final class GitHubAPI {
         let method: HTTPMethod = .get
         
         var queryItems: [URLQueryItem] {
-            return [URLQueryItem(name: "ref", value: branch ?? repository.defaultBranch)]
+            return [URLQueryItem(name: "ref", value: branch)]
         }
         
         let repository: Repository
