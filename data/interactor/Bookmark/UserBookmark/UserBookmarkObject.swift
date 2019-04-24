@@ -10,13 +10,14 @@ import Foundation
 import RealmSwift
 import entity
 
+@objcMembers
 class UserBookmarkObject: Object, BookmarkObject {
     
     typealias Entity = User
     
-    var id: String = ""
-    var entity: Data = .init()
-    var bookmarkedAt: Date = .init()
+    dynamic var id: String = ""
+    dynamic var entity: Data = .init()
+    dynamic var bookmarkedAt: Date = .init()
     
     override class func primaryKey() -> String? {
         return "id"

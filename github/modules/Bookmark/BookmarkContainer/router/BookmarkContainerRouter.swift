@@ -10,19 +10,24 @@ import UIKit
 
 protocol BookmarkContainerWireframe: AnyObject {
     
+    func showBookmarkView(at index: Int)
 }
 
 final class BookmarkContainerRouter {
     
-    private unowned let viewController: UIViewController
+    private unowned let pageViewController: UIPageViewController
     
-    private init(viewController: UIViewController) {
-        self.viewController = viewController
+    private let views = [
+        RepositoryBookmarkRouter.assembleModules()
+    ]
+    
+    private init(pageViewController: UIPageViewController) {
+        self.pageViewController = pageViewController
     }
 
     static func assembleModules() -> UIViewController {
         let view = BookmarkContainerViewController()
-        let router = BookmarkContainerRouter(viewController: view)
+        let router = BookmarkContainerRouter(pageViewController: view)
         let presenter = BookmarkContainerViewPresenter(view: view, router: router)
         
         view.presenter = presenter
@@ -33,4 +38,7 @@ final class BookmarkContainerRouter {
 
 extension BookmarkContainerRouter: BookmarkContainerWireframe {
     
+    func showBookmarkView(at index: Int) {
+        pageViewController.setViewControllers([views[index]], direction: .forward, animated: true, completion: nil)
+    }
 }

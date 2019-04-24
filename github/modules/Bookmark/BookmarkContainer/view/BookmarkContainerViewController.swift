@@ -13,11 +13,11 @@ protocol BookmarkContainerView: AnyObject {
     
 }
 
-final class BookmarkContainerViewController: UITableViewController {
+final class BookmarkContainerViewController: UIPageViewController {
     
     var presenter: BookmarkContainerViewPresentation!
     
-    private var segment: UISegmentedControl = {
+    private lazy var segment: UISegmentedControl = {
         let segment = UISegmentedControl(items: SearchOptions.SearchType.allCases.map { $0.title })
         segment.selectedSegmentIndex = 0
         return segment

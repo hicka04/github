@@ -106,6 +106,7 @@
 		4F8U43T6FNZ024AW52CBTPCL /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1TVFYPC6QG1IZG4PEQGZQP0E /* UserDetailViewController.swift */; };
 		68Y9QDT2PP2T16W8XXLBV3DB /* UserSearchResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */; };
 		6XTTDNRT2CNFCEOFOE90Y5TU /* UserSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */; };
+		7H108XRDYQQCHVDJRC29Q7H2 /* RepositoryBookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = R0I5FB3C2UCYKS47GBQOJSRY /* RepositoryBookmarkViewController.swift */; };
 		9HAKF35GWZMCYCTU2T1K5HT2 /* UserDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ML670D2CZFJ3I9DXSOMFDKU9 /* UserDetailViewPresenter.swift */; };
 		A3Q9YRH5GYQ391IVGETTJVH3 /* SearchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */; };
 		D8N8K0DCIL9M8YY26AYJ6O8K /* UserSearchResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */; };
@@ -115,6 +116,8 @@
 		J0HXGHJDP7U9GI035UVVMF5W /* BookmarkContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = UY37GE9V2PQR9AYV06EUAZ55 /* BookmarkContainerViewController.swift */; };
 		JW3HZ63022CUOQAX9R03XIZ4 /* SearchResultContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = XF7O5QR6OBBQOSKCRAHY88CA /* SearchResultContainerRouter.swift */; };
 		KO9UNMXWWARP8WD0PDPV5KNU /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */; };
+		L2QNR3OVKF4P8XM4QAJFJCSF /* RepositoryBookmarkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = UF49SPHA44SSZQM4OFNJ1W44 /* RepositoryBookmarkRouter.swift */; };
+		M5CA3DN7U1ELRY94V2PFB5U3 /* RepositoryBookmarkViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = L6RNZULSXEVOKPM0TPQ3NUCK /* RepositoryBookmarkViewPresenter.swift */; };
 		OJK5DK6UPEVW6T3SNR5JASG1 /* BookmarkContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = TWLM577XWVKX2WT03Q4PT6NC /* BookmarkContainerViewPresenter.swift */; };
 		PA39VQX42H77JUC95A3NYZFY /* BookmarkContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = KT4IDN3D71Q13QPDBPWUNFVN /* BookmarkContainerRouter.swift */; };
 		PJWSH0KR351ERUGCJO9R0AVH /* BookmarkContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8HBZGVK303RGZY90ACELS5BR /* BookmarkContract.swift */; };
@@ -287,10 +290,13 @@
 		J0GCEQOQ8481R7YOH2DCQ32J /* SearchOptionsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsRouter.swift; sourceTree = "<group>"; };
 		J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewPresenter.swift; sourceTree = "<group>"; };
 		KT4IDN3D71Q13QPDBPWUNFVN /* BookmarkContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkContainerRouter.swift; sourceTree = "<group>"; };
+		L6RNZULSXEVOKPM0TPQ3NUCK /* RepositoryBookmarkViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkViewPresenter.swift; sourceTree = "<group>"; };
 		ML670D2CZFJ3I9DXSOMFDKU9 /* UserDetailViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewPresenter.swift; sourceTree = "<group>"; };
 		NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsHistoryInteractor.swift; sourceTree = "<group>"; };
+		R0I5FB3C2UCYKS47GBQOJSRY /* RepositoryBookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkViewController.swift; sourceTree = "<group>"; };
 		RRPNJHSDSDHKXDYH8VSENN7R /* SearchOptionsViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewPresenter.swift; sourceTree = "<group>"; };
 		TWLM577XWVKX2WT03Q4PT6NC /* BookmarkContainerViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkContainerViewPresenter.swift; sourceTree = "<group>"; };
+		UF49SPHA44SSZQM4OFNJ1W44 /* RepositoryBookmarkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkRouter.swift; sourceTree = "<group>"; };
 		UY37GE9V2PQR9AYV06EUAZ55 /* BookmarkContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkContainerViewController.swift; sourceTree = "<group>"; };
 		VF79BH26SPPG7K0207AGWK4O /* GithubUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUserInteractor.swift; sourceTree = "<group>"; };
 		XF7O5QR6OBBQOSKCRAHY88CA /* SearchResultContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerRouter.swift; sourceTree = "<group>"; };
@@ -959,6 +965,16 @@
 			path = githubTests;
 			sourceTree = "<group>";
 		};
+		1MQTBGRT75A7EGWK10IZ2BCM /* RepositoryBookmark */ = {
+			isa = PBXGroup;
+			children = (
+				NRR4JNA8NSFTINDQQGVZS1E1 /* view */,
+				4SVFZDLNXD82M21GMT26ZIRD /* presenter */,
+				ARATKD2FZBXTJ10AJD15N075 /* router */,
+			);
+			path = RepositoryBookmark;
+			sourceTree = "<group>";
+		};
 		2M4L3CIN2OESXNBLPPJEBS9D /* router */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,6 +994,14 @@
 				17A420C422394B6600A2ED6E /* Nuke.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4SVFZDLNXD82M21GMT26ZIRD /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				L6RNZULSXEVOKPM0TPQ3NUCK /* RepositoryBookmarkViewPresenter.swift */,
+			);
+			path = presenter;
 			sourceTree = "<group>";
 		};
 		6NKK3N9EBSVTWQVCY00IF1LJ /* view */ = {
@@ -1019,6 +1043,14 @@
 			path = UserSearchResult;
 			sourceTree = "<group>";
 		};
+		ARATKD2FZBXTJ10AJD15N075 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				UF49SPHA44SSZQM4OFNJ1W44 /* RepositoryBookmarkRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
 		BLVWPC3POSN7CVP1PPAS2XLS /* presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -1039,6 +1071,7 @@
 			isa = PBXGroup;
 			children = (
 				1780EB95226C2D6F007C115D /* BookmarkContainer */,
+				1MQTBGRT75A7EGWK10IZ2BCM /* RepositoryBookmark */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -1147,6 +1180,14 @@
 			isa = PBXGroup;
 			children = (
 				ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		NRR4JNA8NSFTINDQQGVZS1E1 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				R0I5FB3C2UCYKS47GBQOJSRY /* RepositoryBookmarkViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1565,6 +1606,9 @@
 				OJK5DK6UPEVW6T3SNR5JASG1 /* BookmarkContainerViewPresenter.swift in Sources */,
 				J0HXGHJDP7U9GI035UVVMF5W /* BookmarkContainerViewController.swift in Sources */,
 				PA39VQX42H77JUC95A3NYZFY /* BookmarkContainerRouter.swift in Sources */,
+				M5CA3DN7U1ELRY94V2PFB5U3 /* RepositoryBookmarkViewPresenter.swift in Sources */,
+				7H108XRDYQQCHVDJRC29Q7H2 /* RepositoryBookmarkViewController.swift in Sources */,
+				L2QNR3OVKF4P8XM4QAJFJCSF /* RepositoryBookmarkRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,6 @@ protocol BookmarkContainerViewPresentation: AnyObject {
     func viewDidLoad()    
 }
 
-
 final class BookmarkContainerViewPresenter {
 
     private weak var view: BookmarkContainerView?
@@ -29,7 +28,7 @@ final class BookmarkContainerViewPresenter {
 extension BookmarkContainerViewPresenter: BookmarkContainerViewPresentation {
     
     func viewDidLoad() {
-        
+        router.showBookmarkView(at: 0)
     }
 }
 

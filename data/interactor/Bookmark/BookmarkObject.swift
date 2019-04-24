@@ -13,9 +13,9 @@ public protocol BookmarkObject where Self: Object {
     
     associatedtype Entity: Bookmarkable
     
-    var id: String { get set }
-    var entity: Data { get set }
-    var bookmarkedAt: Date { get set }
+    dynamic var id: String { get set }
+    dynamic var entity: Data { get set }
+    dynamic var bookmarkedAt: Date { get set }
     
     init(entity: Entity) throws
 }
