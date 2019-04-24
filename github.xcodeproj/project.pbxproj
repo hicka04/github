@@ -49,6 +49,7 @@
 		1780EBA4226F567E007C115D /* BookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA3226F567E007C115D /* BookmarkObject.swift */; };
 		1780EBA6226F5979007C115D /* RepositoryBookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA5226F5979007C115D /* RepositoryBookmarkObject.swift */; };
 		1780EBA8226F5C23007C115D /* UserBookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA7226F5C23007C115D /* UserBookmarkObject.swift */; };
+		1780EBAA2270B6AF007C115D /* BookmarkContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA92270B6AF007C115D /* BookmarkContract.swift */; };
 		1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5A2244507D00EB190C /* SearchResultContract.swift */; };
 		1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5D22453FFA00EB190C /* UserCell.swift */; };
 		1793BA6022453FFA00EB190C /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA5E22453FFA00EB190C /* UserCell.xib */; };
@@ -107,15 +108,18 @@
 		68Y9QDT2PP2T16W8XXLBV3DB /* UserSearchResultViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */; };
 		6XTTDNRT2CNFCEOFOE90Y5TU /* UserSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */; };
 		7H108XRDYQQCHVDJRC29Q7H2 /* RepositoryBookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = R0I5FB3C2UCYKS47GBQOJSRY /* RepositoryBookmarkViewController.swift */; };
+		7TO92TYXZXPHPUNIZQGAX8SC /* UserBookmarkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = L98EY1IHN2JJMCDSS8U41ILQ /* UserBookmarkRouter.swift */; };
 		9HAKF35GWZMCYCTU2T1K5HT2 /* UserDetailViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ML670D2CZFJ3I9DXSOMFDKU9 /* UserDetailViewPresenter.swift */; };
 		A3Q9YRH5GYQ391IVGETTJVH3 /* SearchOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */; };
 		D8N8K0DCIL9M8YY26AYJ6O8K /* UserSearchResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DSYGDC2ZQ5JE1NBN83MVJTMP /* UserSearchResultRouter.swift */; };
 		EUZLG4F22FRZOOOW2H9WD6K7 /* SearchOptionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = J0GCEQOQ8481R7YOH2DCQ32J /* SearchOptionsRouter.swift */; };
 		FW5BGP9U978S338K2LLNMFVF /* UserDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FLT30PZ26C1ZJDAKIAAABWY6 /* UserDetailRouter.swift */; };
+		HKR2I7I9F0K535M8TM49X54U /* UserBookmarkViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F47IS62MOMSWAYJX1BPLY2I /* UserBookmarkViewPresenter.swift */; };
 		IQMHT851GD98SHAG5I56E6YH /* SearchOptionsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = RRPNJHSDSDHKXDYH8VSENN7R /* SearchOptionsViewPresenter.swift */; };
 		J0HXGHJDP7U9GI035UVVMF5W /* BookmarkContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = UY37GE9V2PQR9AYV06EUAZ55 /* BookmarkContainerViewController.swift */; };
 		JW3HZ63022CUOQAX9R03XIZ4 /* SearchResultContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = XF7O5QR6OBBQOSKCRAHY88CA /* SearchResultContainerRouter.swift */; };
 		KO9UNMXWWARP8WD0PDPV5KNU /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */; };
+		KQ68355RUUYWBB1Q07200OTP /* UserBookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = W4HLOFAZWUVGNQ2QZR1ZRC8U /* UserBookmarkViewController.swift */; };
 		L2QNR3OVKF4P8XM4QAJFJCSF /* RepositoryBookmarkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = UF49SPHA44SSZQM4OFNJ1W44 /* RepositoryBookmarkRouter.swift */; };
 		M5CA3DN7U1ELRY94V2PFB5U3 /* RepositoryBookmarkViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = L6RNZULSXEVOKPM0TPQ3NUCK /* RepositoryBookmarkViewPresenter.swift */; };
 		OJK5DK6UPEVW6T3SNR5JASG1 /* BookmarkContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = TWLM577XWVKX2WT03Q4PT6NC /* BookmarkContainerViewPresenter.swift */; };
@@ -239,6 +243,7 @@
 		1780EBA3226F567E007C115D /* BookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkObject.swift; sourceTree = "<group>"; };
 		1780EBA5226F5979007C115D /* RepositoryBookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkObject.swift; sourceTree = "<group>"; };
 		1780EBA7226F5C23007C115D /* UserBookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBookmarkObject.swift; sourceTree = "<group>"; };
+		1780EBA92270B6AF007C115D /* BookmarkContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkContract.swift; sourceTree = "<group>"; };
 		1793BA5A2244507D00EB190C /* SearchResultContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultContract.swift; sourceTree = "<group>"; };
 		1793BA5D22453FFA00EB190C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1793BA5E22453FFA00EB190C /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -279,6 +284,7 @@
 		17FDB82E2216FD420033BBA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1NOVOSKEZNYKWRG36Q5B7E8N /* SearchResultContainerViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerViewPresenter.swift; sourceTree = "<group>"; };
 		1TVFYPC6QG1IZG4PEQGZQP0E /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		3F47IS62MOMSWAYJX1BPLY2I /* UserBookmarkViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBookmarkViewPresenter.swift; sourceTree = "<group>"; };
 		3RO7OM3R1P8E670H1IOSWSD7 /* TabRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
 		4K3SM2ED3EXA48PHER1Z17V5 /* UserSearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewController.swift; sourceTree = "<group>"; };
 		4RR9D9DMVHBJ8IDFJU1JUPZF /* SearchOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsViewController.swift; sourceTree = "<group>"; };
@@ -291,6 +297,7 @@
 		J5AMDGK9348SG9LVDP9KLV98 /* UserSearchResultViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultViewPresenter.swift; sourceTree = "<group>"; };
 		KT4IDN3D71Q13QPDBPWUNFVN /* BookmarkContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkContainerRouter.swift; sourceTree = "<group>"; };
 		L6RNZULSXEVOKPM0TPQ3NUCK /* RepositoryBookmarkViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkViewPresenter.swift; sourceTree = "<group>"; };
+		L98EY1IHN2JJMCDSS8U41ILQ /* UserBookmarkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBookmarkRouter.swift; sourceTree = "<group>"; };
 		ML670D2CZFJ3I9DXSOMFDKU9 /* UserDetailViewPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewPresenter.swift; sourceTree = "<group>"; };
 		NM941NTOA2MIV58G0ZY9JACT /* SearchOptionsHistoryInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptionsHistoryInteractor.swift; sourceTree = "<group>"; };
 		R0I5FB3C2UCYKS47GBQOJSRY /* RepositoryBookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkViewController.swift; sourceTree = "<group>"; };
@@ -299,6 +306,7 @@
 		UF49SPHA44SSZQM4OFNJ1W44 /* RepositoryBookmarkRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkRouter.swift; sourceTree = "<group>"; };
 		UY37GE9V2PQR9AYV06EUAZ55 /* BookmarkContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookmarkContainerViewController.swift; sourceTree = "<group>"; };
 		VF79BH26SPPG7K0207AGWK4O /* GithubUserInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GithubUserInteractor.swift; sourceTree = "<group>"; };
+		W4HLOFAZWUVGNQ2QZR1ZRC8U /* UserBookmarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBookmarkViewController.swift; sourceTree = "<group>"; };
 		XF7O5QR6OBBQOSKCRAHY88CA /* SearchResultContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultContainerRouter.swift; sourceTree = "<group>"; };
 		ZZGMIKJMX25Y1YAKZSXYN67D /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -354,6 +362,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0HJOKXXSD6V4Z5G40KYXIQLE /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				3F47IS62MOMSWAYJX1BPLY2I /* UserBookmarkViewPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
 		17044BF4221F028C00377FC2 /* RepositoryDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,11 +1083,21 @@
 			path = router;
 			sourceTree = "<group>";
 		};
+		CLF8IZ4U4AX27PE9JTO75NCG /* router */ = {
+			isa = PBXGroup;
+			children = (
+				L98EY1IHN2JJMCDSS8U41ILQ /* UserBookmarkRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
 		D689WB3MU310MCXRBNGSBTTK /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
 				1780EB95226C2D6F007C115D /* BookmarkContainer */,
 				1MQTBGRT75A7EGWK10IZ2BCM /* RepositoryBookmark */,
+				UION5321AUR26FZBYKGPMBHV /* UserBookmark */,
+				1780EBA92270B6AF007C115D /* BookmarkContract.swift */,
 			);
 			path = Bookmark;
 			sourceTree = "<group>";
@@ -1214,6 +1240,24 @@
 				1NOVOSKEZNYKWRG36Q5B7E8N /* SearchResultContainerViewPresenter.swift */,
 			);
 			path = presenter;
+			sourceTree = "<group>";
+		};
+		UION5321AUR26FZBYKGPMBHV /* UserBookmark */ = {
+			isa = PBXGroup;
+			children = (
+				VWP9DST50AKPOHIGOSWYG2DV /* view */,
+				0HJOKXXSD6V4Z5G40KYXIQLE /* presenter */,
+				CLF8IZ4U4AX27PE9JTO75NCG /* router */,
+			);
+			path = UserBookmark;
+			sourceTree = "<group>";
+		};
+		VWP9DST50AKPOHIGOSWYG2DV /* view */ = {
+			isa = PBXGroup;
+			children = (
+				W4HLOFAZWUVGNQ2QZR1ZRC8U /* UserBookmarkViewController.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		WUJA0IHE5WEQPQAPEY2NPB4W /* view */ = {
@@ -1609,6 +1653,10 @@
 				M5CA3DN7U1ELRY94V2PFB5U3 /* RepositoryBookmarkViewPresenter.swift in Sources */,
 				7H108XRDYQQCHVDJRC29Q7H2 /* RepositoryBookmarkViewController.swift in Sources */,
 				L2QNR3OVKF4P8XM4QAJFJCSF /* RepositoryBookmarkRouter.swift in Sources */,
+				HKR2I7I9F0K535M8TM49X54U /* UserBookmarkViewPresenter.swift in Sources */,
+				KQ68355RUUYWBB1Q07200OTP /* UserBookmarkViewController.swift in Sources */,
+				7TO92TYXZXPHPUNIZQGAX8SC /* UserBookmarkRouter.swift in Sources */,
+				1780EBAA2270B6AF007C115D /* BookmarkContract.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

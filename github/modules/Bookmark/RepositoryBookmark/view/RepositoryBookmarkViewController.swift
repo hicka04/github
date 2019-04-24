@@ -9,9 +9,8 @@
 import UIKit
 import entity
 
-protocol RepositoryBookmarkView: AnyObject {
+protocol RepositoryBookmarkView: BookmarkView where BookmarkEntity == Repository {
     
-    func update(repositories: [Repository])
 }
 
 final class RepositoryBookmarkViewController: UITableViewController {
@@ -37,8 +36,8 @@ final class RepositoryBookmarkViewController: UITableViewController {
 
 extension RepositoryBookmarkViewController: RepositoryBookmarkView {
     
-    func update(repositories: [Repository]) {
-        self.repositories = repositories
+    func update(_ entities: [Repository]) {
+        repositories = entities
     }
 }
 

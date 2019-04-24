@@ -16,19 +16,20 @@ protocol RepositoryBookmarkViewPresentation: AnyObject {
 }
 
 
-final class RepositoryBookmarkViewPresenter<BookmarkUsecase: RepositoryBookmarkUsecase> {
+final class RepositoryBookmarkViewPresenter<View: RepositoryBookmarkView,
+                                            BookmarkUsecase: RepositoryBookmarkUsecase> {
 
-    private weak var view: RepositoryBookmarkView?
+    private weak var view: View?
     private let router: RepositoryBookmarkWireframe
     private let interactor: BookmarkUsecase
     
     private var repositories: [Repository] = [] {
         didSet {
-            view?.update(repositories: repositories)
+            view?.update(repositories)
         }
     }
     
-    init(view: RepositoryBookmarkView,
+    init(view: View,
          router: RepositoryBookmarkWireframe,
          interactor: BookmarkUsecase) {
         self.view = view

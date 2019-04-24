@@ -18,7 +18,8 @@ final class BookmarkContainerRouter {
     private unowned let pageViewController: UIPageViewController
     
     private let views = [
-        RepositoryBookmarkRouter.assembleModules()
+        RepositoryBookmarkRouter.assembleModules(),
+        UserBookmarkRouter.assembleModules()
     ]
     
     private init(pageViewController: UIPageViewController) {
