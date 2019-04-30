@@ -10,7 +10,8 @@ import Foundation
 
 protocol BookmarkContainerViewPresentation: AnyObject {
 
-    func viewDidLoad()    
+    func viewDidLoad()
+    func selectedSegmentIndexChanged(_ index: Int)
 }
 
 final class BookmarkContainerViewPresenter {
@@ -29,6 +30,10 @@ extension BookmarkContainerViewPresenter: BookmarkContainerViewPresentation {
     
     func viewDidLoad() {
         router.showBookmarkView(at: 0)
+    }
+    
+    func selectedSegmentIndexChanged(_ index: Int) {
+        router.showBookmarkView(at: index)
     }
 }
 

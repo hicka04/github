@@ -21,6 +21,7 @@ final class BookmarkContainerRouter: NSObject {
         RepositoryBookmarkRouter.assembleModules(),
         UserBookmarkRouter.assembleModules()
     ]
+    private var currentIndex: Int = 0
     
     private init(pageViewController: UIPageViewController) {
         self.pageViewController = pageViewController
@@ -42,7 +43,12 @@ final class BookmarkContainerRouter: NSObject {
 extension BookmarkContainerRouter: BookmarkContainerWireframe {
     
     func showBookmarkView(at index: Int) {
-        pageViewController.setViewControllers([views[index]], direction: .forward, animated: true, completion: nil)
+        let direction: UIPageViewController.NavigationDirection = currentIndex < index ? .forward : .reverse
+        pageViewController.setViewControllers([views[index]],
+                                              direction: direction,
+                                              animated: true,
+                                              completion: nil)
+        currentIndex = index
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ActionClosurable
 import entity
 
 protocol BookmarkContainerView: AnyObject {
@@ -44,6 +45,9 @@ final class BookmarkContainerViewController: UIPageViewController {
         view.backgroundColor = .white
 
         navigationItem.titleView = segment
+        segment.on(.valueChanged) { segment in
+            self.presenter.selectedSegmentIndexChanged(segment.selectedSegmentIndex)
+        }
         
         presenter.viewDidLoad()
     }
