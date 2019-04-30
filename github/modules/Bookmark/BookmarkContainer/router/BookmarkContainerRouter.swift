@@ -13,7 +13,7 @@ protocol BookmarkContainerWireframe: AnyObject {
     func showBookmarkView(at index: Int)
 }
 
-final class BookmarkContainerRouter {
+final class BookmarkContainerRouter: NSObject {
     
     private unowned let pageViewController: UIPageViewController
     
@@ -24,6 +24,8 @@ final class BookmarkContainerRouter {
     
     private init(pageViewController: UIPageViewController) {
         self.pageViewController = pageViewController
+        super.init()
+        pageViewController.dataSource = self
     }
 
     static func assembleModules() -> UIViewController {
@@ -41,5 +43,28 @@ extension BookmarkContainerRouter: BookmarkContainerWireframe {
     
     func showBookmarkView(at index: Int) {
         pageViewController.setViewControllers([views[index]], direction: .forward, animated: true, completion: nil)
+    }
+}
+
+extension BookmarkContainerRouter: UIPageViewControllerDataSource {
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        guard let index = views.firstIndex(of: viewController),
+            index > 0 else {
+            return nil
+        }
+        
+        return views[index - 1]
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        guard let index = views.firstIndex(of: viewController),
+            index + 1 < views.count else {
+            return nil
+        }
+        
+        return views[index + 1]
     }
 }

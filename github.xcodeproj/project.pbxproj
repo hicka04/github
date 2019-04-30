@@ -50,6 +50,7 @@
 		1780EBA6226F5979007C115D /* RepositoryBookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA5226F5979007C115D /* RepositoryBookmarkObject.swift */; };
 		1780EBA8226F5C23007C115D /* UserBookmarkObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA7226F5C23007C115D /* UserBookmarkObject.swift */; };
 		1780EBAA2270B6AF007C115D /* BookmarkContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBA92270B6AF007C115D /* BookmarkContract.swift */; };
+		1780EBAF22781F0B007C115D /* UIPageViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1780EBAE22781F0B007C115D /* UIPageViewController+extension.swift */; };
 		1793BA5B2244507D00EB190C /* SearchResultContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5A2244507D00EB190C /* SearchResultContract.swift */; };
 		1793BA5F22453FFA00EB190C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1793BA5D22453FFA00EB190C /* UserCell.swift */; };
 		1793BA6022453FFA00EB190C /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1793BA5E22453FFA00EB190C /* UserCell.xib */; };
@@ -244,6 +245,7 @@
 		1780EBA5226F5979007C115D /* RepositoryBookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryBookmarkObject.swift; sourceTree = "<group>"; };
 		1780EBA7226F5C23007C115D /* UserBookmarkObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBookmarkObject.swift; sourceTree = "<group>"; };
 		1780EBA92270B6AF007C115D /* BookmarkContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarkContract.swift; sourceTree = "<group>"; };
+		1780EBAE22781F0B007C115D /* UIPageViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPageViewController+extension.swift"; sourceTree = "<group>"; };
 		1793BA5A2244507D00EB190C /* SearchResultContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultContract.swift; sourceTree = "<group>"; };
 		1793BA5D22453FFA00EB190C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		1793BA5E22453FFA00EB190C /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 				173D239F223765C000728D85 /* String+extension.swift */,
 				17F3E397224BC7B0006F6F0A /* enum+extension.swift */,
 				1794193F225314A500F188A2 /* UIView+extension.swift */,
+				1780EBAE22781F0B007C115D /* UIPageViewController+extension.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -1619,6 +1622,7 @@
 				17044BFE221FA8C100377FC2 /* RepositoryContentListViewController.swift in Sources */,
 				1793BA6722462D7F00EB190C /* LanguagePickerView.swift in Sources */,
 				173AE59F221D9261004FEC1A /* RepositoryCell.swift in Sources */,
+				1780EBAF22781F0B007C115D /* UIPageViewController+extension.swift in Sources */,
 				17744DC0221EF7C6009D5A83 /* RepositoryReadmeViewPresenter.swift in Sources */,
 				173D23A0223765C000728D85 /* String+extension.swift in Sources */,
 				17744DC2221EF7E0009D5A83 /* RepositoryReadmeContract.swift in Sources */,

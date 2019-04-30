@@ -9,9 +9,7 @@
 import UIKit
 import entity
 
-protocol RepositoryBookmarkView: BookmarkView where BookmarkEntity == Repository {
-    
-}
+protocol RepositoryBookmarkView: BookmarkView where BookmarkEntity == Repository {}
 
 final class RepositoryBookmarkViewController: UITableViewController {
     

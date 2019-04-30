@@ -23,8 +23,25 @@ final class BookmarkContainerViewController: UIPageViewController {
         return segment
     }()
     
+    init() {
+        super.init(transitionStyle: .scroll,
+                   navigationOrientation: .horizontal,
+                   options: nil)
+        delegate = self
+    }
+    
+    private override convenience init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
+        self.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
 
         navigationItem.titleView = segment
         
@@ -36,3 +53,16 @@ extension BookmarkContainerViewController: BookmarkContainerView {
     
 }
 
+extension BookmarkContainerViewController: UIPageViewControllerDelegate {
+    
+    func pageViewController(_ pageViewController: UIPageViewController,
+                            didFinishAnimating finished: Bool,
+                            previousViewControllers: [UIViewController],
+                            transitionCompleted completed: Bool) {
+        guard let contentView = pageViewController.viewControllers?.first as? PageViewContentView else {
+            return
+        }
+        
+        segment.selectedSegmentIndex = contentView.index
+    }
+}
