@@ -19,6 +19,7 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
     @IBOutlet private weak var languageLabel: UILabel!
     @IBOutlet private weak var starCountLabel: UILabel!
     @IBOutlet private weak var updatedDateLabel: UILabel!
+    @IBOutlet private weak var bookmarkButton: UIButton!
     
     func set(repository: Repository) {
         hideSkeleton()
@@ -32,5 +33,10 @@ class RepositoryCell: UITableViewCell, NibRegistrable {
         updatedDateLabel.text = String(from: repository.updatedAt,
                                        dateStyle: .short,
                                        timeStyle: .short)
+    }
+    
+    @IBAction private func bookmarkButtonDidTap(_ bookmarkButton: UIButton) {
+        // TODO: 保存or削除
+        print("bookmarkButtonDidTap")
     }
 }
