@@ -20,8 +20,6 @@ final class SearchResultContainerViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Search"
-        
-        view.backgroundColor = .white
 
         presenter.viewDidLoad()
     }
