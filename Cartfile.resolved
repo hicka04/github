@@ -1,5 +1,5 @@
 github "Juanpe/SkeletonView" "1.4.2"
 github "hicka04/ActionClosurable" "f3dc48a6a7870a5c02618d3c3cddf99fe5625e38"
 github "kean/Nuke" "7.5.2"
-github "realm/realm-cocoa" "v3.14.0"
+github "realm/realm-cocoa" "v3.19.0"
 github "scenee/FloatingPanel" "v1.4.0"
